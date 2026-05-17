@@ -1155,7 +1155,7 @@ function renderAppsTable() {
   // All tab
   else if (activeFilter === 'all') {
 
-    list = allApps.filter(a => !a.archived);
+  list = allApps.filter(a => a.archived !== true);
 
   }
 
@@ -1164,7 +1164,7 @@ function renderAppsTable() {
 
     list = allApps.filter(a =>
       a.status === activeFilter &&
-      !a.archived
+       a.archived !== true
     );
 
   }
