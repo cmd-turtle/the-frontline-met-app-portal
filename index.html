@@ -1477,7 +1477,7 @@ function openAppDetail(id) {
     <div class="drow"><span class="dl">Status</span><span class="dv"><span class="sb ${sMap[sc]||'s-pending'}">${sLbl[sc]||sc}</span></span></div>
     <div class="drow"><span class="dl">Submitted</span><span class="dv">${date}</span></div>
     <div style="margin-top:11px"><div style="font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.05em;margin-bottom:6px">MOTIVATION STATEMENT</div>
-    <div class="stmt-box">${(a.motivation||'None provided').replace(/</g,'&lt;')}</div></div>`;
+    <div class="stmt-box">${(a.motivation||'None provided').replace(/\n/g,'<br>')}</div></div>`;
   document.getElementById('modal-actions').innerHTML = `
     ${sc!=='pass'    ?`<button class="btn btn-success   btn-sm" onclick="updateAppStatus('${id}','pass')">✓ Pass</button>`:''}
     ${sc!=='fail'    ?`<button class="btn btn-danger    btn-sm" onclick="updateAppStatus('${id}','fail')">✕ Fail</button>`:''}
@@ -1518,7 +1518,7 @@ function renderNseTable() {
     const sc    = n.status||'pending';
     const score = n.marksAwarded!=null ? n.marksAwarded+'/100' : '—';
     return `<tr>
-      <td><strong>${(n.name||'—').replace(/</g,'&lt;')}</strong><br><span style="font-size:11px;color:var(--muted)">${n.ref||''}</span></td>
+      <td><strong>${(n.name||'—').replace(/\n/g,'<br>')}}</strong><br><span style="font-size:11px;color:var(--muted)">${n.ref||''}</span></td>
       <td style="font-size:13px">${(n.rank||'—').replace(/</g,'&lt;')}</td>
       <td style="font-size:13px">${(n.discord||'—').replace(/</g,'&lt;')}</td>
       <td><span class="score-pill">${score}</span></td>
@@ -1570,7 +1570,7 @@ function openNseReview(id) {
         </div>
         <div class="marks-input-wrap">
           <label>Marks awarded:</label>
-          <input type="number" class="marks-input" id="qm-${qn}" min="0" max="${sch.marks}" value="${savedMarks}" oninput="recalcTotal()">
+          <input type="number" class="marks-input" id="qm-${qn}" min="0" max="${sch.marks}" value="0" oninput="recalcTotal()">
           <span class="marks-of">/ ${sch.marks}</span>
         </div>
       </div>`;
@@ -1579,7 +1579,7 @@ function openNseReview(id) {
   document.getElementById('nse-modal-body').innerHTML = `
     <div class="drow"><span class="dl">Reference</span><span class="dv" style="font-family:monospace">${n.ref||'—'}</span></div>
     <div class="drow"><span class="dl">Name</span><span class="dv">${(n.name||'—').replace(/</g,'&lt;')}</span></div>
-    <div class="drow"><span class="dl">Rank</span><span class="dv">${(n.rank||'—').replace(/</g,'&lt;')}</span></div>
+    <div class="drow"><span class="dl">Rank</span><span class="dv">${(n.rank||'—').replace(/\n/g,'<br>')}</span></div>
     <div class="drow"><span class="dl">Discord</span><span class="dv">${(n.discord||'—').replace(/</g,'&lt;')}</span></div>
     <div class="drow"><span class="dl">Current status</span><span class="dv"><span class="sb ${sMap[sc]||'s-pending'}">${sLbl[sc]||sc}</span></span></div>
     <div style="margin:1rem 0 .5rem;font-size:13px;font-weight:600;color:var(--navy)">📝 Answer review &amp; marking</div>
