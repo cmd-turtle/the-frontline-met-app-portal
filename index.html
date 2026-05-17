@@ -1138,7 +1138,206 @@ async function loadApps() {
   try {
     const snap = await db.collection('applications').orderBy('submittedAt','desc').get();
     allApps = snap.docs.map(d => ({id:d.id,...d.data()}));
-    renderAppsTable();
+   <script>
+function renderAppsTable() {
+
+  const tbody = document.getElementById('apps-tbody');
+
+  let list = [];
+
+  // Archived tab
+  if (activeFilter === 'archived') {
+
+    list = allApps.filter(a => a.archived === true);
+
+  }
+
+  // All tab
+  else if (activeFilter === 'all') {
+
+    list = allApps.filter(a => !a.archived);
+
+  }
+
+  // Other tabs
+  else {
+
+    list = allApps.filter(a =>
+      a.status === activeFilter &&
+      !a.archived
+    );
+
+  }
+
+  const sMap = {
+    pending:'s-pending',
+    pass:'s-pass',
+    fail:'s-fail',
+    retake:'s-retake',
+    archived:'s-archived'
+  };
+
+  const sLbl = {
+    pending:'Pending review',
+    pass:'Passed',
+    fail:'Failed',
+    retake:'Retake requested',
+    archived:'Archived'
+  };
+
+  if (!list.length) {
+
+    tbody.innerHTML =
+      '<tr><td colspan="6"><div class="empty-state">📂 No applications found</div></td></tr>';
+
+    return;
+
+  }
+
+  tbody.innerHTML = list.map(a => {
+
+    const date = a.submittedAt
+      ? new Date(a.submittedAt.seconds * 1000)
+          .toLocaleDateString(
+            'en-GB',
+            {
+              day:'2-digit',
+              month:'short',
+              year:'numeric'
+            }
+          )
+      : '—';
+
+    let badgeHTML = '';
+
+    // Archived application
+    if (a.archived === true) {
+
+      badgeHTML = `
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <span class="sb s-archived">
+            Archived
+          </span>
+
+          <span class="sb ${sMap[a.status] || 's-pending'}">
+            ${sLbl[a.status] || a.status}
+          </span>
+        </div>
+      `;
+
+    }
+
+    // Normal application
+    else {
+
+      badgeHTML = `
+        <span class="sb ${sMap[a.status] || 's-pending'}">
+          ${sLbl[a.status] || a.status}
+        </span>
+      `;
+
+    }
+
+    return `
+      <tr>
+
+        <td>
+          <strong>
+            ${a.firstName} ${a.lastName}
+          </strong><br>
+
+          <span style="font-size:11px;color:var(--muted)">
+            ${a.ref || ''}
+          </span>
+        </td>
+
+        <td style="font-size:13px">
+          ${a.role || '—'}
+        </td>
+
+        <td>
+          <span class="score-pill">
+            ${a.score != null ? a.score + '/8' : '—'}
+          </span>
+        </td>
+
+        <td>
+          ${badgeHTML}
+        </td>
+
+        <td style="font-size:12px;color:var(--muted)">
+          ${date}
+        </td>
+
+        <td>
+
+          <div class="action-cell">
+
+            <button
+              class="btn btn-secondary btn-sm"
+              onclick="openAppDetail('${a.id}')">
+
+              View
+
+            </button>
+
+            ${
+              !a.archived
+              ? `
+                <button
+                  class="btn btn-success btn-sm"
+                  onclick="updateAppStatus('${a.id}','pass')">
+
+                  Pass
+
+                </button>
+
+                <button
+                  class="btn btn-danger btn-sm"
+                  onclick="updateAppStatus('${a.id}','fail')">
+
+                  Fail
+
+                </button>
+
+                <button
+                  class="btn btn-amber btn-sm"
+                  onclick="updateAppStatus('${a.id}','retake')">
+
+                  Retake
+
+                </button>
+
+                <button
+                  class="btn btn-secondary btn-sm"
+                  onclick="archiveApplication('${a.id}')">
+
+                  Archive
+
+                </button>
+              `
+              : `
+                <button
+                  class="btn btn-success btn-sm"
+                  onclick="restoreApplication('${a.id}')">
+
+                  Restore
+
+                </button>
+              `
+            }
+
+          </div>
+
+        </td>
+
+      </tr>
+    `;
+
+  }).join('');
+
+}
+</script>
     updateDashSubtitle();
   } catch(e) {
     document.getElementById('apps-tbody').innerHTML = '<tr><td colspan="6" style="text-align:center;padding:2rem;color:#A32D2D">Failed to load. Check Firestore rules.</td></tr>';
@@ -1184,6 +1383,72 @@ function renderAppsTable() {
 }
 
 function updateAppStatus(id, status) {
+<script>
+async function archiveApplication(id) {
+
+  const app = allApps.find(a => a.id === id);
+
+  if (!app) return;
+
+  app.archived = true;
+
+  renderAppsTable();
+
+  try {
+
+    await db.collection('applications')
+      .doc(id)
+      .update({
+        archived: true,
+        archivedAt: firebase.firestore.FieldValue.serverTimestamp()
+      });
+
+    showToast('Application archived.');
+
+  } catch(e) {
+
+    app.archived = false;
+
+    renderAppsTable();
+
+    showToast('Failed to archive.');
+
+  }
+
+}
+
+async function restoreApplication(id) {
+
+  const app = allApps.find(a => a.id === id);
+
+  if (!app) return;
+
+  app.archived = false;
+
+  renderAppsTable();
+
+  try {
+
+    await db.collection('applications')
+      .doc(id)
+      .update({
+        archived: false
+      });
+
+    showToast('Application restored.');
+
+  } catch(e) {
+
+    app.archived = true;
+
+    renderAppsTable();
+
+    showToast('Failed to restore.');
+
+  }
+
+}
+</script>
   const a = allApps.find(x=>x.id===id); if (!a) return;
   const prev = a.status;
   a.status = status;
