@@ -1138,7 +1138,6 @@ async function loadApps() {
   try {
     const snap = await db.collection('applications').orderBy('submittedAt','desc').get();
     allApps = snap.docs.map(d => ({id:d.id,...d.data()}));
-   <script>
 function renderAppsTable() {
 
   const tbody = document.getElementById('apps-tbody');
