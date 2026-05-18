@@ -225,10 +225,12 @@ const SUPER_ADMIN = "johndowneybp@gmail.com";
     <button class="nav-btn" id="btn-apply-out"  onclick="showPage('apply')">Apply now</button>
     <button class="nav-btn" id="btn-status-out" onclick="showPage('status')">Check status</button>
     <button class="nav-btn" id="btn-nse-out"    onclick="showPage('nse')">Sergeants exam</button>
+    <button class="nav-btn" id="btn-nie-out"    onclick="showPage('nie')">Inspectors exam</button>
     <button class="nav-btn" id="btn-staff-out"  onclick="showPage('staff')">Staff portal</button>
     <button class="nav-btn hidden" id="btn-apply-in"  onclick="showPage('apply')">Apply now</button>
     <button class="nav-btn hidden" id="btn-status-in" onclick="showPage('status')">Check status</button>
     <button class="nav-btn hidden" id="btn-nse-in"    onclick="showPage('nse')">📝 Sgt exam</button>
+    <button class="nav-btn hidden" id="btn-nie-in"    onclick="showPage('nie')">📝 Insp exam</button>
     <button class="nav-btn hidden" id="btn-dash-in"   onclick="showPage('staff')">📋 Dashboard</button>
     <button class="nav-btn hidden" id="btn-access-in" onclick="showPage('access')">⚙ Access</button>
   </div>
@@ -507,6 +509,99 @@ const SUPER_ADMIN = "johndowneybp@gmail.com";
   </div>
 </div>
 
+<!-- ═══ PAGE: NIE ═══ -->
+<div class="page" id="page-nie">
+  <div class="ph" style="background:linear-gradient(135deg,#1a3a1a,#2E6B2E)">
+    <div class="ph-badge" style="color:#2E6B2E">NIE<br>INSP</div>
+    <div><h1>National Inspectors Examination</h1><p>MPS — Inspector selection assessment · Pass mark: 80%</p></div>
+  </div>
+  <div id="nie-intro">
+    <div class="warn-strip">⚠️ This examination is for serving MPS Sergeants who are eligible for Inspector selection. Ensure you are in a quiet environment with sufficient time. The exam must be completed in one sitting.</div>
+    <div class="card">
+      <div class="card-head">📋 Examination details</div>
+      <div class="drow"><span class="dl">Questions</span><span class="dv">20 scenario-based written questions</span></div>
+      <div class="drow"><span class="dl">Format</span><span class="dv">Free-text written responses</span></div>
+      <div class="drow"><span class="dl">Total marks</span><span class="dv">100</span></div>
+      <div class="drow"><span class="dl">Pass mark</span><span class="dv">80 / 100 (80%)</span></div>
+      <div class="drow"><span class="dl">Marking</span><span class="dv">Reviewed by senior MPS staff against published mark scheme</span></div>
+      <div class="drow"><span class="dl">Retakes</span><span class="dv">Subject to senior staff discretion</span></div>
+    </div>
+    <div class="card">
+      <div class="card-head">👤 Your details</div>
+      <div class="row2">
+        <div class="field"><label>Full name (in-character) <span class="req">*</span></label><input type="text" id="nie-name" placeholder="e.g. Sarah Clarke"></div>
+        <div class="field"><label>Discord ID <span class="req">*</span></label><input type="text" id="nie-discord" placeholder="e.g. username"></div>
+      </div>
+      <div class="field"><label>Current rank &amp; collar number <span class="req">*</span></label><input type="text" id="nie-rank" placeholder="e.g. Sgt 7841"></div>
+    </div>
+    <div class="btn-row">
+      <span style="font-size:12px;color:var(--muted)">Once started, the exam cannot be paused.</span>
+      <button class="btn" style="background:#2E6B2E;color:#fff" onclick="nieBegin()">Begin examination →</button>
+    </div>
+  </div>
+
+  <div id="nie-exam" class="hidden">
+    <div class="info-strip">✍️ Write detailed, structured responses. Aim for at least 4–6 sentences per question. Reviewers mark against published criteria.</div>
+    <div class="card">
+      <div class="card-head" style="color:#2E6B2E">🏛️ Section 1 — Strategic leadership &amp; command (Q1–5)</div>
+      <div class="nse-q"><div class="nse-q-num">Question 1</div><div class="nse-marks">5 marks</div><div class="nse-q-text">As an Inspector you are responsible for a team of four Sergeants and thirty officers across two shifts. One Sergeant is performing well above expectations while another is consistently underperforming and demoralising their team. How do you manage both situations and what leadership principles guide you?</div><textarea class="nse-textarea" id="nie-a1" placeholder="Write your response here…"></textarea><div class="nse-char" id="nie-c1">0 characters</div></div>
+      <div class="nse-q"><div class="nse-q-num">Question 2</div><div class="nse-marks">5 marks</div><div class="nse-q-text">You are the duty Inspector for a borough and receive intelligence at 06:00 that a large-scale organised fight is planned between two rival groups at 18:00 in a public park. You have limited officer resources. How do you plan, resource, and lead the police response?</div><textarea class="nse-textarea" id="nie-a2" placeholder="Write your response here…"></textarea><div class="nse-char" id="nie-c2">0 characters</div></div>
+      <div class="nse-q"><div class="nse-q-num">Question 3</div><div class="nse-marks">5 marks</div><div class="nse-q-text">You attend a serious road traffic incident involving a fatality. Your Sergeant is on scene and has not correctly established scene management. Media are arriving and a family member of the deceased is becoming distressed at the cordon. How do you take command of this scene?</div><textarea class="nse-textarea" id="nie-a3" placeholder="Write your response here…"></textarea><div class="nse-char" id="nie-c3">0 characters</div></div>
+      <div class="nse-q"><div class="nse-q-num">Question 4</div><div class="nse-marks">5 marks</div><div class="nse-q-text">As an Inspector you have been asked by your Superintendent to identify and implement a local crime reduction initiative targeting a spike in street robberies. Describe how you would approach this from analysis through to delivery, and how you would measure success.</div><textarea class="nse-textarea" id="nie-a4" placeholder="Write your response here…"></textarea><div class="nse-char" id="nie-c4">0 characters</div></div>
+      <div class="nse-q"><div class="nse-q-num">Question 5</div><div class="nse-marks">5 marks</div><div class="nse-q-text">You are the response Inspector on a late shift when a critical incident is declared — a missing high-risk child, aged 7, last seen two hours ago. What is your role, what immediate actions do you take, and how do you structure the command and coordination of the response?</div><textarea class="nse-textarea" id="nie-a5" placeholder="Write your response here…"></textarea><div class="nse-char" id="nie-c5">0 characters</div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head" style="color:#2E6B2E">⚖️ Section 2 — Law, governance &amp; oversight (Q6–10)</div>
+      <div class="nse-q"><div class="nse-q-num">Question 6</div><div class="nse-marks">5 marks</div><div class="nse-q-text">An Inspector can authorise continued detention beyond 24 hours in certain circumstances. Explain the full legal framework that applies, including the role of the Custody Superintendent, the Magistrates' Court, and the safeguards available to the detainee at each stage.</div><textarea class="nse-textarea" id="nie-a6" placeholder="Write your response here…"></textarea><div class="nse-char" id="nie-c6">0 characters</div></div>
+      <div class="nse-q"><div class="nse-q-num">Question 7</div><div class="nse-marks">5 marks</div><div class="nse-q-text">One of your Sergeants contacts you to report that a PC on their team has been arrested by another force for an off-duty assault. What are your immediate obligations as the duty Inspector, and what processes are triggered at the force level?</div><textarea class="nse-textarea" id="nie-a7" placeholder="Write your response here…"></textarea><div class="nse-char" id="nie-c7">0 characters</div></div>
+      <div class="nse-q"><div class="nse-q-num">Question 8</div><div class="nse-marks">5 marks</div><div class="nse-q-text">You are briefed that a Section 60 Criminal Justice and Public Order Act authority is being considered for your borough following a series of violent incidents. Explain what a Section 60 is, what authorisation is required at Inspector level, what the legal parameters are, and what community considerations must be factored in.</div><textarea class="nse-textarea" id="nie-a8" placeholder="Write your response here…"></textarea><div class="nse-char" id="nie-c8">0 characters</div></div>
+      <div class="nse-q"><div class="nse-q-num">Question 9</div><div class="nse-marks">5 marks</div><div class="nse-q-text">A member of the public submits a formal complaint alleging that officers under your command used excessive force during an arrest. The IOPC has been notified. Explain your role in the complaints process, what you must and must not do during the investigation, and how you support both the complainant and your officers.</div><textarea class="nse-textarea" id="nie-a9" placeholder="Write your response here…"></textarea><div class="nse-char" id="nie-c9">0 characters</div></div>
+      <div class="nse-q"><div class="nse-q-num">Question 10</div><div class="nse-marks">5 marks</div><div class="nse-q-text">As an Inspector, what is your responsibility under the Human Rights Act 1998 when authorising or overseeing covert surveillance or intelligence gathering on a suspect? What is the relevant legal framework and what safeguards must be in place?</div><textarea class="nse-textarea" id="nie-a10" placeholder="Write your response here…"></textarea><div class="nse-char" id="nie-c10">0 characters</div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head" style="color:#2E6B2E">🤝 Section 3 — Community, ethics &amp; partnership (Q11–15)</div>
+      <div class="nse-q"><div class="nse-q-num">Question 11</div><div class="nse-marks">5 marks</div><div class="nse-scenario"><strong>Scenario</strong>Following a high-profile use-of-force incident involving one of your officers, community tensions in the borough are rising. Local community leaders have requested an urgent meeting with senior police. Your Superintendent has asked you to lead the engagement.</div><div class="nse-q-text">How do you prepare for and conduct this meeting, and what ongoing steps do you take to rebuild trust?</div><textarea class="nse-textarea" id="nie-a11" placeholder="Write your response here…"></textarea><div class="nse-char" id="nie-c11">0 characters</div></div>
+      <div class="nse-q"><div class="nse-q-num">Question 12</div><div class="nse-marks">5 marks</div><div class="nse-q-text">As an Inspector you are responsible for your team's stop and search data. You notice a significant disparity in the rate at which young Black males are being searched compared to other groups, with a low conversion rate. How do you address this both operationally and in terms of officer development?</div><textarea class="nse-textarea" id="nie-a12" placeholder="Write your response here…"></textarea><div class="nse-char" id="nie-c12">0 characters</div></div>
+      <div class="nse-q"><div class="nse-q-num">Question 13</div><div class="nse-marks">5 marks</div><div class="nse-q-text">You become aware that a senior officer you work alongside has been making decisions that appear to favour a particular contracted supplier, and that a financial relationship may exist. You have no direct evidence but the pattern is concerning. What do you do, and what governance processes apply?</div><textarea class="nse-textarea" id="nie-a13" placeholder="Write your response here…"></textarea><div class="nse-char" id="nie-c13">0 characters</div></div>
+      <div class="nse-q"><div class="nse-q-num">Question 14</div><div class="nse-marks">5 marks</div><div class="nse-q-text">You are partnering with local authorities, schools, and social services on a multi-agency safeguarding response for a high-risk family. Describe the Inspector's role in multi-agency working, the relevant statutory frameworks, and how you ensure information is shared lawfully and appropriately.</div><textarea class="nse-textarea" id="nie-a14" placeholder="Write your response here…"></textarea><div class="nse-char" id="nie-c14">0 characters</div></div>
+      <div class="nse-q"><div class="nse-q-num">Question 15</div><div class="nse-marks">5 marks</div><div class="nse-q-text">A protest is planned in your borough. The organisers have given notice but some intelligence suggests a small number of attendees may intend disorder. Describe how you balance the right to protest under Articles 10 and 11 of the ECHR with your duty to prevent crime and public disorder.</div><textarea class="nse-textarea" id="nie-a15" placeholder="Write your response here…"></textarea><div class="nse-char" id="nie-c15">0 characters</div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head" style="color:#2E6B2E">📊 Section 4 — People, performance &amp; resources (Q16–20)</div>
+      <div class="nse-q"><div class="nse-q-num">Question 16</div><div class="nse-marks">5 marks</div><div class="nse-q-text">You have been asked to reduce overtime expenditure on your response team by 20% without reducing service delivery. How do you approach this, what data do you use, and how do you engage your Sergeants and officers in the process?</div><textarea class="nse-textarea" id="nie-a16" placeholder="Write your response here…"></textarea><div class="nse-char" id="nie-c16">0 characters</div></div>
+      <div class="nse-q"><div class="nse-q-num">Question 17</div><div class="nse-marks">5 marks</div><div class="nse-q-text">A Sergeant on your team has raised a formal grievance against another Inspector, alleging unfair treatment in the allocation of desirable shifts. You are asked to conduct the initial review. Explain the process you follow, how you remain impartial, and what outcomes are possible.</div><textarea class="nse-textarea" id="nie-a17" placeholder="Write your response here…"></textarea><div class="nse-char" id="nie-c17">0 characters</div></div>
+      <div class="nse-q"><div class="nse-q-num">Question 18</div><div class="nse-marks">5 marks</div><div class="nse-scenario"><strong>Scenario</strong>Your team has experienced three critical incidents in two weeks — one unexplained death, one serious assault, and one pursuit-related collision. Sickness rates have increased noticeably and one Sergeant has privately told you morale is at an all-time low.</div><div class="nse-q-text">As the Inspector, how do you respond to the welfare needs of your team whilst maintaining operational effectiveness?</div><textarea class="nse-textarea" id="nie-a18" placeholder="Write your response here…"></textarea><div class="nse-char" id="nie-c18">0 characters</div></div>
+      <div class="nse-q"><div class="nse-q-num">Question 19</div><div class="nse-marks">5 marks</div><div class="nse-q-text">As an Inspector you are expected to embed a culture of continuous professional development in your team. Describe how you identify development needs across your Sergeants and constables, and how you create an environment where learning from both successes and mistakes is normalised.</div><textarea class="nse-textarea" id="nie-a19" placeholder="Write your response here…"></textarea><div class="nse-char" id="nie-c19">0 characters</div></div>
+      <div class="nse-q"><div class="nse-q-num">Question 20</div><div class="nse-marks">5 marks</div><div class="nse-q-text">You are the Inspector responsible for implementing a new MPS policy requiring body-worn video to be activated at the start of all public encounters. Several experienced officers are openly resistant. How do you lead the implementation, address resistance, and ensure compliance without damaging team cohesion?</div><textarea class="nse-textarea" id="nie-a20" placeholder="Write your response here…"></textarea><div class="nse-char" id="nie-c20">0 characters</div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">🔒 Declaration</div>
+      <label class="check-row"><input type="checkbox" id="nie-d1"> I confirm that I have completed this examination independently and without assistance from any other person.</label>
+      <label class="check-row"><input type="checkbox" id="nie-d2"> I understand that this examination will be reviewed by senior MPS staff and my responses may be discussed with me at interview.</label>
+      <label class="check-row"><input type="checkbox" id="nie-d3"> I accept that submission of false or plagiarised answers may result in disqualification and disciplinary action.</label>
+    </div>
+    <div class="btn-row">
+      <span style="font-size:12px;color:var(--muted)">Ensure all 20 questions are answered before submitting.</span>
+      <button class="btn" style="background:#2E6B2E;color:#fff" onclick="nieSubmit()">Submit examination →</button>
+    </div>
+  </div>
+
+  <div id="nie-confirm" class="hidden">
+    <div class="card"><div class="confirm-box">
+      <div class="icon">📋</div>
+      <h2>Examination submitted</h2>
+      <p>Your National Inspectors Examination has been received and will be marked by senior MPS staff.</p>
+      <p>Your reference number:</p>
+      <div class="ref-pill" id="nie-confirm-ref">NIE-XXXX-XXXX</div>
+      <p style="margin-top:1rem">You will be notified of your result via Discord once marking is complete.</p>
+    </div></div>
+  </div>
+</div>
+
 <!-- ═══ PAGE: STATUS ═══ -->
 <div class="page" id="page-status">
   <div class="ph">
@@ -559,6 +654,7 @@ const SUPER_ADMIN = "johndowneybp@gmail.com";
     <div class="dash-tabs">
       <button class="dtab active" onclick="switchDashTab('dtab-apps',this)">📋 Applications</button>
       <button class="dtab" onclick="switchDashTab('dtab-nse',this)">📝 Sergeants Exam (NSE)</button>
+      <button class="dtab" onclick="switchDashTab('dtab-nie',this)">📋 Inspectors Exam (NIE)</button>
     </div>
     <div class="dtab-panel active" id="dtab-apps">
       <div class="filter-row">
@@ -588,6 +684,21 @@ const SUPER_ADMIN = "johndowneybp@gmail.com";
         <table>
           <thead><tr><th>Name</th><th>Rank</th><th>Discord</th><th>Score</th><th>Status</th><th>Submitted</th><th>Actions</th></tr></thead>
           <tbody id="nse-tbody"><tr><td colspan="7" class="empty-state">Loading…</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="dtab-panel" id="dtab-nie">
+      <div class="filter-row">
+        <button class="filter-btn active" onclick="setNieFilter('all',this)">All</button>
+        <button class="filter-btn" onclick="setNieFilter('pending',this)">Awaiting review</button>
+        <button class="filter-btn" onclick="setNieFilter('pass',this)">Passed</button>
+        <button class="filter-btn" onclick="setNieFilter('fail',this)">Failed</button>
+        <button class="filter-btn" onclick="setNieFilter('archived',this)">Archived</button>
+      </div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Name</th><th>Rank</th><th>Discord</th><th>Score</th><th>Status</th><th>Submitted</th><th>Actions</th></tr></thead>
+          <tbody id="nie-tbody"><tr><td colspan="7" class="empty-state">Loading…</td></tr></tbody>
         </table>
       </div>
     </div>
@@ -653,6 +764,13 @@ const SUPER_ADMIN = "johndowneybp@gmail.com";
     <div class="modal-actions" id="nse-modal-actions"></div>
   </div>
 </div>
+<div class="overlay" id="nie-modal">
+  <div class="modal modal-wide">
+    <div class="modal-head"><h3 id="nie-modal-title">NIE Review</h3><button class="modal-close" onclick="closeModal('nie-modal')">✕</button></div>
+    <div class="modal-body" id="nie-modal-body"></div>
+    <div class="modal-actions" id="nie-modal-actions"></div>
+  </div>
+</div>
 <div class="toast" id="toast"></div>
 
 <script>
@@ -703,7 +821,7 @@ const expl = {
 const answered = {};
 
 /* ── App state ── */
-let currentRole = null, authReady = false, allApps = [], allNse = [], activeFilter = 'all', activeNseFilter = 'all';
+let currentRole = null, authReady = false, allApps = [], allNse = [], allNie = [], activeFilter = 'all', activeNseFilter = 'all', activeNieFilter = 'all';
 
 /* ── On load ── */
 window.addEventListener('DOMContentLoaded', () => {
@@ -716,6 +834,11 @@ window.addEventListener('DOMContentLoaded', () => {
     const ct = document.getElementById('nse-c'+i);
     if (ta && ct) ta.addEventListener('input', () => ct.textContent = ta.value.length + ' characters');
   }
+  for (let i = 1; i <= 20; i++) {
+    const ta = document.getElementById('nie-a'+i);
+    const ct = document.getElementById('nie-c'+i);
+    if (ta && ct) ta.addEventListener('input', () => ct.textContent = ta.value.length + ' characters');
+  }
   loadRoleOptions();
 });
 
@@ -724,8 +847,8 @@ function signIn() { auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
 function logOut() { auth.signOut(); currentRole=null; authReady=false; showPage('apply'); }
 
 auth.onAuthStateChanged(async user => {
-  const outIds = ['btn-apply-out','btn-status-out','btn-nse-out','btn-staff-out'];
-  const inIds  = ['btn-apply-in','btn-status-in','btn-nse-in','btn-dash-in'];
+  const outIds = ['btn-apply-out','btn-status-out','btn-nse-out','btn-nie-out','btn-staff-out'];
+  const inIds  = ['btn-apply-in','btn-status-in','btn-nse-in','btn-nie-in','btn-dash-in'];
   const navUser = document.getElementById('nav-user');
   if (user) {
     navUser.style.display = 'flex';
@@ -764,6 +887,7 @@ function showPage(id) {
   window.scrollTo({top:0,behavior:'smooth'});
   if (id==='staff')  initStaff();
   if (id==='access') initAccess();
+  if (id==='nie')    { /* NIE page loads statically */ }
 }
 
 /* ── Quiz ── */
@@ -937,7 +1061,7 @@ function initStaff() {
   refreshDash();
 }
 
-function refreshDash() { loadApps(); loadNseSubmissions(); }
+function refreshDash() { loadApps(); loadNseSubmissions(); loadNieSubmissions(); }
 
 function switchDashTab(panelId, btn) {
   document.querySelectorAll('.dtab-panel').forEach(p=>p.classList.remove('active'));
@@ -960,7 +1084,7 @@ async function loadApps() {
 }
 
 function updateDashSub() {
-  document.getElementById('dash-sub').textContent=allApps.length+' application'+(allApps.length!==1?'s':'')+' · '+allNse.length+' NSE submission'+(allNse.length!==1?'s':'');
+  document.getElementById('dash-sub').textContent=allApps.length+' application'+(allApps.length!==1?'s':'')+' · '+allNse.length+' NSE · '+allNie.length+' NIE submission'+(allNie.length!==1?'s':'');
 }
 
 function setFilter(f, btn) {
@@ -1243,18 +1367,199 @@ async function checkStatus() {
   if (!ref) { showToast('Please enter a reference number.'); return; }
   const isNse=ref.startsWith('NSE-');
   try {
-    const snap=await db.collection(isNse?'nse_submissions':'applications').where('ref','==',ref).limit(1).get();
+    const isNie = ref.startsWith('NIE-');
+    const col = isNie ? 'nie_submissions' : isNse ? 'nse_submissions' : 'applications';
+    const snap=await db.collection(col).where('ref','==',ref).limit(1).get();
     if (snap.empty) { showToast('No record found with that reference.'); document.getElementById('status-result').classList.add('hidden'); return; }
     const a=snap.docs[0].data();
     document.getElementById('status-result').classList.remove('hidden');
-    document.getElementById('sr-name').textContent=isNse?(a.name||'—'):((a.firstName||'')+' '+(a.lastName||'')).trim();
-    document.getElementById('sr-role').textContent=isNse?'National Sergeants Examination':(a.role||'—');
-    document.getElementById('sr-score').textContent=isNse
+    document.getElementById('sr-name').textContent=(isNse||isNie)?(a.name||'—'):((a.firstName||'')+' '+(a.lastName||'')).trim();
+    document.getElementById('sr-role').textContent=isNie?'National Inspectors Examination':isNse?'National Sergeants Examination':(a.role||'—');
+    document.getElementById('sr-score').textContent=(isNse||isNie)
       ?(a.marksAwarded!=null?a.marksAwarded+'/100 ('+a.scorePercent+'%)':'Pending marking')
       :(a.score!=null?a.score+'/8 ('+a.scorePercent+'%)':'—');
     const sm={pending:isNse?'Awaiting review':'Pending review',pass:'Passed',fail:'Failed',retake:'Retake requested',archived:'Archived'};
     document.getElementById('sr-status').textContent=sm[a.status]||'Pending';
   } catch(e) { showToast('Status lookup failed: '+e.message); }
+}
+
+
+/* ── NIE Mark scheme ── */
+const NIE_SCHEME = [
+  {q:'Managing an over-performing and under-performing Sergeant simultaneously.',marks:5,criteria:['(1) Recognises both situations require distinct, tailored approaches','(1) Provides structured support and coaching plan for the underperforming Sergeant with measurable targets','(1) Formally recognises and leverages the high performer — mentoring, temporary promotion, project lead','(1) Documents both conversations and creates a review cycle','(1) Demonstrates understanding of the link between individual performance and team morale/outcomes']},
+  {q:'Planning a response to intelligence of a large planned fight at 18:00 with limited resources.',marks:5,criteria:['(1) Conducts a threat and risk assessment — considers harm, public safety, evidence requirements','(1) Conducts a structured briefing with clear objectives, powers, tactics, and contingencies','(1) Considers pre-emptive engagement with organiser community if appropriate','(1) Requests mutual aid or additional resources through the correct channels','(1) Identifies arrest strategy, evidence gathering, and post-incident management']},
+  {q:'Taking command of a fatality RTC with poor scene management, media present, distressed family.',marks:5,criteria:['(1) Takes clear command — identifies self to Sergeant, assumes Gold/Silver role as appropriate','(1) Resets scene management: cordon, log, access control, forensic integrity','(1) Deploys FLO or welfare-trained officer to the family — keeps them informed with compassion','(1) Manages media through press liaison or holding statement — does not improvise','(1) Documents all decisions and rationale — recognises the investigative and inquest implications']},
+  {q:'Designing and implementing a local street robbery reduction initiative.',marks:5,criteria:['(1) Starts with data analysis — hotspot mapping, victim profile, offender intelligence, MO patterns','(1) Develops a problem-solving approach (e.g. SARA model): Scanning, Analysis, Response, Assessment','(1) Identifies partners — CID, Safer Neighbourhood, local authority, schools, community groups','(1) Sets SMART objectives and identifies measurable performance indicators','(1) Builds in a review cycle and presents findings upward to the Superintendent']},
+  {q:'Critical incident — high-risk missing child, aged 7, two hours gone. Inspector role.',marks:5,criteria:['(1) Declares or confirms critical incident status — triggers CI management protocol','(1) Assumes command and immediately implements the MISPER high-risk protocol','(1) Deploys resources systematically: house-to-house, CCTV, dog unit, helicopter if available','(1) Notifies duty DI and considers POLSA (Police Search Adviser) for structured search','(1) Establishes family liaison and maintains a contemporaneous command log']},
+  {q:'Full legal framework for detention extension beyond 24 hours.',marks:5,criteria:['(1) Correctly states a Superintendent (not Inspector) authorises extension to 36 hours where necessity is established','(1) Extension requires reasonable grounds — serious offence, investigation necessity, diligent progress','(1) Beyond 36 hours requires application to Magistrates Court — up to 96 hours total','(1) Safeguards: detainee retains right to legal advice, custody reviews every 9 hours by Inspector','(1) Custody record provides audit trail; PACE Codes of Practice govern the entire process']},
+  {q:'PC arrested off-duty by another force for assault. Inspector obligations.',marks:5,criteria:['(1) Immediately notifies the duty Superintendent and Professional Standards Department (PSD)','(1) Does not interfere with the arresting force investigation','(1) Makes a contemporaneous log of what they have been told and when','(1) Considers whether the officer should be placed on restricted duties pending the outcome','(1) Ensures the matter is referred to the IOPC if the severity threshold is met; welfare support offered to the officer and team']},
+  {q:'Section 60 — what it is, what authorisation is needed at Inspector level, parameters, community considerations.',marks:5,criteria:['(1) Section 60 CJPOA 1994 allows stop and search without individual suspicion in a defined area/time where serious violence is anticipated','(1) Must be authorised by an Inspector or above (or Superintendent for initial grant) based on reasonable belief','(1) Parameters: specific geographic area, limited time period (initially up to 24 hours, extendable)','(1) Each use must be recorded; individuals retain right to receive a copy of the search record','(1) Community impact must be considered — disproportionate use undermines trust; post-operation community briefing recommended']},
+  {q:'Formal complaint of excessive force — IOPC notified. Inspector role in process.',marks:5,criteria:['(1) Does not conduct an informal resolution — formal complaint with IOPC notification requires a managed process','(1) Preserves all relevant evidence: BWV, use-of-force forms, incident logs — does not brief officers on complaint details','(1) Notifies PSD and follows their direction; the Inspector does not lead the investigation','(1) Supports the complainant by acknowledging receipt and explaining the process','(1) Supports the officers by ensuring welfare and access to the Police Federation or legal representation']},
+  {q:'Human Rights Act 1998 obligations when authorising covert surveillance or intelligence gathering.',marks:5,criteria:['(1) HRA 1998 incorporates ECHR; Article 8 (right to private life) is the primary relevant right','(1) Any interference must be lawful, necessary, and proportionate — three-stage test','(1) Directed surveillance and CHIS (Covert Human Intelligence Sources) are regulated by RIPA 2000','(1) Authorisation must be at the appropriate rank level and reviewed/renewed at specified intervals','(1) An Inspector must ensure all covert authorisations comply with RIPA and are subject to Surveillance Commissioner oversight']},
+  {q:'Leading community engagement after a high-profile use-of-force incident.',marks:5,criteria:['(1) Prepares thoroughly — understands the facts, anticipates concerns, briefs any attendees on the process','(1) Approaches the meeting with transparency and genuine listening — not defensiveness or spin','(1) Acknowledges the community impact and commits to specific follow-up actions','(1) Establishes an ongoing community engagement mechanism — not a one-off meeting','(1) Reports back to the Superintendent and embeds learning into team briefings and practice']},
+  {q:'Stop and search disparity data showing over-representation of young Black males.',marks:5,criteria:['(1) Reviews the data properly — disaggregates by officer, Sergeant, location, time, and conversion rate','(1) Does not dismiss or minimise the disparity — treats it as a genuine operational and ethical concern','(1) Engages officers through reflective practice and training on unconscious bias and lawful use of powers','(1) Considers whether grounds being recorded are sufficiently articulated — coaching where not','(1) Engages the community through existing forums; monitors the data monthly and reports to the Superintendent']},
+  {q:'Concerns about a senior officer with a possible financial relationship with a supplier.',marks:5,criteria:['(1) Does not ignore the concern or attempt an informal resolution given the seniority of the individual','(1) Records what has been observed or reported, with dates and detail, before doing anything else','(1) Refers to the Anti-Corruption Command or PSD — does not investigate personally','(1) Understands that failure to report suspected corruption may itself be a disciplinary matter','(1) Protects any sources or individuals who provided information; maintains confidentiality throughout']},
+  {q:'Inspector role in multi-agency safeguarding — relevant frameworks and lawful information sharing.',marks:5,criteria:['(1) References the statutory framework: Children Act 1989/2004, Working Together to Safeguard Children, local MASH/MARAT processes','(1) The Inspector role is to lead the police contribution — ensuring all relevant information is shared appropriately','(1) Information sharing is governed by the Data Protection Act 2018 and GDPR — public task lawful basis applies','(1) The welfare of the child is paramount; information must be shared where there is a risk to life or serious harm','(1) Documents all multi-agency decisions and actions; attends and contributes actively to strategy meetings']},
+  {q:'Balancing the right to protest (ECHR Articles 10 and 11) against preventing disorder.',marks:5,criteria:['(1) Articles 10 (expression) and 11 (assembly) are qualified rights — interference must be lawful, necessary, and proportionate','(1) Does not impose unnecessary conditions or restrictions on the lawful protest','(1) Uses intelligence to target policing at those intending disorder — not the wider peaceful protest','(1) Works with organisers in advance to manage risk collaboratively','(1) Any use of powers (dispersal, arrest, conditions under Public Order Act 1986) must be recorded and justified against the ECHR test']},
+  {q:'Reducing overtime by 20% without reducing service delivery.',marks:5,criteria:['(1) Analyses the current overtime data to identify peak demand periods, repeat drivers, and avoidable causes','(1) Develops a demand-led resourcing model — aligns shift patterns to demand rather than tradition','(1) Engages Sergeants and officers in the process — transparency about the challenge builds buy-in','(1) Identifies quick wins (e.g. reducing late finishes through better briefing discipline and handover)','(1) Sets a realistic implementation timeline with monthly monitoring; reports savings to the Superintendent']},
+  {q:'Sergeant raises a formal grievance against another Inspector — initial review role.',marks:5,criteria:['(1) Treats the grievance seriously and does not trivialise or attempt informal resolution at this stage','(1) Identifies whether there is an actual or potential conflict of interest in their own involvement','(1) Follows the Police Staff Council or Police Regulations grievance procedure precisely','(1) Interviews relevant parties separately and objectively; takes contemporaneous notes','(1) Produces a clear, evidence-based initial finding and refers upward to the Superintendent for final outcome determination']},
+  {q:'Responding to team welfare crisis after three critical incidents in two weeks.',marks:5,criteria:['(1) Acknowledges and validates the team experience — does not dismiss or minimise the impact','(1) Holds a structured team debrief — operational and welfare components clearly separated','(1) Proactively refers to Occupational Health, Police Care UK, or TRiM (Trauma Risk Management) practitioners','(1) Reviews the duty rota — considers rest days, reduced exposure for most affected officers in the short term','(1) Keeps the Superintendent informed; monitors sickness trends and documents all welfare interventions']},
+  {q:'Embedding continuous professional development across Sergeants and constables.',marks:5,criteria:['(1) Uses appraisal/PDR cycle to identify individual development needs — not a tick-box exercise','(1) Creates a team learning culture — after-action reviews after significant incidents, shared learning briefings','(1) Identifies and utilises internal development opportunities: acting-up roles, project leads, mentoring','(1) Tracks CPD completion and supports access to formal training — advocates for the team to the Superintendent','(1) Models learning behaviour personally — shares own reflections and development openly with the team']},
+  {q:'Leading BWV compliance implementation against open resistance from experienced officers.',marks:5,criteria:['(1) Leads from the front — personally models compliance and refers to the policy rationale: officer protection, accountability, evidence quality','(1) Creates space for officers to raise concerns formally — does not suppress dissent but channels it constructively','(1) Sets a clear non-negotiable expectation: compliance is not optional once policy is in effect','(1) Works with Sergeants to monitor compliance through spot checks and BWV audit reports','(1) Addresses persistent non-compliance through the performance management process — proportionate and consistent']}
+];
+
+/* ── NIE functions ── */
+function nieBegin() {
+  const name    = document.getElementById('nie-name').value.trim();
+  const discord = document.getElementById('nie-discord').value.trim();
+  const rank    = document.getElementById('nie-rank').value.trim();
+  if (!name || !discord || !rank) { showToast('Please fill in all your details before beginning.'); return; }
+  document.getElementById('nie-intro').classList.add('hidden');
+  document.getElementById('nie-exam').classList.remove('hidden');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function nieSubmit() {
+  if (!document.getElementById('nie-d1').checked || !document.getElementById('nie-d2').checked || !document.getElementById('nie-d3').checked) {
+    showToast('Please confirm all declarations.'); return;
+  }
+  const missing = [];
+  for (let i = 1; i <= 20; i++) { if (!document.getElementById('nie-a'+i).value.trim()) missing.push(i); }
+  if (missing.length) { showToast('Please answer all questions. Missing: Q' + missing.join(', Q')); return; }
+  const ref = 'NIE-' + Date.now().toString(36).toUpperCase().slice(-4) + '-' + Math.random().toString(36).slice(2,6).toUpperCase();
+  const answers = {};
+  for (let i = 1; i <= 20; i++) answers['a'+i] = document.getElementById('nie-a'+i).value.trim();
+  document.getElementById('nie-exam').classList.add('hidden');
+  document.getElementById('nie-confirm').classList.remove('hidden');
+  document.getElementById('nie-confirm-ref').textContent = ref;
+  window.scrollTo({top:0,behavior:'smooth'});
+  db.collection('nie_submissions').add({
+    ref, name: document.getElementById('nie-name').value.trim(),
+    discord: document.getElementById('nie-discord').value.trim(),
+    rank: document.getElementById('nie-rank').value.trim(),
+    answers, status: 'pending', marksAwarded: null, scorePercent: null, questionMarks: {},
+    submittedAt: firebase.firestore.FieldValue.serverTimestamp()
+  }).catch(() => showToast('⚠️ Save issue — note your ref: ' + ref));
+}
+
+async function loadNieSubmissions() {
+  document.getElementById('nie-tbody').innerHTML = '<tr><td colspan="7" class="empty-state">Loading…</td></tr>';
+  try {
+    const snap = await db.collection('nie_submissions').orderBy('submittedAt','desc').get();
+    allNie = snap.docs.map(d => ({id:d.id,...d.data()}));
+    renderNieTable();
+    updateDashSub();
+  } catch(e) {
+    document.getElementById('nie-tbody').innerHTML = '<tr><td colspan="7" style="text-align:center;padding:2rem;color:#A32D2D">Failed to load. Check Firestore rules.</td></tr>';
+  }
+}
+
+function setNieFilter(f, btn) {
+  activeNieFilter = f;
+  document.querySelectorAll('#dtab-nie .filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderNieTable();
+}
+
+function renderNieTable() {
+  const list  = activeNieFilter==='all' ? allNie : allNie.filter(n => n.status===activeNieFilter);
+  const tbody = document.getElementById('nie-tbody');
+  const sMap  = {pending:'s-pending',pass:'s-pass',fail:'s-fail',archived:'s-archived'};
+  const sLbl  = {pending:'Awaiting review',pass:'Passed',fail:'Failed',archived:'Archived'};
+  if (!list.length) { tbody.innerHTML = '<tr><td colspan="7"><div class="empty-state">📂 No NIE submissions found</div></td></tr>'; return; }
+  tbody.innerHTML = list.map(n => {
+    const date  = n.submittedAt ? new Date(n.submittedAt.seconds*1000).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'}) : '—';
+    const sc    = n.status || 'pending';
+    const score = n.marksAwarded != null ? n.marksAwarded+'/100' : '—';
+    return `<tr>
+      <td><strong>${esc(n.name||'—')}</strong><br><span style="font-size:11px;color:var(--muted)">${n.ref||''}</span></td>
+      <td style="font-size:13px">${esc(n.rank||'—')}</td>
+      <td style="font-size:13px">${esc(n.discord||'—')}</td>
+      <td><span class="score-pill">${score}</span></td>
+      <td><span class="sb ${sMap[sc]||'s-pending'}">${sLbl[sc]||sc}</span></td>
+      <td style="font-size:12px;color:var(--muted)">${date}</td>
+      <td><div class="action-cell">
+        <button class="btn btn-sm" style="background:#2E6B2E;color:#fff" onclick="openNieReview('${n.id}')">Review &amp; mark</button>
+        ${sc!=='archived'?`<button class="btn btn-secondary btn-sm" onclick="updateNieStatus('${n.id}','archived')">Archive</button>`:''}
+      </div></td></tr>`;
+  }).join('');
+}
+
+function updateNieStatus(id, status, marksAwarded, scorePercent, questionMarks) {
+  const n = allNie.find(x => x.id===id); if (!n) return;
+  const prevStatus = n.status, prevMarks = n.marksAwarded;
+  n.status = status;
+  if (marksAwarded !== undefined) { n.marksAwarded = marksAwarded; n.scorePercent = scorePercent; n.questionMarks = questionMarks; }
+  renderNieTable();
+  const update = {status};
+  if (marksAwarded !== undefined) { update.marksAwarded = marksAwarded; update.scorePercent = scorePercent; update.questionMarks = questionMarks; update.reviewedAt = firebase.firestore.FieldValue.serverTimestamp(); }
+  db.collection('nie_submissions').doc(id).update(update)
+    .then(() => showToast('NIE updated → ' + status))
+    .catch(() => { n.status=prevStatus; n.marksAwarded=prevMarks; renderNieTable(); showToast('Update failed.'); });
+}
+
+function openNieReview(id) {
+  const n = allNie.find(x => x.id===id); if (!n) return;
+  const sMap = {pending:'s-pending',pass:'s-pass',fail:'s-fail',archived:'s-archived'};
+  const sLbl = {pending:'Awaiting review',pass:'Passed',fail:'Failed',archived:'Archived'};
+  const sc   = n.status || 'pending';
+  document.getElementById('nie-modal-title').textContent = esc(n.name||'Candidate') + ' — NIE Review';
+  let questionsHtml = '';
+  for (let i = 0; i < 20; i++) {
+    const qn  = i + 1, sch = NIE_SCHEME[i];
+    const ans = (n.answers && n.answers['a'+qn]) ? esc(n.answers['a'+qn]) : '(No answer recorded)';
+    const savedMarks = (n.questionMarks && n.questionMarks['q'+qn] !== undefined) ? n.questionMarks['q'+qn] : '';
+    questionsHtml += `<div class="nse-review-q">
+      <div class="nse-review-label">Q${qn} — ${sch.marks} marks available</div>
+      <div class="nse-review-scenario">${esc(sch.q)}</div>
+      <div style="font-size:11px;font-weight:600;color:var(--muted);margin-bottom:4px;margin-top:6px;letter-spacing:.04em">CANDIDATE'S ANSWER</div>
+      <div class="nse-review-answer">${ans}</div>
+      <div class="nse-mark-scheme"><strong>Mark scheme — award 1 mark per point demonstrated</strong><ul>${sch.criteria.map(c=>`<li>${c}</li>`).join('')}</ul></div>
+      <div class="marks-input-wrap">
+        <label>Marks awarded:</label>
+        <input type="number" class="marks-input" id="nim-${qn}" min="0" max="${sch.marks}" value="${savedMarks}" oninput="recalcNieTotal()">
+        <span class="marks-of">/ ${sch.marks}</span>
+      </div>
+    </div>`;
+  }
+  document.getElementById('nie-modal-body').innerHTML = `
+    <div class="drow"><span class="dl">Reference</span><span class="dv" style="font-family:monospace">${n.ref||'—'}</span></div>
+    <div class="drow"><span class="dl">Name</span><span class="dv">${esc(n.name||'—')}</span></div>
+    <div class="drow"><span class="dl">Rank</span><span class="dv">${esc(n.rank||'—')}</span></div>
+    <div class="drow"><span class="dl">Discord</span><span class="dv">${esc(n.discord||'—')}</span></div>
+    <div class="drow"><span class="dl">Status</span><span class="dv"><span class="sb ${sMap[sc]||'s-pending'}">${sLbl[sc]||sc}</span></span></div>
+    <div style="margin:1rem 0 .5rem;font-size:13px;font-weight:600;color:#2E6B2E">📋 Answer review &amp; marking</div>
+    <div class="nse-total-bar"><span>Total marks awarded</span><strong id="nie-total-display">${n.marksAwarded!=null?n.marksAwarded:0} / 100</strong></div>
+    ${questionsHtml}`;
+  document.getElementById('nie-modal-actions').innerHTML = `
+    <button class="btn btn-success  btn-sm" onclick="saveNieMarks('${id}','pass')">✓ Pass &amp; save</button>
+    <button class="btn btn-danger   btn-sm" onclick="saveNieMarks('${id}','fail')">✕ Fail &amp; save</button>
+    <button class="btn btn-secondary btn-sm" onclick="saveNieMarks('${id}','${sc}')">💾 Save marks only</button>
+    <button class="btn btn-secondary btn-sm" onclick="closeModal('nie-modal')">Close</button>`;
+  document.getElementById('nie-modal').classList.add('open');
+  recalcNieTotal();
+}
+
+function recalcNieTotal() {
+  let total = 0;
+  for (let i = 1; i <= 20; i++) { const el = document.getElementById('nim-'+i); if (el) total += parseInt(el.value) || 0; }
+  const disp = document.getElementById('nie-total-display');
+  if (disp) { disp.textContent = total + ' / 100'; disp.style.color = total>=80 ? 'var(--green-tx)' : total>=60 ? 'var(--amber-tx)' : 'var(--red-tx)'; }
+  return total;
+}
+
+function saveNieMarks(id, status) {
+  const questionMarks = {};
+  let total = 0;
+  for (let i = 1; i <= 20; i++) {
+    const el = document.getElementById('nim-'+i);
+    const val = parseInt(el ? el.value : 0) || 0;
+    questionMarks['q'+i] = val; total += val;
+  }
+  const pct = Math.round((total/100)*100);
+  updateNieStatus(id, status, total, pct, questionMarks);
+  closeModal('nie-modal');
+  showToast('NIE marks saved — ' + total + '/100 (' + pct + '%) → ' + status);
 }
 
 /* ── Utilities ── */
