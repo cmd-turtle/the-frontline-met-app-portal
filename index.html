@@ -19,8 +19,6 @@
   --r:8px;--rl:12px;
 }
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:15px;color:var(--text);background:#f0f2f5;min-height:100vh}
-
-/* NAV */
 nav{background:var(--navy);padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:56px;position:sticky;top:0;z-index:100;gap:10px}
 .nav-brand{display:flex;align-items:center;gap:10px;flex-shrink:0}
 .nav-badge{width:34px;height:34px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:700;color:var(--navy);text-align:center;line-height:1.2;flex-shrink:0}
@@ -33,30 +31,20 @@ nav{background:var(--navy);padding:0 1.5rem;display:flex;align-items:center;just
 #nav-avatar{width:26px;height:26px;border-radius:50%;border:1px solid rgba(255,255,255,.4)}
 #nav-signout{background:transparent;color:rgba(255,255,255,.65);border:none;font-size:11px;cursor:pointer;padding:3px 7px;border-radius:4px;font-family:inherit}
 #nav-signout:hover{color:#fff;background:rgba(255,255,255,.12)}
-
-/* PAGES */
 .page{display:none;max-width:720px;margin:0 auto;padding:1.75rem 1rem}
 .page.active{display:block}
 #page-staff,#page-access{max-width:980px}
-
-/* PORTAL HEADER */
 .ph{background:var(--navy);border-radius:var(--rl);padding:1.1rem 1.35rem;margin-bottom:1.25rem;display:flex;align-items:center;gap:12px}
 .ph-badge{width:46px;height:46px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--navy);text-align:center;line-height:1.3;flex-shrink:0}
 .ph h1{font-size:16px;font-weight:600;color:#fff}
 .ph p{font-size:12px;color:rgba(255,255,255,.7);margin-top:3px}
-
-/* PROGRESS */
 .prog{display:flex;gap:5px;margin-bottom:.6rem}
 .ps{flex:1;height:4px;border-radius:2px;background:var(--border);transition:background .3s}
 .ps.done{background:var(--navy)}
 .ps.active{background:var(--blue)}
 .step-lbl{font-size:11px;color:var(--muted);margin-bottom:1.2rem}
-
-/* CARDS */
 .card{background:#fff;border:1px solid var(--border);border-radius:var(--rl);padding:1.1rem 1.25rem;margin-bottom:1rem}
 .card-head{font-size:13px;font-weight:600;color:var(--navy);display:flex;align-items:center;gap:7px;margin-bottom:.9rem;padding-bottom:.55rem;border-bottom:1px solid var(--border)}
-
-/* FORM */
 .row2{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:11px;margin-bottom:11px}
 .field{display:flex;flex-direction:column;gap:4px}
 .field label{font-size:12px;font-weight:600;color:var(--muted)}
@@ -66,8 +54,6 @@ nav{background:var(--navy);padding:0 1.5rem;display:flex;align-items:center;just
 .req{color:#A32D2D;margin-left:2px}
 .info-strip{background:var(--blue-l);border:1px solid var(--blue-b);border-radius:var(--r);padding:9px 13px;font-size:13px;color:#0C447C;display:flex;gap:8px;margin-bottom:1rem;line-height:1.5}
 .warn-strip{background:var(--amber-bg);border:1px solid #E8C97A;border-radius:var(--r);padding:9px 13px;font-size:13px;color:var(--amber-tx);display:flex;gap:8px;margin-bottom:1rem;line-height:1.5}
-
-/* QUIZ */
 .q-block{margin-bottom:1.4rem}
 .q-text{font-size:14px;font-weight:600;margin-bottom:.45rem;line-height:1.5}
 .q-sub{font-size:12px;color:var(--muted);margin-bottom:.65rem}
@@ -85,10 +71,8 @@ nav{background:var(--navy);padding:0 1.5rem;display:flex;align-items:center;just
 .opt.wrong   .opt-let{background:#A32D2D;color:#fff;border-color:#A32D2D}
 .feedback{margin-top:7px;padding:8px 11px;border-radius:var(--r);font-size:13px;line-height:1.5;display:none}
 .feedback.show{display:block}
-.feedback.ok {background:var(--green-bg);color:var(--green-tx);border:1px solid var(--green-bd)}
+.feedback.ok{background:var(--green-bg);color:var(--green-tx);border:1px solid var(--green-bd)}
 .feedback.bad{background:var(--red-bg);color:var(--red-tx);border:1px solid var(--red-bd)}
-
-/* NSE */
 .nse-q{margin-bottom:1.6rem;padding-bottom:1.6rem;border-bottom:1px solid var(--border)}
 .nse-q:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
 .nse-q-num{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
@@ -99,8 +83,6 @@ nav{background:var(--navy);padding:0 1.5rem;display:flex;align-items:center;just
 .nse-textarea{width:100%;min-height:110px;font-size:13px;padding:9px 12px;border:1px solid var(--border);border-radius:var(--r);font-family:inherit;line-height:1.6;resize:vertical;outline:none;transition:border-color .15s,box-shadow .15s;color:var(--text);background:#fff}
 .nse-textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(55,138,221,.12)}
 .nse-char{font-size:11px;color:var(--muted);margin-top:4px;text-align:right}
-
-/* NSE REVIEW */
 .nse-review-q{margin-bottom:1.4rem;padding-bottom:1.4rem;border-bottom:1px solid var(--border)}
 .nse-review-q:last-child{border-bottom:none}
 .nse-review-label{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
@@ -117,8 +99,6 @@ nav{background:var(--navy);padding:0 1.5rem;display:flex;align-items:center;just
 .marks-of{font-size:12px;color:var(--muted)}
 .nse-total-bar{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:10px 14px;display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;font-size:13px;position:sticky;top:0;z-index:10}
 .nse-total-bar strong{font-size:15px;color:var(--navy)}
-
-/* SCORE */
 .score-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--rl);padding:1.5rem;text-align:center;margin-bottom:1rem}
 .score-num{font-size:46px;font-weight:700;color:var(--navy)}
 .score-lbl{font-size:13px;color:var(--muted);margin-top:3px}
@@ -129,31 +109,23 @@ nav{background:var(--navy);padding:0 1.5rem;display:flex;align-items:center;just
 .tag-pass{background:var(--green-bg);color:var(--green-tx)}
 .tag-fast{background:var(--blue-l);color:#0C447C}
 .tag-fail{background:var(--red-bg);color:var(--red-tx)}
-
-/* DECLARATION */
 .check-row{display:flex;align-items:flex-start;gap:9px;font-size:13px;line-height:1.5;margin-bottom:9px;cursor:pointer}
 .check-row input{accent-color:var(--navy);margin-top:3px;flex-shrink:0;width:15px;height:15px}
-
-/* CONFIRM */
 .confirm-box{text-align:center;padding:2rem}
 .confirm-box .icon{font-size:46px;margin-bottom:.75rem}
 .confirm-box h2{font-size:19px;font-weight:600;margin-bottom:.4rem}
 .confirm-box p{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:.4rem}
 .ref-pill{display:inline-block;background:var(--blue-l);color:#0C447C;border:1px solid var(--blue-b);border-radius:20px;padding:4px 16px;font-size:13px;font-weight:600;font-family:monospace;margin-top:.4rem}
-
-/* BUTTONS */
 .btn-row{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:1.1rem}
 .btn{border:none;border-radius:var(--r);padding:9px 20px;font-size:14px;font-weight:500;cursor:pointer;display:inline-flex;align-items:center;gap:6px;font-family:inherit;transition:opacity .15s}
 .btn:hover{opacity:.87}
-.btn-primary  {background:var(--navy);color:#fff}
+.btn-primary{background:var(--navy);color:#fff}
 .btn-secondary{background:#fff;color:var(--text);border:1px solid var(--border)!important}
-.btn-success  {background:#3B6D11;color:#fff}
-.btn-danger   {background:#A32D2D;color:#fff}
-.btn-amber    {background:#854F0B;color:#fff}
-.btn-purple   {background:#5B2D8E;color:#fff}
+.btn-success{background:#3B6D11;color:#fff}
+.btn-danger{background:#A32D2D;color:#fff}
+.btn-amber{background:#854F0B;color:#fff}
+.btn-purple{background:#5B2D8E;color:#fff}
 .btn-sm{padding:5px 11px!important;font-size:12px!important}
-
-/* AUTH BOX */
 .auth-box{max-width:420px;margin:3.5rem auto;background:#fff;border:1px solid var(--border);border-radius:var(--rl);padding:2.25rem;text-align:center}
 .auth-box .icon{font-size:36px;margin-bottom:.6rem}
 .auth-box h2{font-size:19px;font-weight:600;margin-bottom:.4rem}
@@ -161,8 +133,6 @@ nav{background:var(--navy);padding:0 1.5rem;display:flex;align-items:center;just
 .btn-google{background:#fff;color:var(--text);border:1px solid var(--border);border-radius:var(--r);padding:11px 20px;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;width:100%;font-family:inherit;transition:box-shadow .15s}
 .btn-google:hover{box-shadow:0 2px 8px rgba(0,0,0,.1)}
 .g-icon{width:18px;height:18px;flex-shrink:0}
-
-/* DASHBOARD */
 .dash-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1.25rem;flex-wrap:wrap;gap:10px}
 .dash-top h2{font-size:17px;font-weight:600}
 .dash-top p{font-size:12px;color:var(--muted);margin-top:2px}
@@ -182,16 +152,14 @@ td{padding:9px 13px;border-bottom:1px solid #f0f0f0;vertical-align:middle}
 tr:last-child td{border-bottom:none}
 tr:hover td{background:#fafafa}
 .sb{display:inline-flex;align-items:center;font-size:11px;font-weight:600;padding:3px 9px;border-radius:20px}
-.s-pending  {background:var(--amber-bg);color:var(--amber-tx)}
-.s-pass     {background:var(--green-bg);color:var(--green-tx)}
-.s-fail     {background:var(--red-bg);color:var(--red-tx)}
-.s-retake   {background:var(--blue-l);color:#0C447C}
-.s-archived {background:#ececec;color:#555}
+.s-pending{background:var(--amber-bg);color:var(--amber-tx)}
+.s-pass{background:var(--green-bg);color:var(--green-tx)}
+.s-fail{background:var(--red-bg);color:var(--red-tx)}
+.s-retake{background:var(--blue-l);color:#0C447C}
+.s-archived{background:#ececec;color:#555}
 .action-cell{display:flex;gap:4px;flex-wrap:wrap}
 .score-pill{font-weight:700;color:var(--navy)}
 .empty-state{text-align:center;padding:3rem 1rem;color:var(--muted);font-size:14px}
-
-/* ACCESS */
 .access-tabs{display:flex;border-bottom:1px solid var(--border);margin-bottom:1.25rem}
 .atab{padding:9px 18px;font-size:13px;font-weight:500;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px;background:none;border-top:none;border-left:none;border-right:none;font-family:inherit;transition:color .15s,border-color .15s}
 .atab.active{color:var(--navy);border-bottom-color:var(--navy)}
@@ -208,8 +176,6 @@ tr:hover td{background:#fafafa}
 .add-form{display:flex;flex-direction:column;gap:10px}
 .add-form input,.add-form select{font-size:14px;padding:8px 11px;border:1px solid var(--border);border-radius:var(--r);outline:none;font-family:inherit;transition:border-color .15s,box-shadow .15s}
 .add-form input:focus,.add-form select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(55,138,221,.12)}
-
-/* MODAL */
 .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:200;align-items:center;justify-content:center;padding:1rem}
 .overlay.open{display:flex}
 .modal{background:#fff;border-radius:var(--rl);width:100%;max-width:580px;max-height:90vh;overflow-y:auto}
@@ -224,8 +190,6 @@ tr:hover td{background:#fafafa}
 .dv{font-weight:500;text-align:right;word-break:break-word}
 .stmt-box{background:var(--surface);border-radius:var(--r);padding:9px 12px;font-size:13px;line-height:1.6;margin-top:6px}
 .modal-actions{padding:.9rem 1.2rem;border-top:1px solid var(--border);display:flex;gap:7px;justify-content:flex-end;flex-wrap:wrap;position:sticky;bottom:0;background:#fff}
-
-/* MISC */
 .hidden{display:none!important}
 .toast{position:fixed;bottom:1.5rem;right:1.5rem;background:#222;color:#fff;border-radius:var(--r);padding:9px 17px;font-size:13px;z-index:300;opacity:0;transition:opacity .2s;pointer-events:none;max-width:320px}
 .toast.show{opacity:1}
@@ -233,7 +197,7 @@ tr:hover td{background:#fafafa}
 </head>
 <body>
 
-<!-- ══ YOUR CONFIG — only section you ever edit ══ -->
+<!-- ══ CONFIG — only edit this block ══ -->
 <script>
 const FIREBASE_CONFIG = {
   apiKey:            "AIzaSyAPR4cMTNw4TYhf_08UyHddlQBGWF6OSNs",
@@ -245,7 +209,6 @@ const FIREBASE_CONFIG = {
 };
 const SUPER_ADMIN = "johndowneybp@gmail.com";
 </script>
-<!-- ════════════════════════════════════════════ -->
 
 <!-- NAV -->
 <nav>
@@ -259,12 +222,10 @@ const SUPER_ADMIN = "johndowneybp@gmail.com";
       <span id="nav-name"></span>
       <button id="nav-signout" onclick="logOut()">Sign out</button>
     </div>
-    <!-- logged OUT -->
     <button class="nav-btn" id="btn-apply-out"  onclick="showPage('apply')">Apply now</button>
     <button class="nav-btn" id="btn-status-out" onclick="showPage('status')">Check status</button>
     <button class="nav-btn" id="btn-nse-out"    onclick="showPage('nse')">Sergeants exam</button>
     <button class="nav-btn" id="btn-staff-out"  onclick="showPage('staff')">Staff portal</button>
-    <!-- logged IN -->
     <button class="nav-btn hidden" id="btn-apply-in"  onclick="showPage('apply')">Apply now</button>
     <button class="nav-btn hidden" id="btn-status-in" onclick="showPage('status')">Check status</button>
     <button class="nav-btn hidden" id="btn-nse-in"    onclick="showPage('nse')">📝 Sgt exam</button>
@@ -273,7 +234,7 @@ const SUPER_ADMIN = "johndowneybp@gmail.com";
   </div>
 </nav>
 
-<!-- ═══════ PAGE: APPLY ═══════ -->
+<!-- ═══ PAGE: APPLY ═══ -->
 <div class="page active" id="page-apply">
   <div class="ph">
     <div class="ph-badge">MPS<br>POLICE</div>
@@ -305,9 +266,7 @@ const SUPER_ADMIN = "johndowneybp@gmail.com";
     <div class="card">
       <div class="card-head">💼 Role &amp; background</div>
       <div class="row2">
-        <div class="field"><label>Role applying for <span class="req">*</span></label>
-          <select id="role"><option value="">Loading roles…</option></select>
-        </div>
+        <div class="field"><label>Role applying for <span class="req">*</span></label><select id="role"><option value="">Loading roles…</option></select></div>
         <div class="field"><label>Prior law enforcement experience?</label>
           <select id="exp"><option value="">Select</option><option>None</option><option>Military police background</option><option>Previous constabulary</option><option>Civilian staff</option></select>
         </div>
@@ -459,15 +418,14 @@ const SUPER_ADMIN = "johndowneybp@gmail.com";
   </div>
 </div>
 
-<!-- ═══════ PAGE: NSE ═══════ -->
+<!-- ═══ PAGE: NSE ═══ -->
 <div class="page" id="page-nse">
   <div class="ph" style="background:linear-gradient(135deg,#3B1F6E,#5B2D8E)">
     <div class="ph-badge" style="color:#5B2D8E">NSE<br>SGT</div>
     <div><h1>National Sergeants Examination</h1><p>MPS — Sergeant selection assessment · Pass mark: 80%</p></div>
   </div>
-
   <div id="nse-intro">
-    <div class="warn-strip">⚠️ This examination is for serving MPS officers who are eligible for sergeant selection. Ensure you are in a quiet environment with sufficient time. The exam must be completed in one sitting.</div>
+    <div class="warn-strip">⚠️ This examination is for serving MPS officers eligible for sergeant selection. Ensure you are in a quiet environment with sufficient time. The exam must be completed in one sitting.</div>
     <div class="card">
       <div class="card-head">📋 Examination details</div>
       <div class="drow"><span class="dl">Questions</span><span class="dv">20 scenario-based written questions</span></div>
@@ -492,151 +450,39 @@ const SUPER_ADMIN = "johndowneybp@gmail.com";
   </div>
 
   <div id="nse-exam" class="hidden">
-    <div class="info-strip">✍️ Write detailed, structured responses. Aim for at least 3–5 sentences per question. Reviewers mark against published criteria.</div>
-
+    <div class="info-strip">✍️ Write detailed, structured responses. Aim for at least 3–5 sentences per question.</div>
     <div class="card">
       <div class="card-head">⚖️ Section 1 — Leadership &amp; supervision (Q1–5)</div>
-      <div class="nse-q">
-        <div class="nse-q-num">Question 1</div><div class="nse-marks">5 marks</div>
-        <div class="nse-q-text">You have just taken over as acting Sergeant for a shift. One of your PCs tells you privately that a colleague has been making comments that make them uncomfortable. How do you handle this?</div>
-        <textarea class="nse-textarea" id="nse-a1" placeholder="Write your response here…"></textarea>
-        <div class="nse-char" id="nse-c1">0 characters</div>
-      </div>
-      <div class="nse-q">
-        <div class="nse-q-num">Question 2</div><div class="nse-marks">5 marks</div>
-        <div class="nse-q-text">Two officers under your supervision have an ongoing personal conflict affecting team performance. Neither has formally complained. What steps do you take?</div>
-        <textarea class="nse-textarea" id="nse-a2" placeholder="Write your response here…"></textarea>
-        <div class="nse-char" id="nse-c2">0 characters</div>
-      </div>
-      <div class="nse-q">
-        <div class="nse-q-num">Question 3</div><div class="nse-marks">5 marks</div>
-        <div class="nse-q-text">A newly attested PC on your shift makes a procedural error during a stop and search — not serious, but a clear lapse. How do you respond as their supervisor?</div>
-        <textarea class="nse-textarea" id="nse-a3" placeholder="Write your response here…"></textarea>
-        <div class="nse-char" id="nse-c3">0 characters</div>
-      </div>
-      <div class="nse-q">
-        <div class="nse-q-num">Question 4</div><div class="nse-marks">5 marks</div>
-        <div class="nse-q-text">You are a Sergeant briefing your team before a high-visibility policing operation in a borough with recent tensions between the community and the police. What do you cover and why?</div>
-        <textarea class="nse-textarea" id="nse-a4" placeholder="Write your response here…"></textarea>
-        <div class="nse-char" id="nse-c4">0 characters</div>
-      </div>
-      <div class="nse-q">
-        <div class="nse-q-num">Question 5</div><div class="nse-marks">5 marks</div>
-        <div class="nse-q-text">An officer under your command is consistently late and submits incomplete reports. You have spoken to them informally twice with no improvement. What is your next course of action?</div>
-        <textarea class="nse-textarea" id="nse-a5" placeholder="Write your response here…"></textarea>
-        <div class="nse-char" id="nse-c5">0 characters</div>
-      </div>
+      <div class="nse-q"><div class="nse-q-num">Question 1</div><div class="nse-marks">5 marks</div><div class="nse-q-text">You have just taken over as acting Sergeant. One of your PCs tells you privately that a colleague has been making comments that make them uncomfortable. How do you handle this?</div><textarea class="nse-textarea" id="nse-a1" placeholder="Write your response here…"></textarea><div class="nse-char" id="nse-c1">0 characters</div></div>
+      <div class="nse-q"><div class="nse-q-num">Question 2</div><div class="nse-marks">5 marks</div><div class="nse-q-text">Two officers under your supervision have an ongoing personal conflict affecting team performance. Neither has formally complained. What steps do you take?</div><textarea class="nse-textarea" id="nse-a2" placeholder="Write your response here…"></textarea><div class="nse-char" id="nse-c2">0 characters</div></div>
+      <div class="nse-q"><div class="nse-q-num">Question 3</div><div class="nse-marks">5 marks</div><div class="nse-q-text">A newly attested PC makes a procedural error during a stop and search — not serious, but a clear lapse. How do you respond as their supervisor?</div><textarea class="nse-textarea" id="nse-a3" placeholder="Write your response here…"></textarea><div class="nse-char" id="nse-c3">0 characters</div></div>
+      <div class="nse-q"><div class="nse-q-num">Question 4</div><div class="nse-marks">5 marks</div><div class="nse-q-text">You are briefing your team before a high-visibility policing operation in a borough with recent community tensions. What do you cover and why?</div><textarea class="nse-textarea" id="nse-a4" placeholder="Write your response here…"></textarea><div class="nse-char" id="nse-c4">0 characters</div></div>
+      <div class="nse-q"><div class="nse-q-num">Question 5</div><div class="nse-marks">5 marks</div><div class="nse-q-text">An officer is consistently late and submits incomplete reports. You have spoken to them informally twice with no improvement. What is your next course of action?</div><textarea class="nse-textarea" id="nse-a5" placeholder="Write your response here…"></textarea><div class="nse-char" id="nse-c5">0 characters</div></div>
     </div>
-
     <div class="card">
       <div class="card-head">🚨 Section 2 — Operational command (Q6–10)</div>
-      <div class="nse-q">
-        <div class="nse-q-num">Question 6</div><div class="nse-marks">5 marks</div>
-        <div class="nse-scenario"><strong>Scenario</strong>You are the supervisory Sergeant at a domestic disturbance. Two officers have separated the parties. The male is calm; the female has minor visible injuries and is shaking. Two children are present aged approximately 6 and 9.</div>
-        <div class="nse-q-text">Describe your priorities, actions, and any considerations regarding the children.</div>
-        <textarea class="nse-textarea" id="nse-a6" placeholder="Write your response here…"></textarea>
-        <div class="nse-char" id="nse-c6">0 characters</div>
-      </div>
-      <div class="nse-q">
-        <div class="nse-q-num">Question 7</div><div class="nse-marks">5 marks</div>
-        <div class="nse-scenario"><strong>Scenario</strong>You are supervising a public order situation outside a nightclub at 02:00. A group of approximately 15 people are increasingly agitated. Your two officers are on scene; more are 10 minutes away.</div>
-        <div class="nse-q-text">How do you manage the scene, your officers, and the crowd until backup arrives?</div>
-        <textarea class="nse-textarea" id="nse-a7" placeholder="Write your response here…"></textarea>
-        <div class="nse-char" id="nse-c7">0 characters</div>
-      </div>
-      <div class="nse-q">
-        <div class="nse-q-num">Question 8</div><div class="nse-marks">5 marks</div>
-        <div class="nse-scenario"><strong>Scenario</strong>You arrive at a scene where a PC has already arrested a male for suspected possession with intent to supply. The PC has not administered the caution and has begun asking questions. The male is answering.</div>
-        <div class="nse-q-text">What is the issue here, what are the legal implications, and how do you intervene?</div>
-        <textarea class="nse-textarea" id="nse-a8" placeholder="Write your response here…"></textarea>
-        <div class="nse-char" id="nse-c8">0 characters</div>
-      </div>
-      <div class="nse-q">
-        <div class="nse-q-num">Question 9</div><div class="nse-marks">5 marks</div>
-        <div class="nse-scenario"><strong>Scenario</strong>You are first supervisory unit on scene at a suspected unexplained death in a mid-rise flat. The body of an adult male has been found by a neighbour. No signs of forced entry.</div>
-        <div class="nse-q-text">Walk through your immediate actions and responsibilities as the supervisory Sergeant.</div>
-        <textarea class="nse-textarea" id="nse-a9" placeholder="Write your response here…"></textarea>
-        <div class="nse-char" id="nse-c9">0 characters</div>
-      </div>
-      <div class="nse-q">
-        <div class="nse-q-num">Question 10</div><div class="nse-marks">5 marks</div>
-        <div class="nse-scenario"><strong>Scenario</strong>During a TPAC-authorised vehicle pursuit, your officer makes contact and the suspect vehicle stops. The driver flees on foot into a residential area at night.</div>
-        <div class="nse-q-text">As the supervising Sergeant, what are your decisions and instructions at this point?</div>
-        <textarea class="nse-textarea" id="nse-a10" placeholder="Write your response here…"></textarea>
-        <div class="nse-char" id="nse-c10">0 characters</div>
-      </div>
+      <div class="nse-q"><div class="nse-q-num">Question 6</div><div class="nse-marks">5 marks</div><div class="nse-scenario"><strong>Scenario</strong>You are supervisory Sergeant at a domestic disturbance. Officers have separated the parties. The male is calm; the female has minor visible injuries and is shaking. Two children are present aged approximately 6 and 9.</div><div class="nse-q-text">Describe your priorities, actions, and any considerations regarding the children.</div><textarea class="nse-textarea" id="nse-a6" placeholder="Write your response here…"></textarea><div class="nse-char" id="nse-c6">0 characters</div></div>
+      <div class="nse-q"><div class="nse-q-num">Question 7</div><div class="nse-marks">5 marks</div><div class="nse-scenario"><strong>Scenario</strong>You are supervising a public order situation outside a nightclub at 02:00. A group of approximately 15 people are increasingly agitated. Your two officers are on scene; more are 10 minutes away.</div><div class="nse-q-text">How do you manage the scene, your officers, and the crowd until backup arrives?</div><textarea class="nse-textarea" id="nse-a7" placeholder="Write your response here…"></textarea><div class="nse-char" id="nse-c7">0 characters</div></div>
+      <div class="nse-q"><div class="nse-q-num">Question 8</div><div class="nse-marks">5 marks</div><div class="nse-scenario"><strong>Scenario</strong>You arrive where a PC has arrested a male for suspected supply. The PC has not administered the caution and has begun asking questions. The male is answering.</div><div class="nse-q-text">What is the issue, what are the legal implications, and how do you intervene?</div><textarea class="nse-textarea" id="nse-a8" placeholder="Write your response here…"></textarea><div class="nse-char" id="nse-c8">0 characters</div></div>
+      <div class="nse-q"><div class="nse-q-num">Question 9</div><div class="nse-marks">5 marks</div><div class="nse-scenario"><strong>Scenario</strong>You are first supervisory unit on scene at a suspected unexplained death in a mid-rise flat. The body of an adult male has been found by a neighbour. No signs of forced entry.</div><div class="nse-q-text">Walk through your immediate actions and responsibilities as the supervisory Sergeant.</div><textarea class="nse-textarea" id="nse-a9" placeholder="Write your response here…"></textarea><div class="nse-char" id="nse-c9">0 characters</div></div>
+      <div class="nse-q"><div class="nse-q-num">Question 10</div><div class="nse-marks">5 marks</div><div class="nse-scenario"><strong>Scenario</strong>During a TPAC-authorised vehicle pursuit, your officer makes contact and the suspect vehicle stops. The driver flees on foot into a residential area at night.</div><div class="nse-q-text">As the supervising Sergeant, what are your decisions and instructions at this point?</div><textarea class="nse-textarea" id="nse-a10" placeholder="Write your response here…"></textarea><div class="nse-char" id="nse-c10">0 characters</div></div>
     </div>
-
     <div class="card">
       <div class="card-head">📜 Section 3 — Law &amp; procedure (Q11–15)</div>
-      <div class="nse-q">
-        <div class="nse-q-num">Question 11</div><div class="nse-marks">5 marks</div>
-        <div class="nse-q-text">Explain the difference between an arrest under PACE Section 24 and a voluntary attendance. When would you advise each, and what are the obligations in each case?</div>
-        <textarea class="nse-textarea" id="nse-a11" placeholder="Write your response here…"></textarea>
-        <div class="nse-char" id="nse-c11">0 characters</div>
-      </div>
-      <div class="nse-q">
-        <div class="nse-q-num">Question 12</div><div class="nse-marks">5 marks</div>
-        <div class="nse-q-text">A PC wants to search a person's home. Explain what authority they need, how they obtain it, and what safeguards protect the occupant's rights.</div>
-        <textarea class="nse-textarea" id="nse-a12" placeholder="Write your response here…"></textarea>
-        <div class="nse-char" id="nse-c12">0 characters</div>
-      </div>
-      <div class="nse-q">
-        <div class="nse-q-num">Question 13</div><div class="nse-marks">5 marks</div>
-        <div class="nse-q-text">Describe the circumstances under which detention can be extended beyond 24 hours, and what oversight mechanisms exist to prevent abuse.</div>
-        <textarea class="nse-textarea" id="nse-a13" placeholder="Write your response here…"></textarea>
-        <div class="nse-char" id="nse-c13">0 characters</div>
-      </div>
-      <div class="nse-q">
-        <div class="nse-q-num">Question 14</div><div class="nse-marks">5 marks</div>
-        <div class="nse-q-text">An officer submits a use-of-force form after deploying CS spray. As their Sergeant, what is your role in reviewing this and what determines whether the force was lawful and proportionate?</div>
-        <textarea class="nse-textarea" id="nse-a14" placeholder="Write your response here…"></textarea>
-        <div class="nse-char" id="nse-c14">0 characters</div>
-      </div>
-      <div class="nse-q">
-        <div class="nse-q-num">Question 15</div><div class="nse-marks">5 marks</div>
-        <div class="nse-q-text">What are the obligations on a Sergeant when a member of the public makes a complaint against one of their officers on scene? What immediate steps must be taken and what must be recorded?</div>
-        <textarea class="nse-textarea" id="nse-a15" placeholder="Write your response here…"></textarea>
-        <div class="nse-char" id="nse-c15">0 characters</div>
-      </div>
+      <div class="nse-q"><div class="nse-q-num">Question 11</div><div class="nse-marks">5 marks</div><div class="nse-q-text">Explain the difference between an arrest under PACE Section 24 and a voluntary attendance. When would you advise each, and what are the obligations in each case?</div><textarea class="nse-textarea" id="nse-a11" placeholder="Write your response here…"></textarea><div class="nse-char" id="nse-c11">0 characters</div></div>
+      <div class="nse-q"><div class="nse-q-num">Question 12</div><div class="nse-marks">5 marks</div><div class="nse-q-text">A PC wants to search a person's home. Explain what authority they need, how they obtain it, and what safeguards protect the occupant's rights.</div><textarea class="nse-textarea" id="nse-a12" placeholder="Write your response here…"></textarea><div class="nse-char" id="nse-c12">0 characters</div></div>
+      <div class="nse-q"><div class="nse-q-num">Question 13</div><div class="nse-marks">5 marks</div><div class="nse-q-text">Describe the circumstances under which detention can be extended beyond 24 hours, and what oversight mechanisms exist to prevent abuse.</div><textarea class="nse-textarea" id="nse-a13" placeholder="Write your response here…"></textarea><div class="nse-char" id="nse-c13">0 characters</div></div>
+      <div class="nse-q"><div class="nse-q-num">Question 14</div><div class="nse-marks">5 marks</div><div class="nse-q-text">An officer submits a use-of-force form after deploying CS spray. As their Sergeant, what is your role in reviewing this and what determines whether the force was lawful and proportionate?</div><textarea class="nse-textarea" id="nse-a14" placeholder="Write your response here…"></textarea><div class="nse-char" id="nse-c14">0 characters</div></div>
+      <div class="nse-q"><div class="nse-q-num">Question 15</div><div class="nse-marks">5 marks</div><div class="nse-q-text">What are the obligations on a Sergeant when a member of the public makes a complaint against one of their officers on scene? What immediate steps must be taken and what must be recorded?</div><textarea class="nse-textarea" id="nse-a15" placeholder="Write your response here…"></textarea><div class="nse-char" id="nse-c15">0 characters</div></div>
     </div>
-
     <div class="card">
       <div class="card-head">🤝 Section 4 — Ethics, integrity &amp; community (Q16–20)</div>
-      <div class="nse-q">
-        <div class="nse-q-num">Question 16</div><div class="nse-marks">5 marks</div>
-        <div class="nse-scenario"><strong>Scenario</strong>You observe a well-liked, experienced PC make a remark to a detained person that you consider discriminatory. No member of the public witnessed it. The PC doesn't appear to realise how it could be interpreted.</div>
-        <div class="nse-q-text">How do you handle this as a Sergeant, and what are your obligations?</div>
-        <textarea class="nse-textarea" id="nse-a16" placeholder="Write your response here…"></textarea>
-        <div class="nse-char" id="nse-c16">0 characters</div>
-      </div>
-      <div class="nse-q">
-        <div class="nse-q-num">Question 17</div><div class="nse-marks">5 marks</div>
-        <div class="nse-q-text">How would you as a Sergeant build and maintain trust with a local community that has historically had a poor relationship with the police? Give specific, practical steps.</div>
-        <textarea class="nse-textarea" id="nse-a17" placeholder="Write your response here…"></textarea>
-        <div class="nse-char" id="nse-c17">0 characters</div>
-      </div>
-      <div class="nse-q">
-        <div class="nse-q-num">Question 18</div><div class="nse-marks">5 marks</div>
-        <div class="nse-scenario"><strong>Scenario</strong>A PC tells you they believe another officer has been accepting small gifts from a local business owner in exchange for increased patrol presence. They ask you to keep it informal.</div>
-        <div class="nse-q-text">What do you do, and how do you balance your duty with protecting the officer who came to you?</div>
-        <textarea class="nse-textarea" id="nse-a18" placeholder="Write your response here…"></textarea>
-        <div class="nse-char" id="nse-c18">0 characters</div>
-      </div>
-      <div class="nse-q">
-        <div class="nse-q-num">Question 19</div><div class="nse-marks">5 marks</div>
-        <div class="nse-q-text">Describe what the Nine Peelian Principles are and explain how they remain relevant to the role of a modern MPS Sergeant. Use at least three principles in your answer.</div>
-        <textarea class="nse-textarea" id="nse-a19" placeholder="Write your response here…"></textarea>
-        <div class="nse-char" id="nse-c19">0 characters</div>
-      </div>
-      <div class="nse-q">
-        <div class="nse-q-num">Question 20</div><div class="nse-marks">5 marks</div>
-        <div class="nse-q-text">You become aware that an officer on your shift is showing signs of significant stress — poor concentration, short temper, and two minor errors in the past week. They have not raised anything with you. What do you do?</div>
-        <textarea class="nse-textarea" id="nse-a20" placeholder="Write your response here…"></textarea>
-        <div class="nse-char" id="nse-c20">0 characters</div>
-      </div>
+      <div class="nse-q"><div class="nse-q-num">Question 16</div><div class="nse-marks">5 marks</div><div class="nse-scenario"><strong>Scenario</strong>You observe a well-liked, experienced PC make a remark to a detained person that you consider discriminatory. No member of the public witnessed it. The PC doesn't appear to realise how it could be interpreted.</div><div class="nse-q-text">How do you handle this as a Sergeant, and what are your obligations?</div><textarea class="nse-textarea" id="nse-a16" placeholder="Write your response here…"></textarea><div class="nse-char" id="nse-c16">0 characters</div></div>
+      <div class="nse-q"><div class="nse-q-num">Question 17</div><div class="nse-marks">5 marks</div><div class="nse-q-text">How would you as a Sergeant build and maintain trust with a local community that has historically had a poor relationship with the police? Give specific, practical steps.</div><textarea class="nse-textarea" id="nse-a17" placeholder="Write your response here…"></textarea><div class="nse-char" id="nse-c17">0 characters</div></div>
+      <div class="nse-q"><div class="nse-q-num">Question 18</div><div class="nse-marks">5 marks</div><div class="nse-scenario"><strong>Scenario</strong>A PC tells you they believe another officer has been accepting small gifts from a local business owner in exchange for increased patrol presence. They ask you to keep it informal.</div><div class="nse-q-text">What do you do, and how do you balance your duty with protecting the officer who came to you?</div><textarea class="nse-textarea" id="nse-a18" placeholder="Write your response here…"></textarea><div class="nse-char" id="nse-c18">0 characters</div></div>
+      <div class="nse-q"><div class="nse-q-num">Question 19</div><div class="nse-marks">5 marks</div><div class="nse-q-text">Describe what the Nine Peelian Principles are and explain how they remain relevant to the role of a modern MPS Sergeant. Use at least three principles in your answer.</div><textarea class="nse-textarea" id="nse-a19" placeholder="Write your response here…"></textarea><div class="nse-char" id="nse-c19">0 characters</div></div>
+      <div class="nse-q"><div class="nse-q-num">Question 20</div><div class="nse-marks">5 marks</div><div class="nse-q-text">You become aware that an officer on your shift is showing signs of significant stress — poor concentration, short temper, and two minor errors in the past week. They have not raised anything with you. What do you do?</div><textarea class="nse-textarea" id="nse-a20" placeholder="Write your response here…"></textarea><div class="nse-char" id="nse-c20">0 characters</div></div>
     </div>
-
     <div class="card">
       <div class="card-head">🔒 Declaration</div>
       <label class="check-row"><input type="checkbox" id="nse-d1"> I confirm that I have completed this examination independently and without assistance from any other person.</label>
@@ -661,7 +507,7 @@ const SUPER_ADMIN = "johndowneybp@gmail.com";
   </div>
 </div>
 
-<!-- ═══════ PAGE: STATUS ═══════ -->
+<!-- ═══ PAGE: STATUS ═══ -->
 <div class="page" id="page-status">
   <div class="ph">
     <div class="ph-badge">MPS<br>REF</div>
@@ -684,7 +530,7 @@ const SUPER_ADMIN = "johndowneybp@gmail.com";
   </div>
 </div>
 
-<!-- ═══════ PAGE: STAFF ═══════ -->
+<!-- ═══ PAGE: STAFF ═══ -->
 <div class="page" id="page-staff">
   <div id="view-login">
     <div class="auth-box">
@@ -711,8 +557,8 @@ const SUPER_ADMIN = "johndowneybp@gmail.com";
       <button class="btn btn-secondary btn-sm" onclick="refreshDash()">↻ Refresh</button>
     </div>
     <div class="dash-tabs">
-      <button class="dtab active" id="dtab-btn-apps" onclick="switchDashTab('dtab-apps',this)">📋 Applications</button>
-      <button class="dtab" id="dtab-btn-nse"  onclick="switchDashTab('dtab-nse',this)">📝 Sergeants Exam (NSE)</button>
+      <button class="dtab active" onclick="switchDashTab('dtab-apps',this)">📋 Applications</button>
+      <button class="dtab" onclick="switchDashTab('dtab-nse',this)">📝 Sergeants Exam (NSE)</button>
     </div>
     <div class="dtab-panel active" id="dtab-apps">
       <div class="filter-row">
@@ -748,7 +594,7 @@ const SUPER_ADMIN = "johndowneybp@gmail.com";
   </div>
 </div>
 
-<!-- ═══════ PAGE: ACCESS ═══════ -->
+<!-- ═══ PAGE: ACCESS ═══ -->
 <div class="page" id="page-access">
   <div class="ph">
     <div class="ph-badge" style="font-size:20px">⚙️</div>
@@ -800,7 +646,6 @@ const SUPER_ADMIN = "johndowneybp@gmail.com";
     <div class="modal-actions" id="modal-actions"></div>
   </div>
 </div>
-
 <div class="overlay" id="nse-modal">
   <div class="modal modal-wide">
     <div class="modal-head"><h3 id="nse-modal-title">NSE Review</h3><button class="modal-close" onclick="closeModal('nse-modal')">✕</button></div>
@@ -808,20 +653,19 @@ const SUPER_ADMIN = "johndowneybp@gmail.com";
     <div class="modal-actions" id="nse-modal-actions"></div>
   </div>
 </div>
-
 <div class="toast" id="toast"></div>
 
 <script>
-/* ── Firebase init ─────────────────────────── */
+/* ── Firebase ── */
 firebase.initializeApp(FIREBASE_CONFIG);
 const auth = firebase.auth();
 const db   = firebase.firestore();
 
-/* ── NSE mark scheme ───────────────────────── */
+/* ── NSE mark scheme ── */
 const NSE_SCHEME = [
   {q:'How do you handle a PC who reports being made uncomfortable by a colleague?',marks:5,criteria:['(1) Takes the disclosure seriously and thanks the officer for coming forward','(1) Ensures confidentiality is maintained as far as possible','(1) Makes a written record of the disclosure immediately','(1) Advises the PC of their options: informal resolution, formal complaint, or Welfare referral','(1) Refers upward to Inspector if conduct may breach the Standards of Professional Behaviour']},
   {q:'Two officers have an ongoing conflict affecting team performance. What do you do?',marks:5,criteria:['(1) Speaks to each officer separately in a private, structured conversation','(1) Identifies the root cause rather than applying a blanket solution','(1) Makes clear that professional conduct on duty is non-negotiable','(1) Documents conversations and any agreed actions','(1) Monitors and reviews — escalates to Inspector if performance does not improve']},
-  {q:'A new PC makes a procedural error during stop and search. How do you respond?',marks:5,criteria:['(1) Addresses the error privately, not in front of colleagues or the public','(1) Is constructive — explains what went wrong and what the correct procedure is','(1) Links feedback to PACE Code A and GOWISELY','(1) Records the coaching conversation appropriately','(1) Follows up on subsequent shifts to monitor improvement']},
+  {q:'A new PC makes a procedural error during stop and search. How do you respond?',marks:5,criteria:['(1) Addresses the error privately, not in front of colleagues or the public','(1) Is constructive — explains what went wrong and the correct procedure','(1) Links feedback to PACE Code A and GOWISELY','(1) Records the coaching conversation appropriately','(1) Follows up on subsequent shifts to monitor improvement']},
   {q:'Briefing your team before a high-visibility operation in a tense borough. What do you cover?',marks:5,criteria:['(1) Operational objectives, location, and deployment plan','(1) Community context — recent events, sensitivities, key contacts','(1) Legal powers to be used (e.g. Section 60, stop and search parameters)','(1) Expected conduct — professional, respectful, community-focused','(1) Communication protocols and escalation channels during the operation']},
   {q:'A PC is persistently late and submits incomplete reports after two informal chats. What next?',marks:5,criteria:['(1) Moves to a formal stage — issues a written notice of concerns under the Performance Regulations','(1) Documents all previous informal discussions as evidence','(1) Sets clear, measurable improvement targets with timescales','(1) Informs the Inspector and HR/Professional Standards as appropriate','(1) Offers support — considers welfare or occupational health referral']},
   {q:'Domestic disturbance — female with injuries, male calm, two children present.',marks:5,criteria:["(1) Immediate safety of all parties — separate the adults if not already done","(1) Medical attention for the female — call for ambulance if required","(1) DA risk assessment (DASH) — does the threshold for arrest exist?","(1) Children: safeguarding check — notify Children's Services if appropriate","(1) Preserve evidence and record — body-worn camera, statements, scene photographs"]},
@@ -841,21 +685,16 @@ const NSE_SCHEME = [
   {q:'An officer shows signs of significant stress. They have not raised anything. What do you do?',marks:5,criteria:["(1) Does not wait — takes a proactive supervisory approach","(1) Has a private, non-judgmental welfare conversation","(1) Does not make assumptions — listens and asks open questions","(1) Signposts support: Occupational Health, Police Care UK, Welfare officers, EAP","(1) Records the conversation and keeps the Inspector informed; monitors the officer carefully"]}
 ];
 
-/* ── Recruitment roles ─────────────────────── */
-const ALL_ROLES = [
-  'ERPT | PC','ERPT | Direct Command Entry',
-  'MO19 | PC','MO19 | Direct Command Entry',
-  'MO8 | PC','MO8 | Direct Command Entry',
-  'MO12 | Control Room Handler','MO12 | Control Room Command'
-];
+/* ── Roles ── */
+const ALL_ROLES = ['ERPT | PC','ERPT | Direct Command Entry','MO19 | PC','MO19 | Direct Command Entry','MO8 | PC','MO8 | Direct Command Entry','MO12 | Control Room Handler','MO12 | Control Room Command'];
 
-/* ── Quiz ──────────────────────────────────── */
+/* ── Quiz ── */
 const correct = {q1:'b',q2:'a',q3:'b',q4:'a',q5:'b',q6:'a',q7:'b',q8:'a'};
 const expl = {
   q1:{ok:'Correct. Under PACE Code A, officers must state name, station, grounds, and what they are searching for. Failure makes the search unlawful.',bad:'Incorrect. PACE Code A requires name, station, grounds, and the object of the search before proceeding.'},
   q2:{ok:'Correct. GOWISELY: Grounds, Object, Warrant card, Identity, Station, Entitlement to a copy, Legal power, You.',bad:'Incorrect. GOWISELY is the stop and search mnemonic under PACE Code A covering eight required disclosure points.'},
   q3:{ok:'Correct. PACE 1984 Section 24 grants constables the power of arrest without warrant where reasonable grounds exist.',bad:'Incorrect. The power is specifically under PACE 1984, Section 24.'},
-  q4:{ok:'Correct. MPS ranks: PC → Sergeant → Inspector → Chief Inspector → Superintendent → Chief Superintendent → Commander → Deputy Commissioner → Commissioner.',bad:'Incorrect. The correct order is PC → Sergeant → Inspector → Chief Inspector → Superintendent → Commander → Deputy Commissioner → Commissioner.'},
+  q4:{ok:'Correct. MPS ranks: PC → Sergeant → Inspector → Chief Inspector → Superintendent → Chief Superintendent → Commander → Deputy Commissioner → Commissioner.',bad:'Incorrect. Correct order: PC → Sergeant → Inspector → Chief Inspector → Superintendent → Commander → Deputy Commissioner → Commissioner.'},
   q5:{ok:'Correct. Profitability is not a policing principle. The Code includes accountability, fairness, honesty, integrity, leadership, objectivity, openness, respect, and selflessness.',bad:'Incorrect. Profitability has no place in the nine core principles.'},
   q6:{ok:'Correct. Identify yourself, state grounds, take an initial account — escalate only if necessary.',bad:'Incorrect. The correct approach is proportionate engagement — identify, state grounds, account — then escalate only if needed.'},
   q7:{ok:'Correct. Force must be necessary, proportionate, and a last resort. Verbal abuse alone does not meet that threshold.',bad:'Incorrect. Verbal abuse alone does not justify restraint — necessity and proportionality are both required.'},
@@ -863,38 +702,26 @@ const expl = {
 };
 const answered = {};
 
-/* ── State ─────────────────────────────────── */
-let currentRole = null;
-let authReady   = false;
-let allApps     = [];
-let allNse      = [];
-let activeFilter    = 'all';
-let activeNseFilter = 'all';
+/* ── App state ── */
+let currentRole = null, authReady = false, allApps = [], allNse = [], activeFilter = 'all', activeNseFilter = 'all';
 
-/* ── Init on load ──────────────────────────── */
+/* ── On load ── */
 window.addEventListener('DOMContentLoaded', () => {
-  // Attach quiz click handlers via event delegation — no inline onclick needed
   document.addEventListener('click', e => {
     const opt = e.target.closest('.opt');
-    if (opt && opt.dataset.q && opt.dataset.sel) {
-      answer(opt, opt.dataset.q, opt.dataset.sel);
-    }
+    if (opt && opt.dataset.q && opt.dataset.sel) answer(opt, opt.dataset.q, opt.dataset.sel);
   });
-  // NSE character counters
   for (let i = 1; i <= 20; i++) {
-    const ta = document.getElementById('nse-a' + i);
-    const ct = document.getElementById('nse-c' + i);
+    const ta = document.getElementById('nse-a'+i);
+    const ct = document.getElementById('nse-c'+i);
     if (ta && ct) ta.addEventListener('input', () => ct.textContent = ta.value.length + ' characters');
   }
-  // Load roles
   loadRoleOptions();
 });
 
-/* ── Auth ──────────────────────────────────── */
-function signIn() {
-  auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).catch(e => showToast('Sign-in error: ' + e.message));
-}
-function logOut() { auth.signOut(); currentRole = null; authReady = false; showPage('apply'); }
+/* ── Auth ── */
+function signIn() { auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).catch(e => showToast('Sign-in error: '+e.message)); }
+function logOut() { auth.signOut(); currentRole=null; authReady=false; showPage('apply'); }
 
 auth.onAuthStateChanged(async user => {
   const outIds = ['btn-apply-out','btn-status-out','btn-nse-out','btn-staff-out'];
@@ -906,76 +733,74 @@ auth.onAuthStateChanged(async user => {
     document.getElementById('nav-avatar').src = user.photoURL || '';
     outIds.forEach(id => document.getElementById(id).classList.add('hidden'));
     inIds.forEach(id  => document.getElementById(id).classList.remove('hidden'));
-    // Fetch role once and cache — this is the only Firestore call for auth
     currentRole = await getRole(user.email);
     authReady = true;
     const accBtn = document.getElementById('btn-access-in');
-    if (currentRole === 'superadmin' || currentRole === 'admin') accBtn.classList.remove('hidden');
+    if (currentRole==='superadmin'||currentRole==='admin') accBtn.classList.remove('hidden');
     else accBtn.classList.add('hidden');
-    // If staff page is already open, re-init now we have the role
     if (document.getElementById('page-staff').classList.contains('active')) initStaff();
   } else {
     navUser.style.display = 'none';
     outIds.forEach(id => document.getElementById(id).classList.remove('hidden'));
     inIds.forEach(id  => document.getElementById(id).classList.add('hidden'));
     document.getElementById('btn-access-in').classList.add('hidden');
-    currentRole = null;
-    authReady   = true;
+    currentRole=null; authReady=true;
   }
 });
 
 async function getRole(email) {
-  if (email === SUPER_ADMIN) return 'superadmin';
+  if (email===SUPER_ADMIN) return 'superadmin';
   try {
     const snap = await db.collection('staff_access').where('email','==',email).limit(1).get();
     if (!snap.empty) return snap.docs[0].data().level || 'staff';
-  } catch(e) { console.error('getRole error:', e); }
+  } catch(e) {}
   return null;
 }
 
-/* ── Page navigation ────────────────────────── */
+/* ── Page nav ── */
 function showPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById('page-' + id).classList.add('active');
+  document.getElementById('page-'+id).classList.add('active');
   window.scrollTo({top:0,behavior:'smooth'});
-  if (id === 'staff')  initStaff();
-  if (id === 'access') initAccess();
+  if (id==='staff')  initStaff();
+  if (id==='access') initAccess();
 }
 
-/* ── Quiz answer ────────────────────────────── */
+/* ── Quiz ── */
 function answer(el, qid, sel) {
   if (answered[qid]) return;
   answered[qid] = sel;
   const block = document.getElementById(qid);
   if (!block) return;
   const opts = block.querySelectorAll('.opt');
-  const ok   = sel === correct[qid];
+  const ok   = sel===correct[qid];
   opts.forEach(o => { o.style.pointerEvents='none'; o.style.cursor='default'; });
-  el.classList.add(ok ? 'selected' : 'wrong');
-  if (!ok) opts.forEach(o => { if (o.dataset.sel === correct[qid]) o.classList.add('correct'); });
-  const fb = document.getElementById(qid + '-fb');
+  el.classList.add(ok?'selected':'wrong');
+  if (!ok) opts.forEach(o => { if (o.dataset.sel===correct[qid]) o.classList.add('correct'); });
+  const fb = document.getElementById(qid+'-fb');
   fb.textContent = ok ? expl[qid].ok : expl[qid].bad;
-  fb.className = 'feedback show ' + (ok ? 'ok' : 'bad');
+  fb.className = 'feedback show '+(ok?'ok':'bad');
 }
-function calcScore() { return Object.keys(answered).filter(q => answered[q] === correct[q]).length; }
+function calcScore() { return Object.keys(answered).filter(q => answered[q]===correct[q]).length; }
 
-/* ── Application form ───────────────────────── */
+/* ── Application form ── */
 function goStep(n) {
-  if (n === 2) {
-    const missing = !document.getElementById('fname').value.trim() || !document.getElementById('lname').value.trim() ||
-      !document.getElementById('dob').value || !document.getElementById('address').value.trim() ||
-      !document.getElementById('discord').value.trim() || !document.getElementById('role').value ||
-      !document.getElementById('motivation').value.trim();
-    if (missing) { showToast('Please fill in all required fields.'); return; }
+  if (n===2) {
+    if (!document.getElementById('fname').value.trim() || !document.getElementById('lname').value.trim() ||
+        !document.getElementById('dob').value || !document.getElementById('address').value.trim() ||
+        !document.getElementById('discord').value.trim() || !document.getElementById('role').value ||
+        !document.getElementById('motivation').value.trim()) {
+      showToast('Please fill in all required fields.'); return;
+    }
   }
   [1,2,3,4].forEach(i => {
     document.getElementById('step'+i).classList.add('hidden');
     const ps = document.getElementById('ps'+i);
-    if (ps) ps.className = 'ps' + (i<n?' done':i===n?' active':'');
+    if (ps) ps.className = 'ps'+(i<n?' done':i===n?' active':'');
   });
   document.getElementById('step'+n).classList.remove('hidden');
   document.getElementById('step-lbl').textContent = ['','Step 1 of 4 — Personal details','Step 2 of 4 — Knowledge assessment','Step 3 of 4 — Scenario assessment','Step 4 of 4 — Score & declaration'][n];
-  if (n === 4) renderScore();
+  if (n===4) renderScore();
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
@@ -984,60 +809,57 @@ function renderScore() {
   document.getElementById('score-display').textContent = s+'/8';
   setTimeout(() => document.getElementById('score-bar').style.width = pct+'%', 100);
   let msg, tag, cls;
-  if      (pct >= 87) { msg='Outstanding. Strong command of UK policing law and MPS procedure. Your application will be fast-tracked for interview.'; tag='Pass — fast-track eligible'; cls='tag-fast'; }
-  else if (pct >= 62) { msg='Good result. Solid understanding of policing fundamentals. Your application will proceed to the interview stage.'; tag='Pass — proceed to interview'; cls='tag-pass'; }
-  else                { msg='Further study of PACE, the Code of Ethics, and MPS procedure is recommended. You may reapply after 14 days.'; tag='Not successful this time'; cls='tag-fail'; }
+  if      (pct>=87) { msg='Outstanding. Strong command of UK policing law and MPS procedure. Your application will be fast-tracked for interview.'; tag='Pass — fast-track eligible'; cls='tag-fast'; }
+  else if (pct>=62) { msg='Good result. Solid understanding of policing fundamentals. Your application will proceed to the interview stage.'; tag='Pass — proceed to interview'; cls='tag-pass'; }
+  else              { msg='Further study of PACE, the Code of Ethics, and MPS procedure is recommended. You may reapply after 14 days.'; tag='Not successful this time'; cls='tag-fail'; }
   document.getElementById('result-msg').textContent = msg;
   document.getElementById('result-tag').innerHTML = '<span class="tag '+cls+'">'+tag+'</span>';
 }
 
 function submitApp() {
-  if (!document.getElementById('d1').checked || !document.getElementById('d2').checked || !document.getElementById('d3').checked) {
+  if (!document.getElementById('d1').checked||!document.getElementById('d2').checked||!document.getElementById('d3').checked) {
     showToast('Please confirm all declarations.'); return;
   }
   if (!document.getElementById('role').value) { showToast('Please go back and select a role.'); return; }
-  const score = calcScore(), pct = Math.round((score/8)*100);
-  const ref = 'MPS-' + Date.now().toString(36).toUpperCase().slice(-4) + '-' + Math.random().toString(36).slice(2,6).toUpperCase();
-  // Show confirmation immediately
-  document.getElementById('confirm-ref').textContent = ref;
-  [1,2,3,4].forEach(i => document.getElementById('step'+i).classList.add('hidden'));
+  const score=calcScore(), pct=Math.round((score/8)*100);
+  const ref='MPS-'+Date.now().toString(36).toUpperCase().slice(-4)+'-'+Math.random().toString(36).slice(2,6).toUpperCase();
+  document.getElementById('confirm-ref').textContent=ref;
+  [1,2,3,4].forEach(i=>document.getElementById('step'+i).classList.add('hidden'));
   document.getElementById('step-confirm').classList.remove('hidden');
-  document.getElementById('pbar').style.display = 'none';
-  document.getElementById('step-lbl').style.display = 'none';
+  document.getElementById('pbar').style.display='none';
+  document.getElementById('step-lbl').style.display='none';
   window.scrollTo({top:0,behavior:'smooth'});
-  // Save to Firestore in background
   db.collection('applications').add({
-    ref, score, scorePercent: pct, status: pct>=62?'pass':'fail',
-    firstName:  document.getElementById('fname').value.trim(),
-    lastName:   document.getElementById('lname').value.trim(),
-    dob:        document.getElementById('dob').value,
-    gender:     document.getElementById('gender').value,
-    address:    document.getElementById('address').value.trim(),
-    discord:    document.getElementById('discord').value.trim(),
-    role:       document.getElementById('role').value,
-    experience: document.getElementById('exp').value,
-    motivation: document.getElementById('motivation').value.trim(),
-    answers:    {...answered},
-    submittedAt: firebase.firestore.FieldValue.serverTimestamp()
-  }).catch(() => showToast('⚠️ Save issue — note your ref: ' + ref));
+    ref,score,scorePercent:pct,status:pct>=62?'pass':'fail',archived:false,
+    firstName:document.getElementById('fname').value.trim(),
+    lastName:document.getElementById('lname').value.trim(),
+    dob:document.getElementById('dob').value,
+    gender:document.getElementById('gender').value,
+    address:document.getElementById('address').value.trim(),
+    discord:document.getElementById('discord').value.trim(),
+    role:document.getElementById('role').value,
+    experience:document.getElementById('exp').value,
+    motivation:document.getElementById('motivation').value.trim(),
+    answers:{...answered},
+    submittedAt:firebase.firestore.FieldValue.serverTimestamp()
+  }).catch(()=>showToast('⚠️ Save issue — note your ref: '+ref));
 }
 
-/* ── Role options ───────────────────────────── */
+/* ── Role waves ── */
 async function loadRoleOptions() {
   const select = document.getElementById('role');
   if (!select) return;
   try {
     const snap = await db.collection('role_waves').get();
     if (snap.empty) {
-      // Seed defaults on first run
       const batch = db.batch();
-      ALL_ROLES.forEach(name => { const ref = db.collection('role_waves').doc(); batch.set(ref,{name,open:true}); });
+      ALL_ROLES.forEach(name => { const r=db.collection('role_waves').doc(); batch.set(r,{name,open:true}); });
       await batch.commit();
       return loadRoleOptions();
     }
     const open = snap.docs.map(d=>d.data()).filter(r=>r.open).map(r=>r.name);
     select.innerHTML = open.length
-      ? '<option value="">Select a role</option>' + open.map(r=>`<option>${r}</option>`).join('')
+      ? '<option value="">Select a role</option>'+open.map(r=>`<option>${r}</option>`).join('')
       : '<option value="">No recruitment waves currently open</option>';
   } catch(e) { select.innerHTML='<option value="">Failed to load roles</option>'; }
 }
@@ -1045,7 +867,7 @@ async function loadRoleOptions() {
 async function loadRoleManagement() {
   const wrap = document.getElementById('roles-list');
   if (!wrap) return;
-  wrap.innerHTML = '<div class="empty-state">Loading…</div>';
+  wrap.innerHTML='<div class="empty-state">Loading…</div>';
   try {
     const snap = await db.collection('role_waves').get();
     if (snap.empty) { await loadRoleOptions(); return loadRoleManagement(); }
@@ -1061,64 +883,56 @@ async function loadRoleManagement() {
 async function toggleRoleWave(id, current) {
   try {
     await db.collection('role_waves').doc(id).update({open:!current});
-    showToast(!current?'Recruitment wave opened.':'Recruitment wave closed.');
+    showToast(!current?'Wave opened.':'Wave closed.');
     loadRoleManagement(); loadRoleOptions();
   } catch(e) { showToast('Failed to update role.'); }
 }
 
-/* ── NSE ────────────────────────────────────── */
+/* ── NSE ── */
 function nseBegin() {
-  const name    = document.getElementById('nse-name').value.trim();
-  const discord = document.getElementById('nse-discord').value.trim();
-  const rank    = document.getElementById('nse-rank').value.trim();
-  if (!name || !discord || !rank) { showToast('Please fill in all your details before beginning.'); return; }
+  const name=document.getElementById('nse-name').value.trim();
+  const discord=document.getElementById('nse-discord').value.trim();
+  const rank=document.getElementById('nse-rank').value.trim();
+  if (!name||!discord||!rank) { showToast('Please fill in all your details before beginning.'); return; }
   document.getElementById('nse-intro').classList.add('hidden');
   document.getElementById('nse-exam').classList.remove('hidden');
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
 function nseSubmit() {
-  if (!document.getElementById('nse-d1').checked || !document.getElementById('nse-d2').checked || !document.getElementById('nse-d3').checked) {
+  if (!document.getElementById('nse-d1').checked||!document.getElementById('nse-d2').checked||!document.getElementById('nse-d3').checked) {
     showToast('Please confirm all declarations.'); return;
   }
-  const missing = [];
-  for (let i = 1; i <= 20; i++) {
-    if (!document.getElementById('nse-a'+i).value.trim()) missing.push(i);
-  }
-  if (missing.length) { showToast('Please answer all questions. Missing: Q' + missing.join(', Q')); return; }
+  const missing=[];
+  for (let i=1;i<=20;i++) { if (!document.getElementById('nse-a'+i).value.trim()) missing.push(i); }
+  if (missing.length) { showToast('Please answer all questions. Missing: Q'+missing.join(', Q')); return; }
 
-  const ref = 'NSE-' + Date.now().toString(36).toUpperCase().slice(-4) + '-' + Math.random().toString(36).slice(2,6).toUpperCase();
-  const answers = {};
-  for (let i = 1; i <= 20; i++) answers['a'+i] = document.getElementById('nse-a'+i).value.trim();
+  const ref='NSE-'+Date.now().toString(36).toUpperCase().slice(-4)+'-'+Math.random().toString(36).slice(2,6).toUpperCase();
+  const answers={};
+  for (let i=1;i<=20;i++) answers['a'+i]=document.getElementById('nse-a'+i).value.trim();
 
-  // Show confirmation immediately
   document.getElementById('nse-exam').classList.add('hidden');
   document.getElementById('nse-confirm').classList.remove('hidden');
-  document.getElementById('nse-confirm-ref').textContent = ref;
+  document.getElementById('nse-confirm-ref').textContent=ref;
   window.scrollTo({top:0,behavior:'smooth'});
 
-  // Save in background
   db.collection('nse_submissions').add({
     ref,
-    name:    document.getElementById('nse-name').value.trim(),
-    discord: document.getElementById('nse-discord').value.trim(),
-    rank:    document.getElementById('nse-rank').value.trim(),
-    answers,
-    status:       'pending',
-    marksAwarded: null,
-    scorePercent: null,
-    questionMarks: {},
-    submittedAt:  firebase.firestore.FieldValue.serverTimestamp()
-  }).catch(() => showToast('⚠️ Save issue — note your ref: ' + ref));
+    name:document.getElementById('nse-name').value.trim(),
+    discord:document.getElementById('nse-discord').value.trim(),
+    rank:document.getElementById('nse-rank').value.trim(),
+    answers,status:'pending',marksAwarded:null,scorePercent:null,questionMarks:{},
+    submittedAt:firebase.firestore.FieldValue.serverTimestamp()
+  }).catch(()=>showToast('⚠️ Save issue — note your ref: '+ref));
 }
 
-/* ── Staff dashboard ────────────────────────── */
+/* ── Staff ── */
 function initStaff() {
-  const user = auth.currentUser;
-  ['view-login','view-denied','view-dash'].forEach(id => document.getElementById(id).classList.add('hidden'));
-  if (!user)        { document.getElementById('view-login').classList.remove('hidden'); return; }
-  if (!authReady)   { return; } // auth state listener will call initStaff again once ready
-  if (!currentRole) { document.getElementById('view-denied').classList.remove('hidden'); return; }
+  const user=auth.currentUser;
+  ['view-login','view-denied','view-dash'].forEach(id=>document.getElementById(id).classList.add('hidden'));
+  if (!user)       { document.getElementById('view-login').classList.remove('hidden'); return; }
+  if (!authReady)  { return; }
+  if (!currentRole){ document.getElementById('view-denied').classList.remove('hidden'); return; }
   document.getElementById('view-dash').classList.remove('hidden');
   refreshDash();
 }
@@ -1126,402 +940,154 @@ function initStaff() {
 function refreshDash() { loadApps(); loadNseSubmissions(); }
 
 function switchDashTab(panelId, btn) {
-  document.querySelectorAll('.dtab-panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.dtab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.dtab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.dtab').forEach(t=>t.classList.remove('active'));
   document.getElementById(panelId).classList.add('active');
   btn.classList.add('active');
 }
 
-/* ── Applications ───────────────────────────── */
+/* ── Applications ── */
 async function loadApps() {
-  document.getElementById('apps-tbody').innerHTML = '<tr><td colspan="6" class="empty-state">Loading…</td></tr>';
+  document.getElementById('apps-tbody').innerHTML='<tr><td colspan="6" class="empty-state">Loading…</td></tr>';
   try {
-    const snap = await db.collection('applications').orderBy('submittedAt','desc').get();
-    allApps = snap.docs.map(d => ({id:d.id,...d.data()}));
-   <script>
-function renderAppsTable() {
-
-  const tbody = document.getElementById('apps-tbody');
-
-  let list = [];
-
-  // Archived tab
-  if (activeFilter === 'archived') {
-
-    list = allApps.filter(a => a.archived === true);
-
-  }
-
-  // All tab
-  else if (activeFilter === 'all') {
-
-    list = allApps.filter(a => !a.archived);
-
-  }
-
-  // Other tabs
-  else {
-
-    list = allApps.filter(a =>
-      a.status === activeFilter &&
-      !a.archived
-    );
-
-  }
-
-  const sMap = {
-    pending:'s-pending',
-    pass:'s-pass',
-    fail:'s-fail',
-    retake:'s-retake',
-    archived:'s-archived'
-  };
-
-  const sLbl = {
-    pending:'Pending review',
-    pass:'Passed',
-    fail:'Failed',
-    retake:'Retake requested',
-    archived:'Archived'
-  };
-
-  if (!list.length) {
-
-    tbody.innerHTML =
-      '<tr><td colspan="6"><div class="empty-state">📂 No applications found</div></td></tr>';
-
-    return;
-
-  }
-
-  tbody.innerHTML = list.map(a => {
-
-    const date = a.submittedAt
-      ? new Date(a.submittedAt.seconds * 1000)
-          .toLocaleDateString(
-            'en-GB',
-            {
-              day:'2-digit',
-              month:'short',
-              year:'numeric'
-            }
-          )
-      : '—';
-
-    let badgeHTML = '';
-
-    // Archived application
-    if (a.archived === true) {
-
-      badgeHTML = `
-        <div style="display:flex;flex-direction:column;gap:4px">
-          <span class="sb s-archived">
-            Archived
-          </span>
-
-          <span class="sb ${sMap[a.status] || 's-pending'}">
-            ${sLbl[a.status] || a.status}
-          </span>
-        </div>
-      `;
-
-    }
-
-    // Normal application
-    else {
-
-      badgeHTML = `
-        <span class="sb ${sMap[a.status] || 's-pending'}">
-          ${sLbl[a.status] || a.status}
-        </span>
-      `;
-
-    }
-
-    return `
-      <tr>
-
-        <td>
-          <strong>
-            ${a.firstName} ${a.lastName}
-          </strong><br>
-
-          <span style="font-size:11px;color:var(--muted)">
-            ${a.ref || ''}
-          </span>
-        </td>
-
-        <td style="font-size:13px">
-          ${a.role || '—'}
-        </td>
-
-        <td>
-          <span class="score-pill">
-            ${a.score != null ? a.score + '/8' : '—'}
-          </span>
-        </td>
-
-        <td>
-          ${badgeHTML}
-        </td>
-
-        <td style="font-size:12px;color:var(--muted)">
-          ${date}
-        </td>
-
-        <td>
-
-          <div class="action-cell">
-
-            <button
-              class="btn btn-secondary btn-sm"
-              onclick="openAppDetail('${a.id}')">
-
-              View
-
-            </button>
-
-            ${
-              !a.archived
-              ? `
-                <button
-                  class="btn btn-success btn-sm"
-                  onclick="updateAppStatus('${a.id}','pass')">
-
-                  Pass
-
-                </button>
-
-                <button
-                  class="btn btn-danger btn-sm"
-                  onclick="updateAppStatus('${a.id}','fail')">
-
-                  Fail
-
-                </button>
-
-                <button
-                  class="btn btn-amber btn-sm"
-                  onclick="updateAppStatus('${a.id}','retake')">
-
-                  Retake
-
-                </button>
-
-                <button
-                  class="btn btn-secondary btn-sm"
-                  onclick="archiveApplication('${a.id}')">
-
-                  Archive
-
-                </button>
-              `
-              : `
-                <button
-                  class="btn btn-success btn-sm"
-                  onclick="restoreApplication('${a.id}')">
-
-                  Restore
-
-                </button>
-              `
-            }
-
-          </div>
-
-        </td>
-
-      </tr>
-    `;
-
-  }).join('');
-
-}
-</script>
-    updateDashSubtitle();
+    const snap=await db.collection('applications').orderBy('submittedAt','desc').get();
+    allApps=snap.docs.map(d=>({id:d.id,...d.data()}));
+    renderAppsTable();
+    updateDashSub();
   } catch(e) {
-    document.getElementById('apps-tbody').innerHTML = '<tr><td colspan="6" style="text-align:center;padding:2rem;color:#A32D2D">Failed to load. Check Firestore rules.</td></tr>';
+    document.getElementById('apps-tbody').innerHTML='<tr><td colspan="6" style="text-align:center;padding:2rem;color:#A32D2D">Failed to load. Check Firestore rules.</td></tr>';
   }
 }
 
-function updateDashSubtitle() {
-  document.getElementById('dash-sub').textContent =
-    allApps.length + ' application' + (allApps.length!==1?'s':'') +
-    ' · ' + allNse.length + ' NSE submission' + (allNse.length!==1?'s':'');
+function updateDashSub() {
+  document.getElementById('dash-sub').textContent=allApps.length+' application'+(allApps.length!==1?'s':'')+' · '+allNse.length+' NSE submission'+(allNse.length!==1?'s':'');
 }
 
 function setFilter(f, btn) {
-  activeFilter = f;
-  document.querySelectorAll('#dtab-apps .filter-btn').forEach(b => b.classList.remove('active'));
+  activeFilter=f;
+  document.querySelectorAll('#dtab-apps .filter-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
   renderAppsTable();
 }
 
 function renderAppsTable() {
-  const list  = activeFilter==='all' ? allApps : allApps.filter(a => a.status===activeFilter);
-  const tbody = document.getElementById('apps-tbody');
-  const sMap  = {pending:'s-pending',pass:'s-pass',fail:'s-fail',retake:'s-retake',archived:'s-archived'};
-  const sLbl  = {pending:'Pending review',pass:'Passed',fail:'Failed',retake:'Retake requested',archived:'Archived'};
+  const sMap={pending:'s-pending',pass:'s-pass',fail:'s-fail',retake:'s-retake',archived:'s-archived'};
+  const sLbl={pending:'Pending review',pass:'Passed',fail:'Failed',retake:'Retake requested',archived:'Archived'};
+  let list;
+  if (activeFilter==='archived') list=allApps.filter(a=>a.archived===true);
+  else if (activeFilter==='all') list=allApps.filter(a=>a.archived!==true);
+  else list=allApps.filter(a=>a.status===activeFilter&&a.archived!==true);
+  const tbody=document.getElementById('apps-tbody');
   if (!list.length) { tbody.innerHTML='<tr><td colspan="6"><div class="empty-state">📂 No applications found</div></td></tr>'; return; }
-  tbody.innerHTML = list.map(a => {
-    const date = a.submittedAt ? new Date(a.submittedAt.seconds*1000).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'}) : '—';
-    const sc   = a.status||'pending';
+  tbody.innerHTML=list.map(a=>{
+    const date=a.submittedAt?new Date(a.submittedAt.seconds*1000).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'}):'—';
+    const sc=a.status||'pending';
+    const isArchived=a.archived===true;
     return `<tr>
-      <td><strong>${a.firstName} ${a.lastName}</strong><br><span style="font-size:11px;color:var(--muted)">${a.ref||''}</span></td>
-      <td style="font-size:13px">${a.role||'—'}</td>
+      <td><strong>${esc(a.firstName)} ${esc(a.lastName)}</strong><br><span style="font-size:11px;color:var(--muted)">${a.ref||''}</span></td>
+      <td style="font-size:13px">${esc(a.role||'—')}</td>
       <td><span class="score-pill">${a.score!=null?a.score+'/8':'—'}</span></td>
-      <td><span class="sb ${sMap[sc]||'s-pending'}">${sLbl[sc]||sc}</span></td>
+      <td>${isArchived?`<span class="sb s-archived">Archived</span>&nbsp;<span class="sb ${sMap[sc]||'s-pending'}">${sLbl[sc]||sc}</span>`:`<span class="sb ${sMap[sc]||'s-pending'}">${sLbl[sc]||sc}</span>`}</td>
       <td style="font-size:12px;color:var(--muted)">${date}</td>
       <td><div class="action-cell">
         <button class="btn btn-secondary btn-sm" onclick="openAppDetail('${a.id}')">View</button>
-        ${sc!=='pass'    ?`<button class="btn btn-success   btn-sm" onclick="updateAppStatus('${a.id}','pass')">Pass</button>`:''}
-        ${sc!=='fail'    ?`<button class="btn btn-danger    btn-sm" onclick="updateAppStatus('${a.id}','fail')">Fail</button>`:''}
-        ${sc!=='retake'  ?`<button class="btn btn-amber     btn-sm" onclick="updateAppStatus('${a.id}','retake')">Retake</button>`:''}
-        ${sc!=='archived'?`<button class="btn btn-secondary btn-sm" onclick="updateAppStatus('${a.id}','archived')">Archive</button>`:''}
+        ${!isArchived&&sc!=='pass'?`<button class="btn btn-success btn-sm" onclick="updateAppStatus('${a.id}','pass')">Pass</button>`:''}
+        ${!isArchived&&sc!=='fail'?`<button class="btn btn-danger btn-sm" onclick="updateAppStatus('${a.id}','fail')">Fail</button>`:''}
+        ${!isArchived&&sc!=='retake'?`<button class="btn btn-amber btn-sm" onclick="updateAppStatus('${a.id}','retake')">Retake</button>`:''}
+        ${!isArchived?`<button class="btn btn-secondary btn-sm" onclick="archiveApp('${a.id}')">Archive</button>`:`<button class="btn btn-success btn-sm" onclick="restoreApp('${a.id}')">Restore</button>`}
       </div></td></tr>`;
   }).join('');
 }
 
 function updateAppStatus(id, status) {
-<script>
-async function archiveApplication(id) {
-
-  const app = allApps.find(a => a.id === id);
-
-  if (!app) return;
-
-  app.archived = true;
-
-  renderAppsTable();
-
-  try {
-
-    await db.collection('applications')
-      .doc(id)
-      .update({
-        archived: true,
-        archivedAt: firebase.firestore.FieldValue.serverTimestamp()
-      });
-
-    showToast('Application archived.');
-
-  } catch(e) {
-
-    app.archived = false;
-
-    renderAppsTable();
-
-    showToast('Failed to archive.');
-
-  }
-
-}
-
-async function restoreApplication(id) {
-
-  const app = allApps.find(a => a.id === id);
-
-  if (!app) return;
-
-  app.archived = false;
-
-  renderAppsTable();
-
-  try {
-
-    await db.collection('applications')
-      .doc(id)
-      .update({
-        archived: false
-      });
-
-    showToast('Application restored.');
-
-  } catch(e) {
-
-    app.archived = true;
-
-    renderAppsTable();
-
-    showToast('Failed to restore.');
-
-  }
-
-}
-</script>
-  const a = allApps.find(x=>x.id===id); if (!a) return;
-  const prev = a.status;
-  a.status = status;
-  renderAppsTable();
+  const a=allApps.find(x=>x.id===id); if(!a) return;
+  const prev=a.status; a.status=status; renderAppsTable();
   if (document.getElementById('detail-modal').classList.contains('open')) openAppDetail(id);
   db.collection('applications').doc(id).update({status})
-    .then(() => showToast('Status → ' + status))
-    .catch(() => { a.status=prev; renderAppsTable(); showToast('Update failed. Please try again.'); });
+    .then(()=>showToast('Status → '+status))
+    .catch(()=>{ a.status=prev; renderAppsTable(); showToast('Update failed. Please try again.'); });
+}
+
+function archiveApp(id) {
+  const a=allApps.find(x=>x.id===id); if(!a) return;
+  a.archived=true; renderAppsTable();
+  db.collection('applications').doc(id).update({archived:true,archivedAt:firebase.firestore.FieldValue.serverTimestamp()})
+    .then(()=>showToast('Application archived.'))
+    .catch(()=>{ a.archived=false; renderAppsTable(); showToast('Archive failed.'); });
+}
+
+function restoreApp(id) {
+  const a=allApps.find(x=>x.id===id); if(!a) return;
+  a.archived=false; renderAppsTable();
+  db.collection('applications').doc(id).update({archived:false})
+    .then(()=>showToast('Application restored.'))
+    .catch(()=>{ a.archived=true; renderAppsTable(); showToast('Restore failed.'); });
 }
 
 function openAppDetail(id) {
-  const a   = allApps.find(x=>x.id===id); if (!a) return;
-  const sMap= {pending:'s-pending',pass:'s-pass',fail:'s-fail',retake:'s-retake',archived:'s-archived'};
-  const sLbl= {pending:'Pending review',pass:'Passed',fail:'Failed',retake:'Retake requested',archived:'Archived'};
-  const sc  = a.status||'pending';
-  const date= a.submittedAt ? new Date(a.submittedAt.seconds*1000).toLocaleString('en-GB') : '—';
-  document.getElementById('modal-title').textContent = a.firstName+' '+a.lastName+' — Application';
-  document.getElementById('modal-body').innerHTML = `
+  const a=allApps.find(x=>x.id===id); if(!a) return;
+  const sMap={pending:'s-pending',pass:'s-pass',fail:'s-fail',retake:'s-retake',archived:'s-archived'};
+  const sLbl={pending:'Pending review',pass:'Passed',fail:'Failed',retake:'Retake requested',archived:'Archived'};
+  const sc=a.status||'pending';
+  const isArchived=a.archived===true;
+  const date=a.submittedAt?new Date(a.submittedAt.seconds*1000).toLocaleString('en-GB'):'—';
+  document.getElementById('modal-title').textContent=esc(a.firstName)+' '+esc(a.lastName)+' — Application';
+  document.getElementById('modal-body').innerHTML=`
     <div class="drow"><span class="dl">Reference</span><span class="dv" style="font-family:monospace">${a.ref||'—'}</span></div>
-    <div class="drow"><span class="dl">Full name</span><span class="dv">${a.firstName} ${a.lastName}</span></div>
-    <div class="drow"><span class="dl">Discord ID</span><span class="dv">${a.discord||'—'}</span></div>
+    <div class="drow"><span class="dl">Full name</span><span class="dv">${esc(a.firstName)} ${esc(a.lastName)}</span></div>
+    <div class="drow"><span class="dl">Discord ID</span><span class="dv">${esc(a.discord||'—')}</span></div>
     <div class="drow"><span class="dl">Date of birth</span><span class="dv">${a.dob||'—'}</span></div>
-    <div class="drow"><span class="dl">Address</span><span class="dv">${a.address||'—'}</span></div>
-    <div class="drow"><span class="dl">Role applied for</span><span class="dv">${a.role||'—'}</span></div>
-    <div class="drow"><span class="dl">Prior experience</span><span class="dv">${a.experience||'None stated'}</span></div>
+    <div class="drow"><span class="dl">Address</span><span class="dv">${esc(a.address||'—')}</span></div>
+    <div class="drow"><span class="dl">Role applied for</span><span class="dv">${esc(a.role||'—')}</span></div>
+    <div class="drow"><span class="dl">Prior experience</span><span class="dv">${esc(a.experience||'None stated')}</span></div>
     <div class="drow"><span class="dl">Score</span><span class="dv">${a.score!=null?a.score+'/8 ('+a.scorePercent+'%)':'—'}</span></div>
-    <div class="drow"><span class="dl">Status</span><span class="dv"><span class="sb ${sMap[sc]||'s-pending'}">${sLbl[sc]||sc}</span></span></div>
+    <div class="drow"><span class="dl">Status</span><span class="dv"><span class="sb ${sMap[sc]||'s-pending'}">${sLbl[sc]||sc}</span>${isArchived?' <span class="sb s-archived">Archived</span>':''}</span></div>
     <div class="drow"><span class="dl">Submitted</span><span class="dv">${date}</span></div>
     <div style="margin-top:11px"><div style="font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.05em;margin-bottom:6px">MOTIVATION STATEMENT</div>
-    <div class="stmt-box">${(a.motivation||'None provided').replace(/</g,'&lt;')}</div></div>`;
-  document.getElementById('modal-actions').innerHTML = `
-    ${sc!=='pass'    ?`<button class="btn btn-success   btn-sm" onclick="updateAppStatus('${id}','pass')">✓ Pass</button>`:''}
-    ${sc!=='fail'    ?`<button class="btn btn-danger    btn-sm" onclick="updateAppStatus('${id}','fail')">✕ Fail</button>`:''}
-    ${sc!=='retake'  ?`<button class="btn btn-amber     btn-sm" onclick="updateAppStatus('${id}','retake')">↺ Retake</button>`:''}
-    ${sc!=='archived'?`<button class="btn btn-secondary btn-sm" onclick="updateAppStatus('${id}','archived')">Archive</button>`:''}
+    <div class="stmt-box">${esc(a.motivation||'None provided').replace(/\n/g,'<br>')}</div></div>`;
+  document.getElementById('modal-actions').innerHTML=`
+    ${!isArchived&&sc!=='pass'?`<button class="btn btn-success btn-sm" onclick="updateAppStatus('${id}','pass')">✓ Pass</button>`:''}
+    ${!isArchived&&sc!=='fail'?`<button class="btn btn-danger btn-sm" onclick="updateAppStatus('${id}','fail')">✕ Fail</button>`:''}
+    ${!isArchived&&sc!=='retake'?`<button class="btn btn-amber btn-sm" onclick="updateAppStatus('${id}','retake')">↺ Retake</button>`:''}
+    ${!isArchived?`<button class="btn btn-secondary btn-sm" onclick="archiveApp('${id}')">Archive</button>`:`<button class="btn btn-success btn-sm" onclick="restoreApp('${id}')">Restore</button>`}
     <button class="btn btn-secondary btn-sm" onclick="closeModal('detail-modal')">Close</button>`;
   document.getElementById('detail-modal').classList.add('open');
 }
 
-/* ── NSE Dashboard ──────────────────────────── */
+/* ── NSE Dashboard ── */
 async function loadNseSubmissions() {
-  document.getElementById('nse-tbody').innerHTML = '<tr><td colspan="7" class="empty-state">Loading…</td></tr>';
+  document.getElementById('nse-tbody').innerHTML='<tr><td colspan="7" class="empty-state">Loading…</td></tr>';
   try {
-    const snap = await db.collection('nse_submissions').orderBy('submittedAt','desc').get();
-    allNse = snap.docs.map(d => ({id:d.id,...d.data()}));
+    const snap=await db.collection('nse_submissions').orderBy('submittedAt','desc').get();
+    allNse=snap.docs.map(d=>({id:d.id,...d.data()}));
     renderNseTable();
-    updateDashSubtitle();
+    updateDashSub();
   } catch(e) {
-    document.getElementById('nse-tbody').innerHTML = '<tr><td colspan="7" style="text-align:center;padding:2rem;color:#A32D2D">Failed to load. Check Firestore rules.</td></tr>';
+    document.getElementById('nse-tbody').innerHTML='<tr><td colspan="7" style="text-align:center;padding:2rem;color:#A32D2D">Failed to load. Check Firestore rules.</td></tr>';
   }
 }
 
 function setNseFilter(f, btn) {
-  activeNseFilter = f;
-  document.querySelectorAll('#dtab-nse .filter-btn').forEach(b => b.classList.remove('active'));
+  activeNseFilter=f;
+  document.querySelectorAll('#dtab-nse .filter-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
   renderNseTable();
 }
 
 function renderNseTable() {
-  const list  = activeNseFilter==='all' ? allNse : allNse.filter(n => n.status===activeNseFilter);
-  const tbody = document.getElementById('nse-tbody');
-  const sMap  = {pending:'s-pending',pass:'s-pass',fail:'s-fail',archived:'s-archived'};
-  const sLbl  = {pending:'Awaiting review',pass:'Passed',fail:'Failed',archived:'Archived'};
+  const list=activeNseFilter==='all'?allNse:allNse.filter(n=>n.status===activeNseFilter);
+  const tbody=document.getElementById('nse-tbody');
+  const sMap={pending:'s-pending',pass:'s-pass',fail:'s-fail',archived:'s-archived'};
+  const sLbl={pending:'Awaiting review',pass:'Passed',fail:'Failed',archived:'Archived'};
   if (!list.length) { tbody.innerHTML='<tr><td colspan="7"><div class="empty-state">📂 No NSE submissions found</div></td></tr>'; return; }
-  tbody.innerHTML = list.map(n => {
-    const date  = n.submittedAt ? new Date(n.submittedAt.seconds*1000).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'}) : '—';
-    const sc    = n.status||'pending';
-    const score = n.marksAwarded!=null ? n.marksAwarded+'/100' : '—';
+  tbody.innerHTML=list.map(n=>{
+    const date=n.submittedAt?new Date(n.submittedAt.seconds*1000).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'}):'—';
+    const sc=n.status||'pending';
+    const score=n.marksAwarded!=null?n.marksAwarded+'/100':'—';
     return `<tr>
-      <td><strong>${(n.name||'—').replace(/</g,'&lt;')}</strong><br><span style="font-size:11px;color:var(--muted)">${n.ref||''}</span></td>
-      <td style="font-size:13px">${(n.rank||'—').replace(/</g,'&lt;')}</td>
-      <td style="font-size:13px">${(n.discord||'—').replace(/</g,'&lt;')}</td>
+      <td><strong>${esc(n.name||'—')}</strong><br><span style="font-size:11px;color:var(--muted)">${n.ref||''}</span></td>
+      <td style="font-size:13px">${esc(n.rank||'—')}</td>
+      <td style="font-size:13px">${esc(n.discord||'—')}</td>
       <td><span class="score-pill">${score}</span></td>
       <td><span class="sb ${sMap[sc]||'s-pending'}">${sLbl[sc]||sc}</span></td>
       <td style="font-size:12px;color:var(--muted)">${date}</td>
@@ -1533,156 +1099,133 @@ function renderNseTable() {
 }
 
 function updateNseStatus(id, status, marksAwarded, scorePercent, questionMarks) {
-  const n = allNse.find(x=>x.id===id); if (!n) return;
-  const prevStatus = n.status, prevMarks = n.marksAwarded;
-  n.status = status;
-  if (marksAwarded !== undefined) { n.marksAwarded = marksAwarded; n.scorePercent = scorePercent; n.questionMarks = questionMarks; }
+  const n=allNse.find(x=>x.id===id); if(!n) return;
+  const prevStatus=n.status, prevMarks=n.marksAwarded;
+  n.status=status;
+  if (marksAwarded!==undefined) { n.marksAwarded=marksAwarded; n.scorePercent=scorePercent; n.questionMarks=questionMarks; }
   renderNseTable();
-  const update = {status};
-  if (marksAwarded !== undefined) { update.marksAwarded = marksAwarded; update.scorePercent = scorePercent; update.questionMarks = questionMarks; update.reviewedAt = firebase.firestore.FieldValue.serverTimestamp(); }
+  const update={status};
+  if (marksAwarded!==undefined) { update.marksAwarded=marksAwarded; update.scorePercent=scorePercent; update.questionMarks=questionMarks; update.reviewedAt=firebase.firestore.FieldValue.serverTimestamp(); }
   db.collection('nse_submissions').doc(id).update(update)
-    .then(() => showToast('NSE updated → ' + status))
-    .catch(() => { n.status=prevStatus; n.marksAwarded=prevMarks; renderNseTable(); showToast('Update failed.'); });
+    .then(()=>showToast('NSE updated → '+status))
+    .catch(()=>{ n.status=prevStatus; n.marksAwarded=prevMarks; renderNseTable(); showToast('Update failed.'); });
 }
 
 function openNseReview(id) {
-  const n = allNse.find(x=>x.id===id); if (!n) return;
-  const sMap = {pending:'s-pending',pass:'s-pass',fail:'s-fail',archived:'s-archived'};
-  const sLbl = {pending:'Awaiting review',pass:'Passed',fail:'Failed',archived:'Archived'};
-  const sc   = n.status||'pending';
-
-  document.getElementById('nse-modal-title').textContent = (n.name||'Candidate') + ' — NSE Review';
-
-  let questionsHtml = '';
-  for (let i = 0; i < 20; i++) {
-    const qn  = i + 1;
-    const sch = NSE_SCHEME[i];
-    const ans = (n.answers && n.answers['a'+qn]) ? n.answers['a'+qn].replace(/</g,'&lt;') : '(No answer recorded)';
-    const savedMarks = (n.questionMarks && n.questionMarks['q'+qn] !== undefined) ? n.questionMarks['q'+qn] : '';
-    questionsHtml += `
-      <div class="nse-review-q">
-        <div class="nse-review-label">Q${qn} — ${sch.marks} marks available</div>
-        <div class="nse-review-scenario">${sch.q}</div>
-        <div style="font-size:11px;font-weight:600;color:var(--muted);margin-bottom:4px;margin-top:6px;letter-spacing:.04em">CANDIDATE'S ANSWER</div>
-        <div class="nse-review-answer">${ans}</div>
-        <div class="nse-mark-scheme">
-          <strong>Mark scheme — award 1 mark per point demonstrated</strong>
-          <ul>${sch.criteria.map(c=>`<li>${c}</li>`).join('')}</ul>
-        </div>
-        <div class="marks-input-wrap">
-          <label>Marks awarded:</label>
-          <input type="number" class="marks-input" id="qm-${qn}" min="0" max="${sch.marks}" value="${savedMarks}" oninput="recalcTotal()">
-          <span class="marks-of">/ ${sch.marks}</span>
-        </div>
-      </div>`;
+  const n=allNse.find(x=>x.id===id); if(!n) return;
+  const sMap={pending:'s-pending',pass:'s-pass',fail:'s-fail',archived:'s-archived'};
+  const sLbl={pending:'Awaiting review',pass:'Passed',fail:'Failed',archived:'Archived'};
+  const sc=n.status||'pending';
+  document.getElementById('nse-modal-title').textContent=esc(n.name||'Candidate')+' — NSE Review';
+  let questionsHtml='';
+  for (let i=0;i<20;i++) {
+    const qn=i+1, sch=NSE_SCHEME[i];
+    const ans=(n.answers&&n.answers['a'+qn])?esc(n.answers['a'+qn]):'(No answer recorded)';
+    const savedMarks=(n.questionMarks&&n.questionMarks['q'+qn]!==undefined)?n.questionMarks['q'+qn]:'';
+    questionsHtml+=`<div class="nse-review-q">
+      <div class="nse-review-label">Q${qn} — ${sch.marks} marks available</div>
+      <div class="nse-review-scenario">${esc(sch.q)}</div>
+      <div style="font-size:11px;font-weight:600;color:var(--muted);margin-bottom:4px;margin-top:6px;letter-spacing:.04em">CANDIDATE'S ANSWER</div>
+      <div class="nse-review-answer">${ans}</div>
+      <div class="nse-mark-scheme"><strong>Mark scheme — award 1 mark per point demonstrated</strong><ul>${sch.criteria.map(c=>`<li>${c}</li>`).join('')}</ul></div>
+      <div class="marks-input-wrap">
+        <label>Marks awarded:</label>
+        <input type="number" class="marks-input" id="qm-${qn}" min="0" max="${sch.marks}" value="${savedMarks}" oninput="recalcTotal()">
+        <span class="marks-of">/ ${sch.marks}</span>
+      </div>
+    </div>`;
   }
-
-  document.getElementById('nse-modal-body').innerHTML = `
+  document.getElementById('nse-modal-body').innerHTML=`
     <div class="drow"><span class="dl">Reference</span><span class="dv" style="font-family:monospace">${n.ref||'—'}</span></div>
-    <div class="drow"><span class="dl">Name</span><span class="dv">${(n.name||'—').replace(/</g,'&lt;')}</span></div>
-    <div class="drow"><span class="dl">Rank</span><span class="dv">${(n.rank||'—').replace(/</g,'&lt;')}</span></div>
-    <div class="drow"><span class="dl">Discord</span><span class="dv">${(n.discord||'—').replace(/</g,'&lt;')}</span></div>
-    <div class="drow"><span class="dl">Current status</span><span class="dv"><span class="sb ${sMap[sc]||'s-pending'}">${sLbl[sc]||sc}</span></span></div>
+    <div class="drow"><span class="dl">Name</span><span class="dv">${esc(n.name||'—')}</span></div>
+    <div class="drow"><span class="dl">Rank</span><span class="dv">${esc(n.rank||'—')}</span></div>
+    <div class="drow"><span class="dl">Discord</span><span class="dv">${esc(n.discord||'—')}</span></div>
+    <div class="drow"><span class="dl">Status</span><span class="dv"><span class="sb ${sMap[sc]||'s-pending'}">${sLbl[sc]||sc}</span></span></div>
     <div style="margin:1rem 0 .5rem;font-size:13px;font-weight:600;color:var(--navy)">📝 Answer review &amp; marking</div>
-    <div class="nse-total-bar">
-      <span>Total marks awarded</span>
-      <strong id="nse-total-display">${n.marksAwarded!=null?n.marksAwarded:0} / 100</strong>
-    </div>
+    <div class="nse-total-bar"><span>Total marks awarded</span><strong id="nse-total-display">${n.marksAwarded!=null?n.marksAwarded:0} / 100</strong></div>
     ${questionsHtml}`;
-
-  document.getElementById('nse-modal-actions').innerHTML = `
+  document.getElementById('nse-modal-actions').innerHTML=`
     <button class="btn btn-success  btn-sm" onclick="saveNseMarks('${id}','pass')">✓ Pass &amp; save</button>
     <button class="btn btn-danger   btn-sm" onclick="saveNseMarks('${id}','fail')">✕ Fail &amp; save</button>
     <button class="btn btn-secondary btn-sm" onclick="saveNseMarks('${id}','${sc}')">💾 Save marks only</button>
     <button class="btn btn-secondary btn-sm" onclick="closeModal('nse-modal')">Close</button>`;
-
   document.getElementById('nse-modal').classList.add('open');
   recalcTotal();
 }
 
 function recalcTotal() {
-  let total = 0;
-  for (let i = 1; i <= 20; i++) {
-    const el = document.getElementById('qm-' + i);
-    if (el) total += parseInt(el.value) || 0;
-  }
-  const disp = document.getElementById('nse-total-display');
-  if (disp) {
-    disp.textContent = total + ' / 100';
-    disp.style.color = total >= 80 ? 'var(--green-tx)' : total >= 60 ? 'var(--amber-tx)' : 'var(--red-tx)';
-  }
+  let total=0;
+  for (let i=1;i<=20;i++) { const el=document.getElementById('qm-'+i); if(el) total+=parseInt(el.value)||0; }
+  const disp=document.getElementById('nse-total-display');
+  if (disp) { disp.textContent=total+' / 100'; disp.style.color=total>=80?'var(--green-tx)':total>=60?'var(--amber-tx)':'var(--red-tx)'; }
   return total;
 }
 
-async function saveNseMarks(id, status) {
-  const questionMarks = {};
-  let total = 0;
-  for (let i = 1; i <= 20; i++) {
-    const el  = document.getElementById('qm-' + i);
-    const val = parseInt(el ? el.value : 0) || 0;
-    questionMarks['q'+i] = val;
-    total += val;
+function saveNseMarks(id, status) {
+  const questionMarks={};
+  let total=0;
+  for (let i=1;i<=20;i++) {
+    const el=document.getElementById('qm-'+i);
+    const val=parseInt(el?el.value:0)||0;
+    questionMarks['q'+i]=val; total+=val;
   }
-  const pct = Math.round((total/100)*100);
-  updateNseStatus(id, status, total, pct, questionMarks);
+  const pct=Math.round((total/100)*100);
+  updateNseStatus(id,status,total,pct,questionMarks);
   closeModal('nse-modal');
-  showToast('Marks saved — ' + total + '/100 (' + pct + '%) → ' + status);
+  showToast('Marks saved — '+total+'/100 ('+pct+'%) → '+status);
 }
 
-/* ── Access management ──────────────────────── */
+/* ── Access management ── */
 function initAccess() {
-  loadMembers();
-  loadRoleManagement();
+  loadMembers(); loadRoleManagement();
   switchAccessTab('tab-list', document.getElementById('atab-list'));
 }
 
 function switchAccessTab(panelId, btn) {
-  document.querySelectorAll('.atab-panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.atab').forEach(t => t.classList.remove('active'));
-  const panel = document.getElementById(panelId);
+  document.querySelectorAll('.atab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.atab').forEach(t=>t.classList.remove('active'));
+  const panel=document.getElementById(panelId);
   if (panel) panel.classList.add('active');
   if (btn)   btn.classList.add('active');
 }
 
 async function loadMembers() {
-  const list = document.getElementById('members-list');
-  list.innerHTML = '<div class="empty-state">Loading…</div>';
+  const list=document.getElementById('members-list');
+  list.innerHTML='<div class="empty-state">Loading…</div>';
   try {
-    const snap = await db.collection('staff_access').orderBy('addedAt','desc').get();
-    const members = snap.docs.map(d=>({id:d.id,...d.data()}));
-    const superRow = `<div class="member-row">
-      <div><div class="m-email">${SUPER_ADMIN}</div><div class="m-meta">Superadmin — permanent, cannot be removed via portal</div></div>
-      <span class="rl rl-superadmin">Superadmin</span></div>`;
-    if (!members.length) { list.innerHTML = superRow + '<p style="font-size:13px;color:var(--muted);padding:10px 0">No additional staff yet. Use the Add member tab.</p>'; return; }
-    list.innerHTML = superRow + members.map(m=>`
+    const snap=await db.collection('staff_access').orderBy('addedAt','desc').get();
+    const members=snap.docs.map(d=>({id:d.id,...d.data()}));
+    const superRow=`<div class="member-row"><div><div class="m-email">${SUPER_ADMIN}</div><div class="m-meta">Superadmin — permanent, cannot be removed via portal</div></div><span class="rl rl-superadmin">Superadmin</span></div>`;
+    if (!members.length) { list.innerHTML=superRow+'<p style="font-size:13px;color:var(--muted);padding:10px 0">No additional staff yet. Use the Add member tab.</p>'; return; }
+    list.innerHTML=superRow+members.map(m=>`
       <div class="member-row">
-        <div><div class="m-email">${m.email}</div><div class="m-meta">${[m.name,m.rank].filter(Boolean).join(' — ')||'No details'}</div></div>
+        <div><div class="m-email">${esc(m.email)}</div><div class="m-meta">${esc([m.name,m.rank].filter(Boolean).join(' — ')||'No details')}</div></div>
         <div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
           <span class="rl rl-${m.level||'staff'}">${m.level==='admin'?'Admin':'Staff'}</span>
-          <button class="btn btn-danger btn-sm" onclick="removeMember('${m.id}','${m.email}')">Remove</button>
+          <button class="btn btn-danger btn-sm" onclick="removeMember('${m.id}','${esc(m.email)}')">Remove</button>
         </div>
       </div>`).join('');
-  } catch(e) { list.innerHTML = '<div class="empty-state">Failed to load. Check Firestore rules.</div>'; }
+  } catch(e) { list.innerHTML='<div class="empty-state">Failed to load. Check Firestore rules.</div>'; }
 }
 
 async function addMember() {
-  const email = document.getElementById('new-email').value.trim().toLowerCase();
-  const name  = document.getElementById('new-name').value.trim();
-  const rank  = document.getElementById('new-rank').value.trim();
-  const level = document.getElementById('new-level').value;
-  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showToast('Please enter a valid email.'); return; }
-  if (email === SUPER_ADMIN) { showToast('That account is already the superadmin.'); return; }
-  const btn = document.getElementById('add-btn');
+  const email=document.getElementById('new-email').value.trim().toLowerCase();
+  const name=document.getElementById('new-name').value.trim();
+  const rank=document.getElementById('new-rank').value.trim();
+  const level=document.getElementById('new-level').value;
+  if (!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showToast('Please enter a valid email.'); return; }
+  if (email===SUPER_ADMIN) { showToast('That account is already the superadmin.'); return; }
+  const btn=document.getElementById('add-btn');
   btn.disabled=true; btn.textContent='Adding…';
   try {
-    const existing = await db.collection('staff_access').where('email','==',email).get();
+    const existing=await db.collection('staff_access').where('email','==',email).get();
     if (!existing.empty) { showToast('This email is already on the list.'); btn.disabled=false; btn.textContent='Add member'; return; }
     await db.collection('staff_access').add({email,name,rank,level,addedAt:firebase.firestore.FieldValue.serverTimestamp(),addedBy:auth.currentUser?.email||''});
     showToast('✅ '+email+' added as '+level);
     document.getElementById('new-email').value='';
     document.getElementById('new-name').value='';
     document.getElementById('new-rank').value='';
-    switchAccessTab('tab-list', document.getElementById('atab-list'));
+    switchAccessTab('tab-list',document.getElementById('atab-list'));
     loadMembers();
   } catch(e) { showToast('Failed: '+e.message); }
   btn.disabled=false; btn.textContent='Add member';
@@ -1694,38 +1237,41 @@ async function removeMember(docId, email) {
   catch(e) { showToast('Failed: '+e.message); }
 }
 
-/* ── Status checker ─────────────────────────── */
+/* ── Status checker ── */
 async function checkStatus() {
-  const ref = document.getElementById('status-ref').value.trim().toUpperCase();
+  const ref=document.getElementById('status-ref').value.trim().toUpperCase();
   if (!ref) { showToast('Please enter a reference number.'); return; }
-  const isNse = ref.startsWith('NSE-');
+  const isNse=ref.startsWith('NSE-');
   try {
-    const col  = isNse ? 'nse_submissions' : 'applications';
-    const snap = await db.collection(col).where('ref','==',ref).limit(1).get();
+    const snap=await db.collection(isNse?'nse_submissions':'applications').where('ref','==',ref).limit(1).get();
     if (snap.empty) { showToast('No record found with that reference.'); document.getElementById('status-result').classList.add('hidden'); return; }
-    const a = snap.docs[0].data();
+    const a=snap.docs[0].data();
     document.getElementById('status-result').classList.remove('hidden');
-    document.getElementById('sr-name').textContent  = isNse ? (a.name||'—') : ((a.firstName||'')+' '+(a.lastName||'')).trim();
-    document.getElementById('sr-role').textContent  = isNse ? 'National Sergeants Examination' : (a.role||'—');
-    document.getElementById('sr-score').textContent = isNse
-      ? (a.marksAwarded!=null ? a.marksAwarded+'/100 ('+a.scorePercent+'%)' : 'Pending marking')
-      : (a.score!=null ? a.score+'/8 ('+a.scorePercent+'%)' : '—');
-    const statusMap = {pending:isNse?'Awaiting review':'Pending review',pass:'Passed',fail:'Failed',retake:'Retake requested',archived:'Archived'};
-    document.getElementById('sr-status').textContent = statusMap[a.status] || 'Pending';
+    document.getElementById('sr-name').textContent=isNse?(a.name||'—'):((a.firstName||'')+' '+(a.lastName||'')).trim();
+    document.getElementById('sr-role').textContent=isNse?'National Sergeants Examination':(a.role||'—');
+    document.getElementById('sr-score').textContent=isNse
+      ?(a.marksAwarded!=null?a.marksAwarded+'/100 ('+a.scorePercent+'%)':'Pending marking')
+      :(a.score!=null?a.score+'/8 ('+a.scorePercent+'%)':'—');
+    const sm={pending:isNse?'Awaiting review':'Pending review',pass:'Passed',fail:'Failed',retake:'Retake requested',archived:'Archived'};
+    document.getElementById('sr-status').textContent=sm[a.status]||'Pending';
   } catch(e) { showToast('Status lookup failed: '+e.message); }
 }
 
-/* ── Modal ──────────────────────────────────── */
+/* ── Utilities ── */
 function closeModal(id) { document.getElementById(id).classList.remove('open'); }
 document.querySelectorAll('.overlay').forEach(o => o.addEventListener('click', function(e){ if(e.target===this) this.classList.remove('open'); }));
 
-/* ── Toast ──────────────────────────────────── */
 let toastTimer;
 function showToast(msg) {
-  const t = document.getElementById('toast');
+  const t=document.getElementById('toast');
   t.textContent=msg; t.classList.add('show');
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(()=>t.classList.remove('show'), 3200);
+  toastTimer=setTimeout(()=>t.classList.remove('show'),3200);
+}
+
+function esc(str) {
+  if (!str) return '';
+  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 </script>
 </body>
