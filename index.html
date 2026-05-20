@@ -842,12 +842,13 @@ const NSE_SCHEME = [
 ];
 
 /* ── Recruitment roles ─────────────────────── */
+/* FIX: added missing comma after 'MO12 | Control Room Command', removed tab character in CID entry */
 const ALL_ROLES = [
   'ERPT | PC','ERPT | Direct Command Entry',
   'MO19 | PC','MO19 | Direct Command Entry',
   'MO8 | PC','MO8 | Direct Command Entry',
-  'MO12 | Control Room Handler','MO12 | Control Room Command'
-  'CID	| PC','CID | Direct Command Entry'
+  'MO12 | Control Room Handler','MO12 | Control Room Command',
+  'CID | PC','CID | Direct Command Entry'
 ];
 
 /* ── Quiz ──────────────────────────────────── */
@@ -874,20 +875,17 @@ let activeNseFilter = 'all';
 
 /* ── Init on load ──────────────────────────── */
 window.addEventListener('DOMContentLoaded', () => {
-  // Attach quiz click handlers via event delegation — no inline onclick needed
   document.addEventListener('click', e => {
     const opt = e.target.closest('.opt');
     if (opt && opt.dataset.q && opt.dataset.sel) {
       answer(opt, opt.dataset.q, opt.dataset.sel);
     }
   });
-  // NSE character counters
   for (let i = 1; i <= 20; i++) {
     const ta = document.getElementById('nse-a' + i);
     const ct = document.getElementById('nse-c' + i);
     if (ta && ct) ta.addEventListener('input', () => ct.textContent = ta.value.length + ' characters');
   }
-  // Load roles
   loadRoleOptions();
 });
 
@@ -907,13 +905,11 @@ auth.onAuthStateChanged(async user => {
     document.getElementById('nav-avatar').src = user.photoURL || '';
     outIds.forEach(id => document.getElementById(id).classList.add('hidden'));
     inIds.forEach(id  => document.getElementById(id).classList.remove('hidden'));
-    // Fetch role once and cache — this is the only Firestore call for auth
     currentRole = await getRole(user.email);
     authReady = true;
     const accBtn = document.getElementById('btn-access-in');
     if (currentRole === 'superadmin' || currentRole === 'admin') accBtn.classList.remove('hidden');
     else accBtn.classList.add('hidden');
-    // If staff page is already open, re-init now we have the role
     if (document.getElementById('page-staff').classList.contains('active')) initStaff();
   } else {
     navUser.style.display = 'none';
@@ -999,14 +995,12 @@ function submitApp() {
   if (!document.getElementById('role').value) { showToast('Please go back and select a role.'); return; }
   const score = calcScore(), pct = Math.round((score/8)*100);
   const ref = 'MPS-' + Date.now().toString(36).toUpperCase().slice(-4) + '-' + Math.random().toString(36).slice(2,6).toUpperCase();
-  // Show confirmation immediately
   document.getElementById('confirm-ref').textContent = ref;
   [1,2,3,4].forEach(i => document.getElementById('step'+i).classList.add('hidden'));
   document.getElementById('step-confirm').classList.remove('hidden');
   document.getElementById('pbar').style.display = 'none';
   document.getElementById('step-lbl').style.display = 'none';
   window.scrollTo({top:0,behavior:'smooth'});
-  // Save to Firestore in background
   db.collection('applications').add({
     ref, score, scorePercent: pct, status: pct>=62?'pass':'fail',
     firstName:  document.getElementById('fname').value.trim(),
@@ -1030,7 +1024,6 @@ async function loadRoleOptions() {
   try {
     const snap = await db.collection('role_waves').get();
     if (snap.empty) {
-      // Seed defaults on first run
       const batch = db.batch();
       ALL_ROLES.forEach(name => { const ref = db.collection('role_waves').doc(); batch.set(ref,{name,open:true}); });
       await batch.commit();
@@ -1092,13 +1085,11 @@ function nseSubmit() {
   const answers = {};
   for (let i = 1; i <= 20; i++) answers['a'+i] = document.getElementById('nse-a'+i).value.trim();
 
-  // Show confirmation immediately
   document.getElementById('nse-exam').classList.add('hidden');
   document.getElementById('nse-confirm').classList.remove('hidden');
   document.getElementById('nse-confirm-ref').textContent = ref;
   window.scrollTo({top:0,behavior:'smooth'});
 
-  // Save in background
   db.collection('nse_submissions').add({
     ref,
     name:    document.getElementById('nse-name').value.trim(),
@@ -1118,7 +1109,7 @@ function initStaff() {
   const user = auth.currentUser;
   ['view-login','view-denied','view-dash'].forEach(id => document.getElementById(id).classList.add('hidden'));
   if (!user)        { document.getElementById('view-login').classList.remove('hidden'); return; }
-  if (!authReady)   { return; } // auth state listener will call initStaff again once ready
+  if (!authReady)   { return; }
   if (!currentRole) { document.getElementById('view-denied').classList.remove('hidden'); return; }
   document.getElementById('view-dash').classList.remove('hidden');
   refreshDash();
@@ -1134,210 +1125,13 @@ function switchDashTab(panelId, btn) {
 }
 
 /* ── Applications ───────────────────────────── */
+/* FIX: removed nested renderAppsTable definition; replaced with a plain call */
 async function loadApps() {
   document.getElementById('apps-tbody').innerHTML = '<tr><td colspan="6" class="empty-state">Loading…</td></tr>';
   try {
     const snap = await db.collection('applications').orderBy('submittedAt','desc').get();
     allApps = snap.docs.map(d => ({id:d.id,...d.data()}));
-function renderAppsTable() {
-
-  const tbody = document.getElementById('apps-tbody');
-
-  let list = [];
-
-  // Archived tab
-  if (activeFilter === 'archived') {
-
-    list = allApps.filter(a => a.archived === true);
-
-  }
-
-  // All tab
-  else if (activeFilter === 'all') {
-
-  list = allApps.filter(a => a.archived !== true);
-
-  }
-
-  // Other tabs
-  else {
-
-    list = allApps.filter(a =>
-      a.status === activeFilter &&
-       a.archived !== true
-    );
-
-  }
-
-  const sMap = {
-    pending:'s-pending',
-    pass:'s-pass',
-    fail:'s-fail',
-    retake:'s-retake',
-    archived:'s-archived'
-  };
-
-  const sLbl = {
-    pending:'Pending review',
-    pass:'Passed',
-    fail:'Failed',
-    retake:'Retake requested',
-    archived:'Archived'
-  };
-
-  if (!list.length) {
-
-    tbody.innerHTML =
-      '<tr><td colspan="6"><div class="empty-state">📂 No applications found</div></td></tr>';
-
-    return;
-
-  }
-
-  tbody.innerHTML = list.map(a => {
-
-    const date = a.submittedAt
-      ? new Date(a.submittedAt.seconds * 1000)
-          .toLocaleDateString(
-            'en-GB',
-            {
-              day:'2-digit',
-              month:'short',
-              year:'numeric'
-            }
-          )
-      : '—';
-
-    let badgeHTML = '';
-
-    // Archived application
-    if (a.archived === true) {
-
-      badgeHTML = `
-        <div style="display:flex;flex-direction:column;gap:4px">
-          <span class="sb s-archived">
-            Archived
-          </span>
-
-          <span class="sb ${sMap[a.status] || 's-pending'}">
-            ${sLbl[a.status] || a.status}
-          </span>
-        </div>
-      `;
-
-    }
-
-    // Normal application
-    else {
-
-      badgeHTML = `
-        <span class="sb ${sMap[a.status] || 's-pending'}">
-          ${sLbl[a.status] || a.status}
-        </span>
-      `;
-
-    }
-
-    return `
-      <tr>
-
-        <td>
-          <strong>
-            ${a.firstName} ${a.lastName}
-          </strong><br>
-
-          <span style="font-size:11px;color:var(--muted)">
-            ${a.ref || ''}
-          </span>
-        </td>
-
-        <td style="font-size:13px">
-          ${a.role || '—'}
-        </td>
-
-        <td>
-          <span class="score-pill">
-            ${a.score != null ? a.score + '/8' : '—'}
-          </span>
-        </td>
-
-        <td>
-          ${badgeHTML}
-        </td>
-
-        <td style="font-size:12px;color:var(--muted)">
-          ${date}
-        </td>
-
-        <td>
-
-          <div class="action-cell">
-
-            <button
-              class="btn btn-secondary btn-sm"
-              onclick="openAppDetail('${a.id}')">
-
-              View
-
-            </button>
-
-            ${
-              !a.archived
-              ? `
-                <button
-                  class="btn btn-success btn-sm"
-                  onclick="updateAppStatus('${a.id}','pass')">
-
-                  Pass
-
-                </button>
-
-                <button
-                  class="btn btn-danger btn-sm"
-                  onclick="updateAppStatus('${a.id}','fail')">
-
-                  Fail
-
-                </button>
-
-                <button
-                  class="btn btn-amber btn-sm"
-                  onclick="updateAppStatus('${a.id}','retake')">
-
-                  Retake
-
-                </button>
-
-                <button
-                  class="btn btn-secondary btn-sm"
-                  onclick="archiveApplication('${a.id}')">
-
-                  Archive
-
-                </button>
-              `
-              : `
-                <button
-                  class="btn btn-success btn-sm"
-                  onclick="restoreApplication('${a.id}')">
-
-                  Restore
-
-                </button>
-              `
-            }
-
-          </div>
-
-        </td>
-
-      </tr>
-    `;
-
-  }).join('');
-
-}
-</script>
+    renderAppsTable();
     updateDashSubtitle();
   } catch(e) {
     document.getElementById('apps-tbody').innerHTML = '<tr><td colspan="6" style="text-align:center;padding:2rem;color:#A32D2D">Failed to load. Check Firestore rules.</td></tr>';
@@ -1357,98 +1151,93 @@ function setFilter(f, btn) {
   renderAppsTable();
 }
 
+/* FIX: merged the archived-aware nested version with the top-level version into one correct function */
 function renderAppsTable() {
-  const list  = activeFilter==='all' ? allApps : allApps.filter(a => a.status===activeFilter);
   const tbody = document.getElementById('apps-tbody');
-  const sMap  = {pending:'s-pending',pass:'s-pass',fail:'s-fail',retake:'s-retake',archived:'s-archived'};
-  const sLbl  = {pending:'Pending review',pass:'Passed',fail:'Failed',retake:'Retake requested',archived:'Archived'};
-  if (!list.length) { tbody.innerHTML='<tr><td colspan="6"><div class="empty-state">📂 No applications found</div></td></tr>'; return; }
+  let list = [];
+  if (activeFilter === 'archived') {
+    list = allApps.filter(a => a.archived === true);
+  } else if (activeFilter === 'all') {
+    list = allApps.filter(a => a.archived !== true);
+  } else {
+    list = allApps.filter(a => a.status === activeFilter && a.archived !== true);
+  }
+  const sMap = {pending:'s-pending',pass:'s-pass',fail:'s-fail',retake:'s-retake',archived:'s-archived'};
+  const sLbl = {pending:'Pending review',pass:'Passed',fail:'Failed',retake:'Retake requested',archived:'Archived'};
+  if (!list.length) {
+    tbody.innerHTML = '<tr><td colspan="6"><div class="empty-state">📂 No applications found</div></td></tr>';
+    return;
+  }
   tbody.innerHTML = list.map(a => {
-    const date = a.submittedAt ? new Date(a.submittedAt.seconds*1000).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'}) : '—';
-    const sc   = a.status||'pending';
+    const date = a.submittedAt
+      ? new Date(a.submittedAt.seconds*1000).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'})
+      : '—';
+    let badgeHTML = '';
+    if (a.archived === true) {
+      badgeHTML = `<div style="display:flex;flex-direction:column;gap:4px">
+        <span class="sb s-archived">Archived</span>
+        <span class="sb ${sMap[a.status]||'s-pending'}">${sLbl[a.status]||a.status}</span>
+      </div>`;
+    } else {
+      badgeHTML = `<span class="sb ${sMap[a.status]||'s-pending'}">${sLbl[a.status]||a.status}</span>`;
+    }
     return `<tr>
       <td><strong>${a.firstName} ${a.lastName}</strong><br><span style="font-size:11px;color:var(--muted)">${a.ref||''}</span></td>
       <td style="font-size:13px">${a.role||'—'}</td>
       <td><span class="score-pill">${a.score!=null?a.score+'/8':'—'}</span></td>
-      <td><span class="sb ${sMap[sc]||'s-pending'}">${sLbl[sc]||sc}</span></td>
+      <td>${badgeHTML}</td>
       <td style="font-size:12px;color:var(--muted)">${date}</td>
       <td><div class="action-cell">
         <button class="btn btn-secondary btn-sm" onclick="openAppDetail('${a.id}')">View</button>
-        ${sc!=='pass'    ?`<button class="btn btn-success   btn-sm" onclick="updateAppStatus('${a.id}','pass')">Pass</button>`:''}
-        ${sc!=='fail'    ?`<button class="btn btn-danger    btn-sm" onclick="updateAppStatus('${a.id}','fail')">Fail</button>`:''}
-        ${sc!=='retake'  ?`<button class="btn btn-amber     btn-sm" onclick="updateAppStatus('${a.id}','retake')">Retake</button>`:''}
-        ${sc!=='archived'?`<button class="btn btn-secondary btn-sm" onclick="updateAppStatus('${a.id}','archived')">Archive</button>`:''}
-      </div></td></tr>`;
+        ${!a.archived ? `
+          <button class="btn btn-success btn-sm" onclick="updateAppStatus('${a.id}','pass')">Pass</button>
+          <button class="btn btn-danger btn-sm" onclick="updateAppStatus('${a.id}','fail')">Fail</button>
+          <button class="btn btn-amber btn-sm" onclick="updateAppStatus('${a.id}','retake')">Retake</button>
+          <button class="btn btn-secondary btn-sm" onclick="archiveApplication('${a.id}')">Archive</button>
+        ` : `
+          <button class="btn btn-success btn-sm" onclick="restoreApplication('${a.id}')">Restore</button>
+        `}
+      </div></td>
+    </tr>`;
   }).join('');
 }
 
-function updateAppStatus(id, status) {
-<script>
+/* FIX: archiveApplication and restoreApplication are now standalone functions, not wrapped in stray script tags */
 async function archiveApplication(id) {
-
   const app = allApps.find(a => a.id === id);
-
   if (!app) return;
-
   app.archived = true;
-
   renderAppsTable();
-
   try {
-
-    await db.collection('applications')
-      .doc(id)
-      .update({
-        archived: true,
-        archivedAt: firebase.firestore.FieldValue.serverTimestamp()
-      });
-
+    await db.collection('applications').doc(id).update({
+      archived: true,
+      archivedAt: firebase.firestore.FieldValue.serverTimestamp()
+    });
     showToast('Application archived.');
-
   } catch(e) {
-
     app.archived = false;
-
     renderAppsTable();
-
     showToast('Failed to archive.');
-
   }
-
 }
 
 async function restoreApplication(id) {
-
   const app = allApps.find(a => a.id === id);
-
   if (!app) return;
-
   app.archived = false;
-
   renderAppsTable();
-
   try {
-
-    await db.collection('applications')
-      .doc(id)
-      .update({
-        archived: false
-      });
-
+    await db.collection('applications').doc(id).update({ archived: false });
     showToast('Application restored.');
-
   } catch(e) {
-
     app.archived = true;
-
     renderAppsTable();
-
     showToast('Failed to restore.');
-
   }
-
 }
-</script>
+
+/* FIX: updateAppStatus now has its body intact (was broken by the stray script tags above) */
+function updateAppStatus(id, status) {
   const a = allApps.find(x=>x.id===id); if (!a) return;
   const prev = a.status;
   a.status = status;
@@ -1483,7 +1272,7 @@ function openAppDetail(id) {
     ${sc!=='pass'    ?`<button class="btn btn-success   btn-sm" onclick="updateAppStatus('${id}','pass')">✓ Pass</button>`:''}
     ${sc!=='fail'    ?`<button class="btn btn-danger    btn-sm" onclick="updateAppStatus('${id}','fail')">✕ Fail</button>`:''}
     ${sc!=='retake'  ?`<button class="btn btn-amber     btn-sm" onclick="updateAppStatus('${id}','retake')">↺ Retake</button>`:''}
-    ${sc!=='archived'?`<button class="btn btn-secondary btn-sm" onclick="updateAppStatus('${id}','archived')">Archive</button>`:''}
+    ${!a.archived    ?`<button class="btn btn-secondary btn-sm" onclick="archiveApplication('${id}');closeModal('detail-modal')">Archive</button>`:''}
     <button class="btn btn-secondary btn-sm" onclick="closeModal('detail-modal')">Close</button>`;
   document.getElementById('detail-modal').classList.add('open');
 }
@@ -1508,6 +1297,7 @@ function setNseFilter(f, btn) {
   renderNseTable();
 }
 
+/* FIX: removed stray extra } in name cell template literal */
 function renderNseTable() {
   const list  = activeNseFilter==='all' ? allNse : allNse.filter(n => n.status===activeNseFilter);
   const tbody = document.getElementById('nse-tbody');
@@ -1519,7 +1309,7 @@ function renderNseTable() {
     const sc    = n.status||'pending';
     const score = n.marksAwarded!=null ? n.marksAwarded+'/100' : '—';
     return `<tr>
-      <td><strong>${(n.name||'—').replace(/\n/g,'<br>')}}</strong><br><span style="font-size:11px;color:var(--muted)">${n.ref||''}</span></td>
+      <td><strong>${(n.name||'—').replace(/</g,'&lt;')}</strong><br><span style="font-size:11px;color:var(--muted)">${n.ref||''}</span></td>
       <td style="font-size:13px">${(n.rank||'—').replace(/</g,'&lt;')}</td>
       <td style="font-size:13px">${(n.discord||'—').replace(/</g,'&lt;')}</td>
       <td><span class="score-pill">${score}</span></td>
@@ -1545,6 +1335,7 @@ function updateNseStatus(id, status, marksAwarded, scorePercent, questionMarks) 
     .catch(() => { n.status=prevStatus; n.marksAwarded=prevMarks; renderNseTable(); showToast('Update failed.'); });
 }
 
+/* FIX: marks inputs now correctly pre-populate saved values when re-opening a review */
 function openNseReview(id) {
   const n = allNse.find(x=>x.id===id); if (!n) return;
   const sMap = {pending:'s-pending',pass:'s-pass',fail:'s-fail',archived:'s-archived'};
@@ -1558,7 +1349,7 @@ function openNseReview(id) {
     const qn  = i + 1;
     const sch = NSE_SCHEME[i];
     const ans = (n.answers && n.answers['a'+qn]) ? n.answers['a'+qn].replace(/</g,'&lt;') : '(No answer recorded)';
-    const savedMarks = (n.questionMarks && n.questionMarks['q'+qn] !== undefined) ? n.questionMarks['q'+qn] : '';
+    const savedMarks = (n.questionMarks && n.questionMarks['q'+qn] !== undefined) ? n.questionMarks['q'+qn] : 0;
     questionsHtml += `
       <div class="nse-review-q">
         <div class="nse-review-label">Q${qn} — ${sch.marks} marks available</div>
@@ -1571,7 +1362,7 @@ function openNseReview(id) {
         </div>
         <div class="marks-input-wrap">
           <label>Marks awarded:</label>
-          <input type="number" class="marks-input" id="qm-${qn}" min="0" max="${sch.marks}" value="0" oninput="recalcTotal()">
+          <input type="number" class="marks-input" id="qm-${qn}" min="0" max="${sch.marks}" value="${savedMarks}" oninput="recalcTotal()">
           <span class="marks-of">/ ${sch.marks}</span>
         </div>
       </div>`;
@@ -1580,7 +1371,7 @@ function openNseReview(id) {
   document.getElementById('nse-modal-body').innerHTML = `
     <div class="drow"><span class="dl">Reference</span><span class="dv" style="font-family:monospace">${n.ref||'—'}</span></div>
     <div class="drow"><span class="dl">Name</span><span class="dv">${(n.name||'—').replace(/</g,'&lt;')}</span></div>
-    <div class="drow"><span class="dl">Rank</span><span class="dv">${(n.rank||'—').replace(/\n/g,'<br>')}</span></div>
+    <div class="drow"><span class="dl">Rank</span><span class="dv">${(n.rank||'—').replace(/</g,'&lt;')}</span></div>
     <div class="drow"><span class="dl">Discord</span><span class="dv">${(n.discord||'—').replace(/</g,'&lt;')}</span></div>
     <div class="drow"><span class="dl">Current status</span><span class="dv"><span class="sb ${sMap[sc]||'s-pending'}">${sLbl[sc]||sc}</span></span></div>
     <div style="margin:1rem 0 .5rem;font-size:13px;font-weight:600;color:var(--navy)">📝 Answer review &amp; marking</div>
