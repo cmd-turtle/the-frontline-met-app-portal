@@ -16,6 +16,7 @@
   --red-bg:#FCEBEB;--red-bd:#F09595;--red-tx:#791F1F;
   --amber-bg:#FAEEDA;--amber-tx:#633806;
   --purple-bg:#F3EEFB;--purple-bd:#B89FD8;--purple-tx:#3B1F6E;
+  --gold-bg:#FDF3E3;--gold-bd:#D4A855;--gold-tx:#5C3A00;
   --r:8px;--rl:12px;
 }
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:15px;color:var(--text);background:#f0f2f5;min-height:100vh}
@@ -66,6 +67,7 @@ nav{background:var(--navy);padding:0 1.5rem;display:flex;align-items:center;just
 .req{color:#A32D2D;margin-left:2px}
 .info-strip{background:var(--blue-l);border:1px solid var(--blue-b);border-radius:var(--r);padding:9px 13px;font-size:13px;color:#0C447C;display:flex;gap:8px;margin-bottom:1rem;line-height:1.5}
 .warn-strip{background:var(--amber-bg);border:1px solid #E8C97A;border-radius:var(--r);padding:9px 13px;font-size:13px;color:var(--amber-tx);display:flex;gap:8px;margin-bottom:1rem;line-height:1.5}
+.gold-strip{background:var(--gold-bg);border:1px solid var(--gold-bd);border-radius:var(--r);padding:9px 13px;font-size:13px;color:var(--gold-tx);display:flex;gap:8px;margin-bottom:1rem;line-height:1.5}
 
 /* QUIZ */
 .q-block{margin-bottom:1.4rem}
@@ -88,16 +90,20 @@ nav{background:var(--navy);padding:0 1.5rem;display:flex;align-items:center;just
 .feedback.ok {background:var(--green-bg);color:var(--green-tx);border:1px solid var(--green-bd)}
 .feedback.bad{background:var(--red-bg);color:var(--red-tx);border:1px solid var(--red-bd)}
 
-/* NSE */
+/* NSE / IPP shared */
 .nse-q{margin-bottom:1.6rem;padding-bottom:1.6rem;border-bottom:1px solid var(--border)}
 .nse-q:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
 .nse-q-num{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
 .nse-q-text{font-size:14px;font-weight:600;line-height:1.55;margin-bottom:.5rem}
 .nse-marks{display:inline-flex;align-items:center;font-size:11px;font-weight:700;color:#0C447C;background:var(--blue-l);border:1px solid var(--blue-b);border-radius:20px;padding:2px 10px;margin-bottom:.65rem}
+.nse-marks-gold{display:inline-flex;align-items:center;font-size:11px;font-weight:700;color:var(--gold-tx);background:var(--gold-bg);border:1px solid var(--gold-bd);border-radius:20px;padding:2px 10px;margin-bottom:.65rem}
 .nse-scenario{background:var(--surface);border-left:3px solid var(--blue);border-radius:0 var(--r) var(--r) 0;padding:9px 13px;font-size:13px;line-height:1.65;margin-bottom:.75rem}
 .nse-scenario strong{font-size:10px;font-weight:700;letter-spacing:.08em;color:var(--muted);display:block;margin-bottom:3px;text-transform:uppercase}
+.nse-scenario-gold{background:var(--gold-bg);border-left:3px solid var(--gold-bd);border-radius:0 var(--r) var(--r) 0;padding:9px 13px;font-size:13px;line-height:1.65;margin-bottom:.75rem}
+.nse-scenario-gold strong{font-size:10px;font-weight:700;letter-spacing:.08em;color:var(--gold-tx);display:block;margin-bottom:3px;text-transform:uppercase;opacity:.8}
 .nse-textarea{width:100%;min-height:110px;font-size:13px;padding:9px 12px;border:1px solid var(--border);border-radius:var(--r);font-family:inherit;line-height:1.6;resize:vertical;outline:none;transition:border-color .15s,box-shadow .15s;color:var(--text);background:#fff}
 .nse-textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(55,138,221,.12)}
+.nse-textarea-gold:focus{border-color:var(--gold-bd);box-shadow:0 0 0 3px rgba(212,168,85,.15)}
 .nse-char{font-size:11px;color:var(--muted);margin-top:4px;text-align:right}
 
 /* NSE REVIEW */
@@ -140,6 +146,7 @@ nav{background:var(--navy);padding:0 1.5rem;display:flex;align-items:center;just
 .confirm-box h2{font-size:19px;font-weight:600;margin-bottom:.4rem}
 .confirm-box p{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:.4rem}
 .ref-pill{display:inline-block;background:var(--blue-l);color:#0C447C;border:1px solid var(--blue-b);border-radius:20px;padding:4px 16px;font-size:13px;font-weight:600;font-family:monospace;margin-top:.4rem}
+.ref-pill-gold{display:inline-block;background:var(--gold-bg);color:var(--gold-tx);border:1px solid var(--gold-bd);border-radius:20px;padding:4px 16px;font-size:13px;font-weight:600;font-family:monospace;margin-top:.4rem}
 
 /* BUTTONS */
 .btn-row{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:1.1rem}
@@ -151,6 +158,7 @@ nav{background:var(--navy);padding:0 1.5rem;display:flex;align-items:center;just
 .btn-danger   {background:#A32D2D;color:#fff}
 .btn-amber    {background:#854F0B;color:#fff}
 .btn-purple   {background:#5B2D8E;color:#fff}
+.btn-gold     {background:linear-gradient(135deg,#5C3A00,#8B5E00);color:#fff}
 .btn-sm{padding:5px 11px!important;font-size:12px!important}
 
 /* AUTH BOX */
@@ -260,16 +268,18 @@ const SUPER_ADMIN = "johndowneybp@gmail.com";
       <button id="nav-signout" onclick="logOut()">Sign out</button>
     </div>
     <!-- logged OUT -->
-    <button class="nav-btn" id="btn-apply-out"  onclick="showPage('apply')">Apply now</button>
-    <button class="nav-btn" id="btn-status-out" onclick="showPage('status')">Check status</button>
-    <button class="nav-btn" id="btn-nse-out"    onclick="showPage('nse')">Sergeants exam</button>
-    <button class="nav-btn" id="btn-staff-out"  onclick="showPage('staff')">Staff portal</button>
+    <button class="nav-btn" id="btn-apply-out"    onclick="showPage('apply')">Apply now</button>
+    <button class="nav-btn" id="btn-status-out"   onclick="showPage('status')">Check status</button>
+    <button class="nav-btn" id="btn-nse-out"      onclick="showPage('nse')">Sergeants exam</button>
+    <button class="nav-btn" id="btn-inspector-out" onclick="showPage('inspector')">Inspector exam</button>
+    <button class="nav-btn" id="btn-staff-out"    onclick="showPage('staff')">Staff portal</button>
     <!-- logged IN -->
-    <button class="nav-btn hidden" id="btn-apply-in"  onclick="showPage('apply')">Apply now</button>
-    <button class="nav-btn hidden" id="btn-status-in" onclick="showPage('status')">Check status</button>
-    <button class="nav-btn hidden" id="btn-nse-in"    onclick="showPage('nse')">📝 Sgt exam</button>
-    <button class="nav-btn hidden" id="btn-dash-in"   onclick="showPage('staff')">📋 Dashboard</button>
-    <button class="nav-btn hidden" id="btn-access-in" onclick="showPage('access')">⚙ Access</button>
+    <button class="nav-btn hidden" id="btn-apply-in"    onclick="showPage('apply')">Apply now</button>
+    <button class="nav-btn hidden" id="btn-status-in"   onclick="showPage('status')">Check status</button>
+    <button class="nav-btn hidden" id="btn-nse-in"      onclick="showPage('nse')">📝 Sgt exam</button>
+    <button class="nav-btn hidden" id="btn-inspector-in" onclick="showPage('inspector')">🔱 Insp exam</button>
+    <button class="nav-btn hidden" id="btn-dash-in"     onclick="showPage('staff')">📋 Dashboard</button>
+    <button class="nav-btn hidden" id="btn-access-in"   onclick="showPage('access')">⚙ Access</button>
   </div>
 </nav>
 
@@ -493,7 +503,6 @@ const SUPER_ADMIN = "johndowneybp@gmail.com";
 
   <div id="nse-exam" class="hidden">
     <div class="info-strip">✍️ Write detailed, structured responses. Aim for at least 3–5 sentences per question. Reviewers mark against published criteria.</div>
-
     <div class="card">
       <div class="card-head">⚖️ Section 1 — Leadership &amp; supervision (Q1–5)</div>
       <div class="nse-q">
@@ -527,7 +536,6 @@ const SUPER_ADMIN = "johndowneybp@gmail.com";
         <div class="nse-char" id="nse-c5">0 characters</div>
       </div>
     </div>
-
     <div class="card">
       <div class="card-head">🚨 Section 2 — Operational command (Q6–10)</div>
       <div class="nse-q">
@@ -566,7 +574,6 @@ const SUPER_ADMIN = "johndowneybp@gmail.com";
         <div class="nse-char" id="nse-c10">0 characters</div>
       </div>
     </div>
-
     <div class="card">
       <div class="card-head">📜 Section 3 — Law &amp; procedure (Q11–15)</div>
       <div class="nse-q">
@@ -600,7 +607,6 @@ const SUPER_ADMIN = "johndowneybp@gmail.com";
         <div class="nse-char" id="nse-c15">0 characters</div>
       </div>
     </div>
-
     <div class="card">
       <div class="card-head">🤝 Section 4 — Ethics, integrity &amp; community (Q16–20)</div>
       <div class="nse-q">
@@ -636,7 +642,6 @@ const SUPER_ADMIN = "johndowneybp@gmail.com";
         <div class="nse-char" id="nse-c20">0 characters</div>
       </div>
     </div>
-
     <div class="card">
       <div class="card-head">🔒 Declaration</div>
       <label class="check-row"><input type="checkbox" id="nse-d1"> I confirm that I have completed this examination independently and without assistance from any other person.</label>
@@ -661,6 +666,209 @@ const SUPER_ADMIN = "johndowneybp@gmail.com";
   </div>
 </div>
 
+<!-- ═══════ PAGE: INSPECTOR ═══════ -->
+<div class="page" id="page-inspector">
+  <div class="ph" style="background:linear-gradient(135deg,#4A2C00,#8B5E00)">
+    <div class="ph-badge" style="color:#7A5000">IPP<br>INSP</div>
+    <div><h1>Inspector Promotion Programme</h1><p>MPS — Inspector selection assessment · Pass mark: 85%</p></div>
+  </div>
+
+  <div id="insp-intro">
+    <div class="gold-strip">🔱 This examination is for serving MPS Sergeants who are eligible for Inspector selection. Ensure you are in a quiet environment with sufficient time. The exam must be completed in one sitting.</div>
+    <div class="card">
+      <div class="card-head">📋 Examination details</div>
+      <div class="drow"><span class="dl">Questions</span><span class="dv">20 scenario-based written questions</span></div>
+      <div class="drow"><span class="dl">Format</span><span class="dv">Free-text written responses</span></div>
+      <div class="drow"><span class="dl">Total marks</span><span class="dv">100</span></div>
+      <div class="drow"><span class="dl">Pass mark</span><span class="dv">85 / 100 (85%)</span></div>
+      <div class="drow"><span class="dl">Marking</span><span class="dv">Reviewed by senior MPS staff against published mark scheme</span></div>
+      <div class="drow"><span class="dl">Retakes</span><span class="dv">Subject to senior staff discretion</span></div>
+    </div>
+    <div class="card">
+      <div class="card-head">👤 Your details</div>
+      <div class="row2">
+        <div class="field"><label>Full name (in-character) <span class="req">*</span></label><input type="text" id="insp-name" placeholder="e.g. James Hartley"></div>
+        <div class="field"><label>Discord ID <span class="req">*</span></label><input type="text" id="insp-discord" placeholder="e.g. username"></div>
+      </div>
+      <div class="field"><label>Current rank &amp; collar number <span class="req">*</span></label><input type="text" id="insp-rank" placeholder="e.g. Sergeant 4421"></div>
+    </div>
+    <div class="btn-row">
+      <span style="font-size:12px;color:var(--muted)">Once started, the exam cannot be paused.</span>
+      <button class="btn btn-gold" onclick="inspBegin()">Begin examination →</button>
+    </div>
+  </div>
+
+  <div id="insp-exam" class="hidden">
+    <div class="gold-strip">✍️ Write detailed, structured responses. Aim for at least 3–5 sentences per question. Reviewers mark against published criteria.</div>
+
+    <div class="card">
+      <div class="card-head" style="color:#7A5000">🏛️ Section 1 — Strategic leadership &amp; management (Q1–5)</div>
+      <div class="nse-q">
+        <div class="nse-q-num">Question 1</div><div class="nse-marks-gold">5 marks</div>
+        <div class="nse-q-text">You are a newly promoted Inspector taking over a response team with low morale following a period of poor leadership. How do you assess the situation and begin to rebuild team confidence?</div>
+        <textarea class="nse-textarea" id="insp-a1" placeholder="Write your response here…"></textarea>
+        <div class="nse-char" id="insp-c1">0 characters</div>
+      </div>
+      <div class="nse-q">
+        <div class="nse-q-num">Question 2</div><div class="nse-marks-gold">5 marks</div>
+        <div class="nse-q-text">You discover that a Sergeant on your relief has been making operational decisions that conflict with force policy without informing you. How do you handle this?</div>
+        <textarea class="nse-textarea" id="insp-a2" placeholder="Write your response here…"></textarea>
+        <div class="nse-char" id="insp-c2">0 characters</div>
+      </div>
+      <div class="nse-q">
+        <div class="nse-q-num">Question 3</div><div class="nse-marks-gold">5 marks</div>
+        <div class="nse-q-text">You are tasked with implementing a new MPS policy that your Sergeants openly disagree with. How do you lead this?</div>
+        <textarea class="nse-textarea" id="insp-a3" placeholder="Write your response here…"></textarea>
+        <div class="nse-char" id="insp-c3">0 characters</div>
+      </div>
+      <div class="nse-q">
+        <div class="nse-q-num">Question 4</div><div class="nse-marks-gold">5 marks</div>
+        <div class="nse-q-text">A Sergeant on your relief is performing well operationally but is struggling significantly with administrative responsibilities. How do you address this?</div>
+        <textarea class="nse-textarea" id="insp-a4" placeholder="Write your response here…"></textarea>
+        <div class="nse-char" id="insp-c4">0 characters</div>
+      </div>
+      <div class="nse-q">
+        <div class="nse-q-num">Question 5</div><div class="nse-marks-gold">5 marks</div>
+        <div class="nse-q-text">Intelligence suggests two experienced officers on your relief have formed a clique that is actively excluding newer colleagues and influencing team culture negatively. How do you handle this?</div>
+        <textarea class="nse-textarea" id="insp-a5" placeholder="Write your response here…"></textarea>
+        <div class="nse-char" id="insp-c5">0 characters</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head" style="color:#7A5000">🚨 Section 2 — Operational command (Q6–10)</div>
+      <div class="nse-q">
+        <div class="nse-q-num">Question 6</div><div class="nse-marks-gold">5 marks</div>
+        <div class="nse-scenario-gold"><strong>Scenario</strong>You are Bronze Commander at a gathering of approximately 200 people outside a civic building. Intelligence indicates a small group within the crowd intends to cause disorder. The protest is currently peaceful.</div>
+        <div class="nse-q-text">What are your immediate priorities and decisions as Bronze Commander?</div>
+        <textarea class="nse-textarea" id="insp-a6" placeholder="Write your response here…"></textarea>
+        <div class="nse-char" id="insp-c6">0 characters</div>
+      </div>
+      <div class="nse-q">
+        <div class="nse-q-num">Question 7</div><div class="nse-marks-gold">5 marks</div>
+        <div class="nse-scenario-gold"><strong>Scenario</strong>A major road traffic collision has closed a key arterial route. Two fatalities are confirmed. Fire, ambulance, and highways are on scene. You are the police Bronze Commander.</div>
+        <div class="nse-q-text">How do you coordinate the multi-agency response and manage your responsibilities as Bronze?</div>
+        <textarea class="nse-textarea" id="insp-a7" placeholder="Write your response here…"></textarea>
+        <div class="nse-char" id="insp-c7">0 characters</div>
+      </div>
+      <div class="nse-q">
+        <div class="nse-q-num">Question 8</div><div class="nse-marks-gold">5 marks</div>
+        <div class="nse-scenario-gold"><strong>Scenario</strong>A hostage situation has developed at a bank. An armed male is holding three staff members. Firearms units are approximately 15 minutes away. You are the first Inspector on scene.</div>
+        <div class="nse-q-text">What do you do in the period before armed officers arrive? Walk through your decisions and rationale.</div>
+        <textarea class="nse-textarea" id="insp-a8" placeholder="Write your response here…"></textarea>
+        <div class="nse-char" id="insp-c8">0 characters</div>
+      </div>
+      <div class="nse-q">
+        <div class="nse-q-num">Question 9</div><div class="nse-marks-gold">5 marks</div>
+        <div class="nse-scenario-gold"><strong>Scenario</strong>A Sergeant on your shift is alleged to have used excessive force during an arrest. The custody Sergeant has flagged the matter to you. The detained person has visible injuries and is requesting a doctor.</div>
+        <div class="nse-q-text">How do you respond as the duty Inspector? What are your immediate actions and obligations?</div>
+        <textarea class="nse-textarea" id="insp-a9" placeholder="Write your response here…"></textarea>
+        <div class="nse-char" id="insp-c9">0 characters</div>
+      </div>
+      <div class="nse-q">
+        <div class="nse-q-num">Question 10</div><div class="nse-marks-gold">5 marks</div>
+        <div class="nse-scenario-gold"><strong>Scenario</strong>A critical incident — a missing 7-year-old child — has been declared on your relief. It is now 45 minutes since the child was last seen. No witnesses and no CCTV confirmed yet.</div>
+        <div class="nse-q-text">What is your role as the duty Inspector and what immediate decisions do you make?</div>
+        <textarea class="nse-textarea" id="insp-a10" placeholder="Write your response here…"></textarea>
+        <div class="nse-char" id="insp-c10">0 characters</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head" style="color:#7A5000">📜 Section 3 — Law, policy &amp; procedure (Q11–15)</div>
+      <div class="nse-q">
+        <div class="nse-q-num">Question 11</div><div class="nse-marks-gold">5 marks</div>
+        <div class="nse-q-text">Explain the legal basis and process for applying for a Production Order under the Police and Criminal Evidence Act 1984. When is it appropriate and what are its limitations?</div>
+        <textarea class="nse-textarea" id="insp-a11" placeholder="Write your response here…"></textarea>
+        <div class="nse-char" id="insp-c11">0 characters</div>
+      </div>
+      <div class="nse-q">
+        <div class="nse-q-num">Question 12</div><div class="nse-marks-gold">5 marks</div>
+        <div class="nse-q-text">What is the Inspector's role in authorising and reviewing pre-charge bail under PACE as amended by the Policing and Crime Act 2017? Describe the thresholds and timescales involved.</div>
+        <textarea class="nse-textarea" id="insp-a12" placeholder="Write your response here…"></textarea>
+        <div class="nse-char" id="insp-c12">0 characters</div>
+      </div>
+      <div class="nse-q">
+        <div class="nse-q-num">Question 13</div><div class="nse-marks-gold">5 marks</div>
+        <div class="nse-q-text">Explain the circumstances under which a Section 60 CJPOA 1994 authorisation can be granted. What are your specific responsibilities as an Inspector in granting one?</div>
+        <textarea class="nse-textarea" id="insp-a13" placeholder="Write your response here…"></textarea>
+        <div class="nse-char" id="insp-c13">0 characters</div>
+      </div>
+      <div class="nse-q">
+        <div class="nse-q-num">Question 14</div><div class="nse-marks-gold">5 marks</div>
+        <div class="nse-q-text">A death in custody occurs on your custody suite. Walk through your immediate responsibilities as the duty Inspector — what must happen, in what order, and who must be notified?</div>
+        <textarea class="nse-textarea" id="insp-a14" placeholder="Write your response here…"></textarea>
+        <div class="nse-char" id="insp-c14">0 characters</div>
+      </div>
+      <div class="nse-q">
+        <div class="nse-q-num">Question 15</div><div class="nse-marks-gold">5 marks</div>
+        <div class="nse-q-text">Explain the legislative framework governing directed covert surveillance. At what level can an Inspector authorise activity, and what types of activity require upward referral?</div>
+        <textarea class="nse-textarea" id="insp-a15" placeholder="Write your response here…"></textarea>
+        <div class="nse-char" id="insp-c15">0 characters</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head" style="color:#7A5000">🤝 Section 4 — Ethics, performance &amp; accountability (Q16–20)</div>
+      <div class="nse-q">
+        <div class="nse-q-num">Question 16</div><div class="nse-marks-gold">5 marks</div>
+        <div class="nse-scenario-gold"><strong>Scenario</strong>A Sergeant under your command has submitted an inaccurate crime report. You are satisfied it was not deliberate — it is a clear case of carelessness and poor attention to detail. It is the first time you have identified this issue.</div>
+        <div class="nse-q-text">What do you do as their Inspector?</div>
+        <textarea class="nse-textarea" id="insp-a16" placeholder="Write your response here…"></textarea>
+        <div class="nse-char" id="insp-c16">0 characters</div>
+      </div>
+      <div class="nse-q">
+        <div class="nse-q-num">Question 17</div><div class="nse-marks-gold">5 marks</div>
+        <div class="nse-q-text">You are managing a chronically underperforming Sergeant who is well-liked within the team and has previously been managed informally with no improvement. What is your approach?</div>
+        <textarea class="nse-textarea" id="insp-a17" placeholder="Write your response here…"></textarea>
+        <div class="nse-char" id="insp-c17">0 characters</div>
+      </div>
+      <div class="nse-q">
+        <div class="nse-q-num">Question 18</div><div class="nse-marks-gold">5 marks</div>
+        <div class="nse-scenario-gold"><strong>Scenario</strong>A community leader contacts you directly, expressing concern that stop and search in their borough is disproportionate and is damaging the relationship between residents and the police.</div>
+        <div class="nse-q-text">How do you respond, and what steps do you take as a result?</div>
+        <textarea class="nse-textarea" id="insp-a18" placeholder="Write your response here…"></textarea>
+        <div class="nse-char" id="insp-c18">0 characters</div>
+      </div>
+      <div class="nse-q">
+        <div class="nse-q-num">Question 19</div><div class="nse-marks-gold">5 marks</div>
+        <div class="nse-q-text">What does "policing by consent" mean to you in the context of the Inspector role, and how do you translate it into day-to-day operations on your relief?</div>
+        <textarea class="nse-textarea" id="insp-a19" placeholder="Write your response here…"></textarea>
+        <div class="nse-char" id="insp-c19">0 characters</div>
+      </div>
+      <div class="nse-q">
+        <div class="nse-q-num">Question 20</div><div class="nse-marks-gold">5 marks</div>
+        <div class="nse-scenario-gold"><strong>Scenario</strong>You are reviewing your relief's performance data and notice that one PC accounts for a disproportionately high number of stop and searches, all targeting young Black males in a specific postcode. The grounds recorded vary in quality.</div>
+        <div class="nse-q-text">What do you do? Walk through your assessment and actions.</div>
+        <textarea class="nse-textarea" id="insp-a20" placeholder="Write your response here…"></textarea>
+        <div class="nse-char" id="insp-c20">0 characters</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">🔒 Declaration</div>
+      <label class="check-row"><input type="checkbox" id="insp-d1"> I confirm that I have completed this examination independently and without assistance from any other person.</label>
+      <label class="check-row"><input type="checkbox" id="insp-d2"> I understand that this examination will be reviewed by senior MPS staff and my responses may be discussed with me at selection interview.</label>
+      <label class="check-row"><input type="checkbox" id="insp-d3"> I accept that submission of false or plagiarised answers may result in disqualification and disciplinary action.</label>
+    </div>
+    <div class="btn-row">
+      <span style="font-size:12px;color:var(--muted)">Ensure all 20 questions are answered before submitting.</span>
+      <button class="btn btn-gold" onclick="inspSubmit()">Submit examination →</button>
+    </div>
+  </div>
+
+  <div id="insp-confirm" class="hidden">
+    <div class="card"><div class="confirm-box">
+      <div class="icon">🔱</div>
+      <h2>Examination submitted</h2>
+      <p>Your Inspector Promotion Programme examination has been received and will be marked by senior MPS staff.</p>
+      <p>Your reference number:</p>
+      <div class="ref-pill-gold" id="insp-confirm-ref">IPP-XXXX-XXXX</div>
+      <p style="margin-top:1rem">You will be notified of your result via Discord once marking is complete.</p>
+    </div></div>
+  </div>
+</div>
+
 <!-- ═══════ PAGE: STATUS ═══════ -->
 <div class="page" id="page-status">
   <div class="ph">
@@ -671,7 +879,7 @@ const SUPER_ADMIN = "johndowneybp@gmail.com";
     <div class="card-head">🔎 Check status</div>
     <div class="field" style="margin-bottom:1rem">
       <label>Reference number</label>
-      <input type="text" id="status-ref" placeholder="e.g. MPS-ABCD-1234 or NSE-ABCD-1234">
+      <input type="text" id="status-ref" placeholder="e.g. MPS-ABCD-1234, NSE-ABCD-1234 or IPP-ABCD-1234">
     </div>
     <button class="btn btn-primary" onclick="checkStatus()">Check status</button>
   </div>
@@ -711,9 +919,12 @@ const SUPER_ADMIN = "johndowneybp@gmail.com";
       <button class="btn btn-secondary btn-sm" onclick="refreshDash()">↻ Refresh</button>
     </div>
     <div class="dash-tabs">
-      <button class="dtab active" id="dtab-btn-apps" onclick="switchDashTab('dtab-apps',this)">📋 Applications</button>
-      <button class="dtab" id="dtab-btn-nse"  onclick="switchDashTab('dtab-nse',this)">📝 Sergeants Exam (NSE)</button>
+      <button class="dtab active" id="dtab-btn-apps"  onclick="switchDashTab('dtab-apps',this)">📋 Applications</button>
+      <button class="dtab"        id="dtab-btn-nse"   onclick="switchDashTab('dtab-nse',this)">📝 Sergeants Exam</button>
+      <button class="dtab"        id="dtab-btn-insp"  onclick="switchDashTab('dtab-insp',this)">🔱 Inspector Programme</button>
     </div>
+
+    <!-- Applications tab -->
     <div class="dtab-panel active" id="dtab-apps">
       <div class="filter-row">
         <button class="filter-btn active" onclick="setFilter('all',this)">All</button>
@@ -730,6 +941,8 @@ const SUPER_ADMIN = "johndowneybp@gmail.com";
         </table>
       </div>
     </div>
+
+    <!-- NSE tab -->
     <div class="dtab-panel" id="dtab-nse">
       <div class="filter-row">
         <button class="filter-btn active" onclick="setNseFilter('all',this)">All</button>
@@ -742,6 +955,23 @@ const SUPER_ADMIN = "johndowneybp@gmail.com";
         <table>
           <thead><tr><th>Name</th><th>Rank</th><th>Discord</th><th>Score</th><th>Status</th><th>Submitted</th><th>Actions</th></tr></thead>
           <tbody id="nse-tbody"><tr><td colspan="7" class="empty-state">Loading…</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Inspector tab -->
+    <div class="dtab-panel" id="dtab-insp">
+      <div class="filter-row">
+        <button class="filter-btn active" onclick="setInspFilter('all',this)">All</button>
+        <button class="filter-btn" onclick="setInspFilter('pending',this)">Awaiting review</button>
+        <button class="filter-btn" onclick="setInspFilter('pass',this)">Passed</button>
+        <button class="filter-btn" onclick="setInspFilter('fail',this)">Failed</button>
+        <button class="filter-btn" onclick="setInspFilter('archived',this)">Archived</button>
+      </div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Name</th><th>Rank</th><th>Discord</th><th>Score</th><th>Status</th><th>Submitted</th><th>Actions</th></tr></thead>
+          <tbody id="insp-tbody"><tr><td colspan="7" class="empty-state">Loading…</td></tr></tbody>
         </table>
       </div>
     </div>
@@ -803,7 +1033,7 @@ const SUPER_ADMIN = "johndowneybp@gmail.com";
 
 <div class="overlay" id="nse-modal">
   <div class="modal modal-wide">
-    <div class="modal-head"><h3 id="nse-modal-title">NSE Review</h3><button class="modal-close" onclick="closeModal('nse-modal')">✕</button></div>
+    <div class="modal-head"><h3 id="nse-modal-title">Review</h3><button class="modal-close" onclick="closeModal('nse-modal')">✕</button></div>
     <div class="modal-body" id="nse-modal-body"></div>
     <div class="modal-actions" id="nse-modal-actions"></div>
   </div>
@@ -841,8 +1071,31 @@ const NSE_SCHEME = [
   {q:'An officer shows signs of significant stress. They have not raised anything. What do you do?',marks:5,criteria:["(1) Does not wait — takes a proactive supervisory approach","(1) Has a private, non-judgmental welfare conversation","(1) Does not make assumptions — listens and asks open questions","(1) Signposts support: Occupational Health, Police Care UK, Welfare officers, EAP","(1) Records the conversation and keeps the Inspector informed; monitors the officer carefully"]}
 ];
 
+/* ── Inspector Promotion Programme mark scheme ── */
+const INSP_SCHEME = [
+  {q:'You are a newly promoted Inspector taking over a response team with low morale following a period of poor leadership. How do you assess the situation and begin to rebuild confidence?',marks:5,criteria:['(1) Conducts individual welfare conversations with all Sergeants within the first week','(1) Reviews recent performance data, complaints, and sickness records to understand the scope of the problem','(1) Is visible and present on the relief — leads by example, does not manage purely from a distance','(1) Sets clear, transparent expectations and communicates them to the whole team','(1) Identifies and builds on existing strengths within the team rather than focusing solely on deficiencies']},
+  {q:'A Sergeant has been making operational decisions conflicting with force policy without informing you. How do you handle this?',marks:5,criteria:['(1) Meets the Sergeant privately and explores the reasons — does not assume malice','(1) Makes clear that decisions must align with force policy and the chain of command','(1) Assesses whether any decisions have created legal or reputational risk requiring escalation','(1) Records the conversation and any agreed changes to conduct','(1) Monitors going forward and escalates to Chief Inspector if behaviour continues']},
+  {q:'You are tasked with implementing a new MPS policy that your Sergeants openly disagree with. How do you lead this?',marks:5,criteria:['(1) Acknowledges concerns of Sergeants — creates space for professional dissent through proper channels','(1) Is clear that once a decision is made by MPS leadership, it will be implemented on their relief','(1) Briefs the team accurately, explaining the rationale behind the policy','(1) Provides feedback upward through the appropriate channel if implementation issues arise','(1) Monitors the impact on the team and provides support through the transition']},
+  {q:'A Sergeant on your relief is performing well operationally but struggling significantly with administrative responsibilities. How do you address this?',marks:5,criteria:['(1) Has a private, constructive conversation identifying the specific administrative gaps','(1) Explores root cause — training need, workload, personal circumstances, or skill gap','(1) Agrees a structured improvement plan with clear, measurable targets and timescales','(1) Provides appropriate support: mentoring, training, or adjusted workload if justified','(1) Documents all support offered and outcomes; escalates to a formal process if improvement does not follow']},
+  {q:'Intelligence suggests experienced officers on your relief have formed a clique actively excluding newer colleagues. How do you handle this?',marks:5,criteria:['(1) Does not allow the behaviour to continue — addresses it promptly and directly','(1) Speaks to the officers individually and clearly names the behaviour','(1) Considers whether conduct meets the threshold for a Standards of Professional Behaviour referral','(1) Actively supports affected newer officers — welfare check, reassurance, and monitoring','(1) Reviews team deployment to disrupt the dynamic while the issue is addressed']},
+  {q:'You are Bronze Commander at a gathering of 200 people with intelligence that a small element intends to cause disorder. What are your immediate priorities?',marks:5,criteria:['(1) Establishes Silver command line — obtains briefing, confirms authorities and legal powers available','(1) Deploys officers to contain and observe — does not provoke or escalate','(1) Identifies command and intelligence-gathering points — forward intelligence teams if available','(1) Plans for escalation — containment options, exit routes, and mutual aid if needed','(1) Maintains a decision log — records all Bronze Commander decisions with rationale throughout']},
+  {q:'A major RTC with fatalities has closed a key arterial route. Multiple agencies on scene. You are police Bronze Commander.',marks:5,criteria:['(1) Establishes joint command — confirms agency leads for fire, ambulance, and highways','(1) Sets clear police responsibilities: scene safety, traffic management, evidence preservation','(1) Manages media and public communication — coordinates with force communications if required','(1) Considers the wider impact: alternative routes, community disruption, vulnerable persons','(1) Maintains a commander\'s log; ensures liaison with Coroner\'s Officer given confirmed fatalities']},
+  {q:'A hostage situation develops at a bank. Firearms units are 15 minutes away. You are first Inspector on scene.',marks:5,criteria:['(1) Does not deploy officers into the situation — establishes an immediate cordon and evacuation of the surrounding area','(1) Assumes Bronze command and immediately contacts Silver/Gold — requests AFOs, negotiators, and Tactical Support','(1) Gathers information: number of suspects, weapons, number of hostages, layout if known','(1) Prevents media and public access — establishes a media holding point away from the scene','(1) Prepares a clear handover briefing for the incoming Firearms Commander — does not make tactical decisions beyond their authority']},
+  {q:'A Sergeant is alleged to have used excessive force. The custody sergeant has flagged it. The detained person has visible injuries.',marks:5,criteria:['(1) Takes the matter seriously from the outset — does not minimise or dismiss the custody sergeant\'s concern','(1) Ensures the detained person receives medical attention without delay','(1) Reviews body-worn camera footage immediately; ensures no overwriting occurs','(1) Refers the matter to Professional Standards Department — does not investigate themselves','(1) Considers duty of care for the Sergeant; informs Chief Inspector without delay; secures all evidence']},
+  {q:'A missing 7-year-old child — critical incident declared on your relief. It is now 45 minutes since they were last seen.',marks:5,criteria:['(1) Assumes duty Inspector role — tasks a Sergeant as scene manager and coordinates search resources','(1) Contacts the duty DCI — child abduction is a potential major crime; CID must be informed immediately','(1) Deploys resources systematically: house-to-house, CCTV, K9 if available, perimeter establishment','(1) Considers media strategy — Child Rescue Alert process if abduction is suspected','(1) Maintains a decision log; ensures family liaison is in place and FLO is deployed if not already']},
+  {q:'Explain the legal basis and process for a Production Order under PACE 1984. When is it appropriate and what are its limitations?',marks:5,criteria:['(1) A Production Order is made under PACE Schedule 1 — requires a Circuit Judge (not a Magistrate)','(1) Used to obtain special procedure material (e.g. medical, journalistic, legal records) or excluded material','(1) Must satisfy access conditions: serious arrestable offence, material likely of substantial value, warrant would not be appropriate','(1) Limitations: cannot compel legally privileged material; compliance timescale can be lengthy','(1) An Inspector cannot apply independently — must be progressed through the investigation team with CPS advice']},
+  {q:'What is the Inspector\'s role in authorising pre-charge bail under PACE as amended by the Policing and Crime Act 2017?',marks:5,criteria:['(1) Initial bail beyond 28 days requires Inspector authorisation — must be satisfied it is necessary and proportionate','(1) Inspector must review the grounds: flight risk, interference with witnesses, or investigation necessity','(1) Bail conditions must be proportionate and lawful — the Inspector is responsible for ensuring conditions are reviewed','(1) Beyond 3 months requires Superintendent authority; beyond 6 months, Magistrates\' Court must authorise','(1) Inspector must document the rationale for the bail decision and any conditions imposed']},
+  {q:'Explain the circumstances under which a Section 60 CJPOA 1994 authorisation can be granted and your specific responsibilities in doing so.',marks:5,criteria:['(1) Section 60 allows stop and search without reasonable grounds in a defined area for up to 24 hours','(1) An Inspector can authorise where they reasonably believe incidents of serious violence may occur or a dangerous instrument is being carried','(1) The authorisation must specify a geographic area and time period — both must be proportionate','(1) The Inspector must notify a Superintendent as soon as practicable after granting the authority','(1) The Inspector must monitor use: disproportionate use by protected characteristic must be identified and addressed']},
+  {q:'A death in custody occurs on your custody suite. Walk through your immediate responsibilities as the duty Inspector.',marks:5,criteria:['(1) Ensures scene preservation — the cell and immediate area must be treated as a potential crime scene','(1) Calls for an ambulance immediately if not done — ensures first aid is rendered until declared deceased','(1) Notifies the duty Chief Inspector and the on-call Detective Inspector without delay','(1) Notifies the Independent Office for Police Conduct (IOPC) — mandatory referral in all deaths in custody','(1) Suspends all CCTV overwriting; secures all custody records, booking-in documentation, and body-worn video immediately']},
+  {q:'Explain the legislative framework governing directed covert surveillance. At what level can an Inspector authorise and what requires upward referral?',marks:5,criteria:['(1) Directed surveillance is governed by the Regulation of Investigatory Powers Act 2000 (RIPA)','(1) An Inspector can authorise directed surveillance (non-intrusive) where necessary and proportionate for a specific investigation','(1) Intrusive surveillance (in a private dwelling or vehicle) requires Chief Constable / Commissioner level authority','(1) Use of a Covert Human Intelligence Source (CHIS) also requires higher authority and separate authorisation','(1) All RIPA authorities are subject to review via the Investigatory Powers Commissioner\'s Office']},
+  {q:'A Sergeant under your command has submitted an inaccurate crime report — not through malice, but clear carelessness. What do you do?',marks:5,criteria:['(1) Addresses it promptly — does not allow inaccurate crime data to stand uncorrected','(1) Speaks to the Sergeant privately and constructively, exploring why the error occurred','(1) Ensures the report is corrected and the crime is accurately recorded in line with NCRS','(1) Considers whether this is an isolated lapse or a pattern — reviews recent submissions if there is cause for concern','(1) Documents the conversation and any support or corrective action taken; escalates only if the pattern continues']},
+  {q:'You are managing a chronically underperforming well-liked Sergeant. Informality has been exhausted. What is your approach?',marks:5,criteria:['(1) Moves to a formal performance management process — informality has been exhausted','(1) Clearly documents all prior informal interventions to establish the history','(1) Sets specific, measurable performance targets under the Police Performance Regulations','(1) Maintains clear separation: popularity within the team does not affect the Inspector\'s professional duty to manage performance','(1) Keeps Chief Inspector informed throughout; considers whether the Sergeant\'s welfare is a contributing factor and refers to Occupational Health if appropriate']},
+  {q:'A community leader contacts you to state that stop and search in their borough is disproportionate and damaging police-community relations. How do you respond?',marks:5,criteria:['(1) Engages the community leader respectfully and takes the concern seriously — does not become defensive','(1) Reviews the stop and search data for the area: volume, outcomes, demographic breakdown, and disproportionality','(1) If disproportionality is found, takes action: briefing the team, reviewing grounds, considering alternatives to search','(1) Offers a further meeting with data and a plan — considers inviting the community leader to a stop and search scrutiny panel','(1) Feeds back to Chief Inspector and considers a force-level referral if a systemic issue is identified']},
+  {q:'What does "policing by consent" mean to you in the Inspector role and how do you translate it into day-to-day operations?',marks:5,criteria:['(1) Articulates the principle accurately: policing authority derives from public approval and cooperation, not solely from law enforcement power','(1) Links to Peel\'s Principles — particularly prevention of crime and maintaining public trust as primary measures of success','(1) Gives practical examples: community engagement, proportionate use of powers, accessible and visible policing','(1) Acknowledges the tension between enforcement and consent — particularly in high-crime areas where trust may be fragile','(1) Demonstrates how they would hold their team accountable to this standard through briefing, supervision, and reviewing data']},
+  {q:'Review of data shows one PC accounts for a disproportionately high number of stop and searches, all targeting young Black males in one postcode, with variable grounds quality.',marks:5,criteria:['(1) Takes the data seriously — does not rationalise or dismiss the pattern without investigation','(1) Reviews individual stop and search records for quality of grounds and proportionality','(1) Has a structured supervisory conversation with the PC to understand their decision-making','(1) If reasonable grounds are consistently poor or show bias, refers to the Sergeant for close supervision and considers a PSD referral','(1) Considers the broader team picture — is this individual or a wider cultural problem? Briefs the team on disproportionality expectations and records all actions taken']}
+];
+
 /* ── Recruitment roles ─────────────────────── */
-/* FIX: added missing comma after 'MO12 | Control Room Command', removed tab character in CID entry */
 const ALL_ROLES = [
   'ERPT | PC','ERPT | Direct Command Entry',
   'MO19 | PC','MO19 | Direct Command Entry',
@@ -870,21 +1123,23 @@ let currentRole = null;
 let authReady   = false;
 let allApps     = [];
 let allNse      = [];
-let activeFilter    = 'all';
-let activeNseFilter = 'all';
+let allInsp     = [];
+let activeFilter     = 'all';
+let activeNseFilter  = 'all';
+let activeInspFilter = 'all';
 
 /* ── Init on load ──────────────────────────── */
 window.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('click', e => {
     const opt = e.target.closest('.opt');
-    if (opt && opt.dataset.q && opt.dataset.sel) {
-      answer(opt, opt.dataset.q, opt.dataset.sel);
-    }
+    if (opt && opt.dataset.q && opt.dataset.sel) answer(opt, opt.dataset.q, opt.dataset.sel);
   });
   for (let i = 1; i <= 20; i++) {
-    const ta = document.getElementById('nse-a' + i);
-    const ct = document.getElementById('nse-c' + i);
-    if (ta && ct) ta.addEventListener('input', () => ct.textContent = ta.value.length + ' characters');
+    ['nse','insp'].forEach(pfx => {
+      const ta = document.getElementById(pfx+'-a'+i);
+      const ct = document.getElementById(pfx+'-c'+i);
+      if (ta && ct) ta.addEventListener('input', () => ct.textContent = ta.value.length + ' characters');
+    });
   }
   loadRoleOptions();
 });
@@ -896,8 +1151,8 @@ function signIn() {
 function logOut() { auth.signOut(); currentRole = null; authReady = false; showPage('apply'); }
 
 auth.onAuthStateChanged(async user => {
-  const outIds = ['btn-apply-out','btn-status-out','btn-nse-out','btn-staff-out'];
-  const inIds  = ['btn-apply-in','btn-status-in','btn-nse-in','btn-dash-in'];
+  const outIds = ['btn-apply-out','btn-status-out','btn-nse-out','btn-inspector-out','btn-staff-out'];
+  const inIds  = ['btn-apply-in','btn-status-in','btn-nse-in','btn-inspector-in','btn-dash-in'];
   const navUser = document.getElementById('nav-user');
   if (user) {
     navUser.style.display = 'flex';
@@ -1013,6 +1268,7 @@ function submitApp() {
     experience: document.getElementById('exp').value,
     motivation: document.getElementById('motivation').value.trim(),
     answers:    {...answered},
+    archived:   false,
     submittedAt: firebase.firestore.FieldValue.serverTimestamp()
   }).catch(() => showToast('⚠️ Save issue — note your ref: ' + ref));
 }
@@ -1062,9 +1318,9 @@ async function toggleRoleWave(id, current) {
 
 /* ── NSE ────────────────────────────────────── */
 function nseBegin() {
-  const name    = document.getElementById('nse-name').value.trim();
+  const name = document.getElementById('nse-name').value.trim();
   const discord = document.getElementById('nse-discord').value.trim();
-  const rank    = document.getElementById('nse-rank').value.trim();
+  const rank = document.getElementById('nse-rank').value.trim();
   if (!name || !discord || !rank) { showToast('Please fill in all your details before beginning.'); return; }
   document.getElementById('nse-intro').classList.add('hidden');
   document.getElementById('nse-exam').classList.remove('hidden');
@@ -1076,9 +1332,7 @@ function nseSubmit() {
     showToast('Please confirm all declarations.'); return;
   }
   const missing = [];
-  for (let i = 1; i <= 20; i++) {
-    if (!document.getElementById('nse-a'+i).value.trim()) missing.push(i);
-  }
+  for (let i = 1; i <= 20; i++) { if (!document.getElementById('nse-a'+i).value.trim()) missing.push(i); }
   if (missing.length) { showToast('Please answer all questions. Missing: Q' + missing.join(', Q')); return; }
 
   const ref = 'NSE-' + Date.now().toString(36).toUpperCase().slice(-4) + '-' + Math.random().toString(36).slice(2,6).toUpperCase();
@@ -1096,11 +1350,53 @@ function nseSubmit() {
     discord: document.getElementById('nse-discord').value.trim(),
     rank:    document.getElementById('nse-rank').value.trim(),
     answers,
-    status:       'pending',
-    marksAwarded: null,
-    scorePercent: null,
+    status:        'pending',
+    marksAwarded:  null,
+    scorePercent:  null,
     questionMarks: {},
-    submittedAt:  firebase.firestore.FieldValue.serverTimestamp()
+    submittedAt:   firebase.firestore.FieldValue.serverTimestamp()
+  }).catch(() => showToast('⚠️ Save issue — note your ref: ' + ref));
+}
+
+/* ── Inspector Promotion Programme ─────────── */
+function inspBegin() {
+  const name = document.getElementById('insp-name').value.trim();
+  const discord = document.getElementById('insp-discord').value.trim();
+  const rank = document.getElementById('insp-rank').value.trim();
+  if (!name || !discord || !rank) { showToast('Please fill in all your details before beginning.'); return; }
+  document.getElementById('insp-intro').classList.add('hidden');
+  document.getElementById('insp-exam').classList.remove('hidden');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function inspSubmit() {
+  if (!document.getElementById('insp-d1').checked || !document.getElementById('insp-d2').checked || !document.getElementById('insp-d3').checked) {
+    showToast('Please confirm all declarations.'); return;
+  }
+  const missing = [];
+  for (let i = 1; i <= 20; i++) { if (!document.getElementById('insp-a'+i).value.trim()) missing.push(i); }
+  if (missing.length) { showToast('Please answer all questions. Missing: Q' + missing.join(', Q')); return; }
+
+  const ref = 'IPP-' + Date.now().toString(36).toUpperCase().slice(-4) + '-' + Math.random().toString(36).slice(2,6).toUpperCase();
+  const answers = {};
+  for (let i = 1; i <= 20; i++) answers['a'+i] = document.getElementById('insp-a'+i).value.trim();
+
+  document.getElementById('insp-exam').classList.add('hidden');
+  document.getElementById('insp-confirm').classList.remove('hidden');
+  document.getElementById('insp-confirm-ref').textContent = ref;
+  window.scrollTo({top:0,behavior:'smooth'});
+
+  db.collection('inspector_submissions').add({
+    ref,
+    name:    document.getElementById('insp-name').value.trim(),
+    discord: document.getElementById('insp-discord').value.trim(),
+    rank:    document.getElementById('insp-rank').value.trim(),
+    answers,
+    status:        'pending',
+    marksAwarded:  null,
+    scorePercent:  null,
+    questionMarks: {},
+    submittedAt:   firebase.firestore.FieldValue.serverTimestamp()
   }).catch(() => showToast('⚠️ Save issue — note your ref: ' + ref));
 }
 
@@ -1115,7 +1411,7 @@ function initStaff() {
   refreshDash();
 }
 
-function refreshDash() { loadApps(); loadNseSubmissions(); }
+function refreshDash() { loadApps(); loadNseSubmissions(); loadInspSubmissions(); }
 
 function switchDashTab(panelId, btn) {
   document.querySelectorAll('.dtab-panel').forEach(p => p.classList.remove('active'));
@@ -1125,7 +1421,6 @@ function switchDashTab(panelId, btn) {
 }
 
 /* ── Applications ───────────────────────────── */
-/* FIX: removed nested renderAppsTable definition; replaced with a plain call */
 async function loadApps() {
   document.getElementById('apps-tbody').innerHTML = '<tr><td colspan="6" class="empty-state">Loading…</td></tr>';
   try {
@@ -1141,7 +1436,8 @@ async function loadApps() {
 function updateDashSubtitle() {
   document.getElementById('dash-sub').textContent =
     allApps.length + ' application' + (allApps.length!==1?'s':'') +
-    ' · ' + allNse.length + ' NSE submission' + (allNse.length!==1?'s':'');
+    ' · ' + allNse.length + ' NSE submission' + (allNse.length!==1?'s':'') +
+    ' · ' + allInsp.length + ' IPP submission' + (allInsp.length!==1?'s':'');
 }
 
 function setFilter(f, btn) {
@@ -1151,7 +1447,6 @@ function setFilter(f, btn) {
   renderAppsTable();
 }
 
-/* FIX: merged the archived-aware nested version with the top-level version into one correct function */
 function renderAppsTable() {
   const tbody = document.getElementById('apps-tbody');
   let list = [];
@@ -1202,7 +1497,6 @@ function renderAppsTable() {
   }).join('');
 }
 
-/* FIX: archiveApplication and restoreApplication are now standalone functions, not wrapped in stray script tags */
 async function archiveApplication(id) {
   const app = allApps.find(a => a.id === id);
   if (!app) return;
@@ -1236,7 +1530,6 @@ async function restoreApplication(id) {
   }
 }
 
-/* FIX: updateAppStatus now has its body intact (was broken by the stray script tags above) */
 function updateAppStatus(id, status) {
   const a = allApps.find(x=>x.id===id); if (!a) return;
   const prev = a.status;
@@ -1269,10 +1562,11 @@ function openAppDetail(id) {
     <div style="margin-top:11px"><div style="font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.05em;margin-bottom:6px">MOTIVATION STATEMENT</div>
     <div class="stmt-box">${(a.motivation||'None provided').replace(/\n/g,'<br>')}</div></div>`;
   document.getElementById('modal-actions').innerHTML = `
-    ${sc!=='pass'    ?`<button class="btn btn-success   btn-sm" onclick="updateAppStatus('${id}','pass')">✓ Pass</button>`:''}
-    ${sc!=='fail'    ?`<button class="btn btn-danger    btn-sm" onclick="updateAppStatus('${id}','fail')">✕ Fail</button>`:''}
-    ${sc!=='retake'  ?`<button class="btn btn-amber     btn-sm" onclick="updateAppStatus('${id}','retake')">↺ Retake</button>`:''}
-    ${!a.archived    ?`<button class="btn btn-secondary btn-sm" onclick="archiveApplication('${id}');closeModal('detail-modal')">Archive</button>`:''}
+    ${sc!=='pass'   ?`<button class="btn btn-success   btn-sm" onclick="updateAppStatus('${id}','pass')">✓ Pass</button>`:''}
+    ${sc!=='fail'   ?`<button class="btn btn-danger    btn-sm" onclick="updateAppStatus('${id}','fail')">✕ Fail</button>`:''}
+    ${sc!=='retake' ?`<button class="btn btn-amber     btn-sm" onclick="updateAppStatus('${id}','retake')">↺ Retake</button>`:''}
+    ${!a.archived   ?`<button class="btn btn-secondary btn-sm" onclick="archiveApplication('${id}');closeModal('detail-modal')">Archive</button>`
+                    :`<button class="btn btn-success   btn-sm" onclick="restoreApplication('${id}');closeModal('detail-modal')">Restore</button>`}
     <button class="btn btn-secondary btn-sm" onclick="closeModal('detail-modal')">Close</button>`;
   document.getElementById('detail-modal').classList.add('open');
 }
@@ -1297,9 +1591,15 @@ function setNseFilter(f, btn) {
   renderNseTable();
 }
 
-/* FIX: removed stray extra } in name cell template literal */
 function renderNseTable() {
-  const list  = activeNseFilter==='all' ? allNse : allNse.filter(n => n.status===activeNseFilter);
+  let list = [];
+  if (activeNseFilter === 'archived') {
+    list = allNse.filter(n => n.status === 'archived');
+  } else if (activeNseFilter === 'all') {
+    list = allNse.filter(n => n.status !== 'archived');
+  } else {
+    list = allNse.filter(n => n.status === activeNseFilter);
+  }
   const tbody = document.getElementById('nse-tbody');
   const sMap  = {pending:'s-pending',pass:'s-pass',fail:'s-fail',archived:'s-archived'};
   const sLbl  = {pending:'Awaiting review',pass:'Passed',fail:'Failed',archived:'Archived'};
@@ -1317,7 +1617,9 @@ function renderNseTable() {
       <td style="font-size:12px;color:var(--muted)">${date}</td>
       <td><div class="action-cell">
         <button class="btn btn-purple btn-sm" onclick="openNseReview('${n.id}')">Review &amp; mark</button>
-        ${sc!=='archived'?`<button class="btn btn-secondary btn-sm" onclick="updateNseStatus('${n.id}','archived')">Archive</button>`:''}
+        ${sc!=='archived'
+          ?`<button class="btn btn-secondary btn-sm" onclick="updateNseStatus('${n.id}','archived')">Archive</button>`
+          :`<button class="btn btn-success   btn-sm" onclick="updateNseStatus('${n.id}','pending')">Restore</button>`}
       </div></td></tr>`;
   }).join('');
 }
@@ -1335,25 +1637,102 @@ function updateNseStatus(id, status, marksAwarded, scorePercent, questionMarks) 
     .catch(() => { n.status=prevStatus; n.marksAwarded=prevMarks; renderNseTable(); showToast('Update failed.'); });
 }
 
-/* FIX: marks inputs now correctly pre-populate saved values when re-opening a review */
 function openNseReview(id) {
   const n = allNse.find(x=>x.id===id); if (!n) return;
+  openReviewModal(n, 'nse', NSE_SCHEME, 'NSE');
+}
+
+/* ── Inspector Dashboard ────────────────────── */
+async function loadInspSubmissions() {
+  document.getElementById('insp-tbody').innerHTML = '<tr><td colspan="7" class="empty-state">Loading…</td></tr>';
+  try {
+    const snap = await db.collection('inspector_submissions').orderBy('submittedAt','desc').get();
+    allInsp = snap.docs.map(d => ({id:d.id,...d.data()}));
+    renderInspTable();
+    updateDashSubtitle();
+  } catch(e) {
+    document.getElementById('insp-tbody').innerHTML = '<tr><td colspan="7" style="text-align:center;padding:2rem;color:#A32D2D">Failed to load. Check Firestore rules.</td></tr>';
+  }
+}
+
+function setInspFilter(f, btn) {
+  activeInspFilter = f;
+  document.querySelectorAll('#dtab-insp .filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderInspTable();
+}
+
+function renderInspTable() {
+  let list = [];
+  if (activeInspFilter === 'archived') {
+    list = allInsp.filter(n => n.status === 'archived');
+  } else if (activeInspFilter === 'all') {
+    list = allInsp.filter(n => n.status !== 'archived');
+  } else {
+    list = allInsp.filter(n => n.status === activeInspFilter);
+  }
+  const tbody = document.getElementById('insp-tbody');
+  const sMap  = {pending:'s-pending',pass:'s-pass',fail:'s-fail',archived:'s-archived'};
+  const sLbl  = {pending:'Awaiting review',pass:'Passed',fail:'Failed',archived:'Archived'};
+  if (!list.length) { tbody.innerHTML='<tr><td colspan="7"><div class="empty-state">🔱 No IPP submissions found</div></td></tr>'; return; }
+  tbody.innerHTML = list.map(n => {
+    const date  = n.submittedAt ? new Date(n.submittedAt.seconds*1000).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'}) : '—';
+    const sc    = n.status||'pending';
+    const score = n.marksAwarded!=null ? n.marksAwarded+'/100' : '—';
+    return `<tr>
+      <td><strong>${(n.name||'—').replace(/</g,'&lt;')}</strong><br><span style="font-size:11px;color:var(--muted)">${n.ref||''}</span></td>
+      <td style="font-size:13px">${(n.rank||'—').replace(/</g,'&lt;')}</td>
+      <td style="font-size:13px">${(n.discord||'—').replace(/</g,'&lt;')}</td>
+      <td><span class="score-pill">${score}</span></td>
+      <td><span class="sb ${sMap[sc]||'s-pending'}">${sLbl[sc]||sc}</span></td>
+      <td style="font-size:12px;color:var(--muted)">${date}</td>
+      <td><div class="action-cell">
+        <button class="btn btn-gold btn-sm" onclick="openInspReview('${n.id}')">Review &amp; mark</button>
+        ${sc!=='archived'
+          ?`<button class="btn btn-secondary btn-sm" onclick="updateInspStatus('${n.id}','archived')">Archive</button>`
+          :`<button class="btn btn-success   btn-sm" onclick="updateInspStatus('${n.id}','pending')">Restore</button>`}
+      </div></td></tr>`;
+  }).join('');
+}
+
+function updateInspStatus(id, status, marksAwarded, scorePercent, questionMarks) {
+  const n = allInsp.find(x=>x.id===id); if (!n) return;
+  const prevStatus = n.status, prevMarks = n.marksAwarded;
+  n.status = status;
+  if (marksAwarded !== undefined) { n.marksAwarded = marksAwarded; n.scorePercent = scorePercent; n.questionMarks = questionMarks; }
+  renderInspTable();
+  const update = {status};
+  if (marksAwarded !== undefined) { update.marksAwarded = marksAwarded; update.scorePercent = scorePercent; update.questionMarks = questionMarks; update.reviewedAt = firebase.firestore.FieldValue.serverTimestamp(); }
+  db.collection('inspector_submissions').doc(id).update(update)
+    .then(() => showToast('IPP updated → ' + status))
+    .catch(() => { n.status=prevStatus; n.marksAwarded=prevMarks; renderInspTable(); showToast('Update failed.'); });
+}
+
+function openInspReview(id) {
+  const n = allInsp.find(x=>x.id===id); if (!n) return;
+  openReviewModal(n, 'insp', INSP_SCHEME, 'IPP');
+}
+
+/* ── Shared review modal (NSE + IPP) ────────── */
+function openReviewModal(n, type, scheme, label) {
   const sMap = {pending:'s-pending',pass:'s-pass',fail:'s-fail',archived:'s-archived'};
   const sLbl = {pending:'Awaiting review',pass:'Passed',fail:'Failed',archived:'Archived'};
   const sc   = n.status||'pending';
+  const passThreshold = type === 'insp' ? 85 : 80;
+  const accentColor   = type === 'insp' ? '#7A5000' : 'var(--navy)';
 
-  document.getElementById('nse-modal-title').textContent = (n.name||'Candidate') + ' — NSE Review';
+  document.getElementById('nse-modal-title').textContent = (n.name||'Candidate') + ` — ${label} Review`;
 
   let questionsHtml = '';
   for (let i = 0; i < 20; i++) {
     const qn  = i + 1;
-    const sch = NSE_SCHEME[i];
-    const ans = (n.answers && n.answers['a'+qn]) ? n.answers['a'+qn].replace(/</g,'&lt;') : '(No answer recorded)';
+    const sch = scheme[i];
+    const ans = (n.answers && n.answers['a'+qn]) ? n.answers['a'+qn].replace(/</g,'&lt;').replace(/\n/g,'<br>') : '(No answer recorded)';
     const savedMarks = (n.questionMarks && n.questionMarks['q'+qn] !== undefined) ? n.questionMarks['q'+qn] : 0;
     questionsHtml += `
       <div class="nse-review-q">
         <div class="nse-review-label">Q${qn} — ${sch.marks} marks available</div>
-        <div class="nse-review-scenario">${sch.q}</div>
+        <div class="nse-review-scenario">${sch.q.replace(/</g,'&lt;')}</div>
         <div style="font-size:11px;font-weight:600;color:var(--muted);margin-bottom:4px;margin-top:6px;letter-spacing:.04em">CANDIDATE'S ANSWER</div>
         <div class="nse-review-answer">${ans}</div>
         <div class="nse-mark-scheme">
@@ -1362,7 +1741,7 @@ function openNseReview(id) {
         </div>
         <div class="marks-input-wrap">
           <label>Marks awarded:</label>
-          <input type="number" class="marks-input" id="qm-${qn}" min="0" max="${sch.marks}" value="${savedMarks}" oninput="recalcTotal()">
+          <input type="number" class="marks-input" id="qm-${qn}" min="0" max="${sch.marks}" value="${savedMarks}" oninput="recalcTotal(${passThreshold})">
           <span class="marks-of">/ ${sch.marks}</span>
         </div>
       </div>`;
@@ -1373,25 +1752,36 @@ function openNseReview(id) {
     <div class="drow"><span class="dl">Name</span><span class="dv">${(n.name||'—').replace(/</g,'&lt;')}</span></div>
     <div class="drow"><span class="dl">Rank</span><span class="dv">${(n.rank||'—').replace(/</g,'&lt;')}</span></div>
     <div class="drow"><span class="dl">Discord</span><span class="dv">${(n.discord||'—').replace(/</g,'&lt;')}</span></div>
+    <div class="drow"><span class="dl">Pass mark</span><span class="dv">${passThreshold}/100 (${passThreshold}%)</span></div>
     <div class="drow"><span class="dl">Current status</span><span class="dv"><span class="sb ${sMap[sc]||'s-pending'}">${sLbl[sc]||sc}</span></span></div>
-    <div style="margin:1rem 0 .5rem;font-size:13px;font-weight:600;color:var(--navy)">📝 Answer review &amp; marking</div>
+    <div style="margin:1rem 0 .5rem;font-size:13px;font-weight:600;color:${accentColor}">✍️ Answer review &amp; marking</div>
     <div class="nse-total-bar">
       <span>Total marks awarded</span>
       <strong id="nse-total-display">${n.marksAwarded!=null?n.marksAwarded:0} / 100</strong>
     </div>
     ${questionsHtml}`;
 
+  const savePass = type==='nse'
+    ? `onclick="saveNseMarks('${n.id}','pass')"`
+    : `onclick="saveInspMarks('${n.id}','pass')"`;
+  const saveFail = type==='nse'
+    ? `onclick="saveNseMarks('${n.id}','fail')"`
+    : `onclick="saveInspMarks('${n.id}','fail')"`;
+  const saveOnly = type==='nse'
+    ? `onclick="saveNseMarks('${n.id}','${sc}')"`
+    : `onclick="saveInspMarks('${n.id}','${sc}')"`;
+
   document.getElementById('nse-modal-actions').innerHTML = `
-    <button class="btn btn-success  btn-sm" onclick="saveNseMarks('${id}','pass')">✓ Pass &amp; save</button>
-    <button class="btn btn-danger   btn-sm" onclick="saveNseMarks('${id}','fail')">✕ Fail &amp; save</button>
-    <button class="btn btn-secondary btn-sm" onclick="saveNseMarks('${id}','${sc}')">💾 Save marks only</button>
+    <button class="btn btn-success  btn-sm" ${savePass}>✓ Pass &amp; save</button>
+    <button class="btn btn-danger   btn-sm" ${saveFail}>✕ Fail &amp; save</button>
+    <button class="btn btn-secondary btn-sm" ${saveOnly}>💾 Save marks only</button>
     <button class="btn btn-secondary btn-sm" onclick="closeModal('nse-modal')">Close</button>`;
 
   document.getElementById('nse-modal').classList.add('open');
-  recalcTotal();
+  recalcTotal(passThreshold);
 }
 
-function recalcTotal() {
+function recalcTotal(passThreshold) {
   let total = 0;
   for (let i = 1; i <= 20; i++) {
     const el = document.getElementById('qm-' + i);
@@ -1399,8 +1789,9 @@ function recalcTotal() {
   }
   const disp = document.getElementById('nse-total-display');
   if (disp) {
+    const threshold = passThreshold || 80;
     disp.textContent = total + ' / 100';
-    disp.style.color = total >= 80 ? 'var(--green-tx)' : total >= 60 ? 'var(--amber-tx)' : 'var(--red-tx)';
+    disp.style.color = total >= threshold ? 'var(--green-tx)' : total >= threshold*0.75 ? 'var(--amber-tx)' : 'var(--red-tx)';
   }
   return total;
 }
@@ -1416,6 +1807,21 @@ async function saveNseMarks(id, status) {
   }
   const pct = Math.round((total/100)*100);
   updateNseStatus(id, status, total, pct, questionMarks);
+  closeModal('nse-modal');
+  showToast('Marks saved — ' + total + '/100 (' + pct + '%) → ' + status);
+}
+
+async function saveInspMarks(id, status) {
+  const questionMarks = {};
+  let total = 0;
+  for (let i = 1; i <= 20; i++) {
+    const el  = document.getElementById('qm-' + i);
+    const val = parseInt(el ? el.value : 0) || 0;
+    questionMarks['q'+i] = val;
+    total += val;
+  }
+  const pct = Math.round((total/100)*100);
+  updateInspStatus(id, status, total, pct, questionMarks);
   closeModal('nse-modal');
   showToast('Marks saved — ' + total + '/100 (' + pct + '%) → ' + status);
 }
@@ -1489,19 +1895,20 @@ async function removeMember(docId, email) {
 async function checkStatus() {
   const ref = document.getElementById('status-ref').value.trim().toUpperCase();
   if (!ref) { showToast('Please enter a reference number.'); return; }
-  const isNse = ref.startsWith('NSE-');
+  const isNse  = ref.startsWith('NSE-');
+  const isInsp = ref.startsWith('IPP-');
+  const col    = isInsp ? 'inspector_submissions' : (isNse ? 'nse_submissions' : 'applications');
   try {
-    const col  = isNse ? 'nse_submissions' : 'applications';
     const snap = await db.collection(col).where('ref','==',ref).limit(1).get();
     if (snap.empty) { showToast('No record found with that reference.'); document.getElementById('status-result').classList.add('hidden'); return; }
     const a = snap.docs[0].data();
     document.getElementById('status-result').classList.remove('hidden');
-    document.getElementById('sr-name').textContent  = isNse ? (a.name||'—') : ((a.firstName||'')+' '+(a.lastName||'')).trim();
-    document.getElementById('sr-role').textContent  = isNse ? 'National Sergeants Examination' : (a.role||'—');
-    document.getElementById('sr-score').textContent = isNse
+    document.getElementById('sr-name').textContent  = (isNse||isInsp) ? (a.name||'—') : ((a.firstName||'')+' '+(a.lastName||'')).trim();
+    document.getElementById('sr-role').textContent  = isInsp ? 'Inspector Promotion Programme' : isNse ? 'National Sergeants Examination' : (a.role||'—');
+    document.getElementById('sr-score').textContent = (isNse||isInsp)
       ? (a.marksAwarded!=null ? a.marksAwarded+'/100 ('+a.scorePercent+'%)' : 'Pending marking')
       : (a.score!=null ? a.score+'/8 ('+a.scorePercent+'%)' : '—');
-    const statusMap = {pending:isNse?'Awaiting review':'Pending review',pass:'Passed',fail:'Failed',retake:'Retake requested',archived:'Archived'};
+    const statusMap = {pending:(isNse||isInsp)?'Awaiting review':'Pending review',pass:'Passed',fail:'Failed',retake:'Retake requested',archived:'Archived'};
     document.getElementById('sr-status').textContent = statusMap[a.status] || 'Pending';
   } catch(e) { showToast('Status lookup failed: '+e.message); }
 }
